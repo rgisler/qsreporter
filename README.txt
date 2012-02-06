@@ -13,7 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Simple library for accessing an ecos command station over network.
- *
+ * -----------------------------------------------------------------------
  
+ Ant-Task mit welchem die Coveragewerte von JaCoCo aus dem XML 
+ ausgelesen werden und als Servicemessages für Teamcity ausgegeben
+ werden. Somit können diese in Custom-Charts angezeigt werden.
+ 
+ Geplante Erweiterungen:
+ - Andere Quellen: Checkstyle, PMD, Classycle, Findbugs..
+
+ 
+  
  
