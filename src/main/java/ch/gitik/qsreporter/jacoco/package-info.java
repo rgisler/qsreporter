@@ -13,34 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.gitik.qsreporter;
-
-import java.io.File;
-
-import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 
 /**
- * Test-Klasse.
- * @author Roland Gisler
+ * Datenmodelle fuer JaCoCo-Coverage.
  */
-public final class Test {
+package ch.gitik.qsreporter.jacoco;
 
-   /**
-    * Main-Methode.
-    * @param args
-    *           Argumente.
-    */
-   public static void main(final String[] args) {
-
-      final File file = new File("cfg/testdata/coverage.xml");
-      final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
-      final JaCoCoModel data = extractor.extract(file);
-      System.out.println(data);
-   }
-   
-   /**
-    * Konstruktor.
-    */
-   private Test() {
-   }
-}

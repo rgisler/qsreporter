@@ -21,9 +21,9 @@ package ch.gitik.qsreporter.jacoco;
  */
 public final class JaCoCoSensor {
 
-   final int coverage;
+   private final int coverage;
 
-   final int missed;
+   private final int missed;
 
    /**
     * Konstruktor.
@@ -41,7 +41,7 @@ public final class JaCoCoSensor {
     * Getter fuer abgedeckte Zeilen.
     * @return Abgedeckte Zeilen.
     */
-   public final int getCoverage() {
+   public int getCoverage() {
       return this.coverage;
    }
 
@@ -49,7 +49,7 @@ public final class JaCoCoSensor {
     * Getter fuer nicht abgedeckte Zeilen.
     * @return Nicht abgedeckte Zeilen.
     */
-   public final int getMissed() {
+   public int getMissed() {
       return this.missed;
    }
 
@@ -57,7 +57,7 @@ public final class JaCoCoSensor {
     * Getter fuer Anzahl Zeilen.
     * @return Anzahl Zeilen.
     */
-   public final int getTotal() {
+   public int getTotal() {
       return this.coverage + this.missed;
    }
 
@@ -65,20 +65,20 @@ public final class JaCoCoSensor {
     * Getter fuer Abdeckung in Prozent.
     * @return Anzahl Zeilen.
     */
-   public final int getPercent() {
-      int coverage = 0;
+   public int getPercent() {
+      int percent = 0;
       if (this.getTotal() > 0) {
-         coverage = (this.getCoverage() * 100 / this.getTotal());
+         percent = (this.getCoverage() * 100 / this.getTotal());
       }
-      return coverage;
+      return percent;
    }
 
-   /**
+   /*
     * @see java.lang.Object#toString()
     */
    @Override
-   public final String toString() {
-      return "Sensor[C:" + this.coverage + ",M:" + this.missed + ",T:" + this.getTotal() + ",P:"
-            + this.getPercent() + "%]";
+   public String toString() {
+      return "Sensor[C:" + this.coverage + ",M:" + this.missed + ",T:" + this.getTotal() + ",P:" + this.getPercent()
+            + "%]";
    }
 }

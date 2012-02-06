@@ -19,30 +19,40 @@ package ch.gitik.qsreporter.jacoco;
  * Datenmodell fuer JaCoCo.
  * @author Roland Gisler
  */
-public class JaCoCoModel {
+public final class JaCoCoModel {
 
    private final JaCoCoSensor clazz;
+
    private final JaCoCoSensor methode;
+
    private final JaCoCoSensor branch;
+
    private final JaCoCoSensor line;
+
    private final JaCoCoSensor instruction;
 
    /**
     * Konstruktor.
-    * @param pClass Klassen Coverage.
-    * @param pMethode Methodene Coverage.
-    * @param pBranch Branch Coverage.
-    * @param pline Line Coverage.
-    * @param pInstruction Statement Coverage.
+    * @param pClass
+    *           Klassen Coverage.
+    * @param pMethode
+    *           Methodene Coverage.
+    * @param pBranch
+    *           Branch Coverage.
+    * @param pline
+    *           Line Coverage.
+    * @param pInstruction
+    *           Statement Coverage.
     */
-   public JaCoCoModel(final JaCoCoSensor pClass, final JaCoCoSensor pMethode, final JaCoCoSensor pBranch, final JaCoCoSensor pline, final JaCoCoSensor pInstruction) {
+   public JaCoCoModel(final JaCoCoSensor pClass, final JaCoCoSensor pMethode, final JaCoCoSensor pBranch,
+         final JaCoCoSensor pline, final JaCoCoSensor pInstruction) {
       this.clazz = pClass;
       this.methode = pMethode;
       this.branch = pBranch;
       this.line = pline;
       this.instruction = pInstruction;
    }
-   
+
    /**
     * Getter fuer Class.
     * @return Liefert clazz.
@@ -71,7 +81,7 @@ public class JaCoCoModel {
     * Getter fuer instruction.
     * @return Liefert instruction.
     */
-   public final JaCoCoSensor getInstruction() {
+   public JaCoCoSensor getInstruction() {
       return instruction;
    }
 
@@ -79,12 +89,16 @@ public class JaCoCoModel {
     * Getter fuer line.
     * @return Liefert line.
     */
-   public final JaCoCoSensor getLine() {
+   public JaCoCoSensor getLine() {
       return line;
    }
-   
-   public final String toString() {
-      StringBuffer buffer = new StringBuffer(200);
+
+   /*
+    * @see java.lang.Object#toString()
+    */
+   @Override
+   public String toString() {
+      final StringBuffer buffer = new StringBuffer(50);
       buffer.append("JaCoCoData[");
       buffer.append(this.clazz);
       buffer.append(", ");
