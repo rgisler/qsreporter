@@ -134,7 +134,7 @@ public class QSDataExtractorJaCoCo {
                   Integer.valueOf(nodesMissed.item(i).getNodeValue()));
             break;
          default:
-            System.out.println("Unknown element type found: " + typeNode.getNodeValue());
+            // Unbekannte Elemente ignorieren
          }
       }
       return new JaCoCoModel(classData, methodeData, branchData, lineData, instructionData);

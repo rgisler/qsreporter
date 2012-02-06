@@ -57,9 +57,21 @@ public class QSReporterTask extends Task {
          final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
          final JaCoCoModel data = extractor.extract(xmlFile);
 
-         ServiceMessage.buildStatistic("coverage.statement", Integer.toString(data.getInstruction().getPercent()));
-         ServiceMessage.buildStatistic("coverage.branch", Integer.toString(data.getBranch().getPercent()));
+         serviceMessages(data);
       }
+   }
+
+   /**
+    * Erzeugt ServiceMessages fuer TeamCity.
+    * @param data
+    *           Coveragedaten.
+    */
+   private void serviceMessages(final JaCoCoModel data) {
+      ServiceMessage.buildStatistic("coverage.class", Integer.toString(data.getClazz().getPercent()));
+      ServiceMessage.buildStatistic("coverage.methode", Integer.toString(data.getMethode().getPercent()));
+      ServiceMessage.buildStatistic("coverage.branch", Integer.toString(data.getBranch().getPercent()));
+      ServiceMessage.buildStatistic("coverage.line", Integer.toString(data.getLine().getPercent()));
+      ServiceMessage.buildStatistic("coverage.statement", Integer.toString(data.getInstruction().getPercent()));
    }
 
    /**
