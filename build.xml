@@ -236,7 +236,7 @@
             <![CDATA[<h1>Dokumentation</h1>]]>
          </doctitle>
          <bottom>
-            <![CDATA[<i>Copyright 2012 Hochschule Luzern Technik & Architektur, Switzerland</i>]]>
+            <![CDATA[<i>Copyright 2012 GiSLER iNFORMATiK, Luzern, Switzerland</i>]]>
          </bottom>
          <fileset dir="${src.main}">
             <include name="**/*.java" />
