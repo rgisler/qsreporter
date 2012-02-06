@@ -25,29 +25,42 @@ public class JaCoCoSensorTest {
 
    @Test
    public void testJaCoCoSensor() {
-      assertNotNull(new JaCoCoSensor(0,0));
+      assertNotNull(new JaCoCoSensor(0, 0));
    }
 
    @Test
    public void testGetCovered() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10,20);
+      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(10, sensor.getCoverage());
    }
+
    @Test
    public void testGetMissed() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10,20);
+      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(20, sensor.getMissed());
    }
 
    @Test
    public void testGetTotal() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10,20);
+      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(30, sensor.getTotal());
    }
 
    @Test
    public void testGetPercent() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10,20);
+      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(33, sensor.getPercent());
+   }
+
+   @Test
+   public void testGetPercentZero() {
+      JaCoCoSensor sensor = new JaCoCoSensor(0, 0);
+      assertEquals(0, sensor.getPercent());
+   }
+
+   @Test
+   public void testToString() {
+      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
+      assertNotNull(sensor.toString());
    }
 }
