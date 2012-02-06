@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 -->
-<project name="template" default="build" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
+<project name="qsreporter" default="build" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
 
    <property file="${basedir}/build.properties" />
    <property file="${basedir}/../build.properties" />
