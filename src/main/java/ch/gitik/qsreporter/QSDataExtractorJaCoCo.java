@@ -36,8 +36,10 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
+
 /**
- * 
  * @author Roland Gisler
  */
 public class QSDataExtractorJaCoCo {
@@ -45,22 +47,25 @@ public class QSDataExtractorJaCoCo {
    /**
     * @param args
     */
-   public static void main(String[] args) {
+   public JaCoCoModel extract(final File pFile) {
+      JaCoCoModel data = null;
       try {
-
-         getData();
-
+         Document doc = getDocument(pFile);
+         data = this.getData(doc);
       } catch (SAXParseException err) {
          System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
          System.out.println(" " + err.getMessage());
-
       } catch (SAXException e) {
          Exception x = e.getException();
          ((x == null) ? e : x).printStackTrace();
-
-      } catch (Throwable t) {
-         t.printStackTrace();
+      } catch (XPathExpressionException e) {
+         e.printStackTrace();
+      } catch (ParserConfigurationException e) {
+         e.printStackTrace();
+      } catch (IOException e) {
+         e.printStackTrace();
       }
+      return data;
    }
 
    /**
@@ -70,47 +75,81 @@ public class QSDataExtractorJaCoCo {
     * @throws SAXException
     * @throws XPathExpressionException
     */
-   private static void getData() throws ParserConfigurationException, SAXException, IOException,
+   public JaCoCoModel getData(Document xmlDoc) throws ParserConfigurationException, SAXException, IOException,
          XPathExpressionException {
-
-      DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-      domFactory.setNamespaceAware(true); // never forget this!
-      domFactory.setIgnoringComments(true);
-      DocumentBuilder builder = domFactory.newDocumentBuilder();
-      builder.setEntityResolver(new EntityResolver() {
-
-         @Override
-         public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-            System.out.println("Ignoring " + publicId + ", " + systemId);
-            return new InputSource(new StringReader(""));
-         }
-      });
-      Document doc = builder.parse(new File("cfg/testdata/coverage.xml"));
 
       XPathFactory factory = XPathFactory.newInstance();
       XPath xpath = factory.newXPath();
-
-      XPathExpression exprType = xpath.compile("//report/counter/@type");
-      Object resultType = exprType.evaluate(doc, XPathConstants.NODESET);
+      XPathExpression expression;
+      expression = xpath.compile("//report/counter/@type");
+      Object resultType = expression.evaluate(xmlDoc, XPathConstants.NODESET);
       NodeList nodesType = (NodeList) resultType;
 
-      XPathExpression exprCovered = xpath.compile("//report/counter/@covered");
-      Object resultCovered = exprCovered.evaluate(doc, XPathConstants.NODESET);
+      expression = xpath.compile("//report/counter/@covered");
+      Object resultCovered = expression.evaluate(xmlDoc, XPathConstants.NODESET);
       NodeList nodesCovered = (NodeList) resultCovered;
 
-      XPathExpression exprMissed = xpath.compile("//report/counter/@missed");
-      Object resultMissed = exprMissed.evaluate(doc, XPathConstants.NODESET);
+      expression = xpath.compile("//report/counter/@missed");
+      Object resultMissed = expression.evaluate(xmlDoc, XPathConstants.NODESET);
       NodeList nodesMissed = (NodeList) resultMissed;
 
       Node typeNode;
-      Node coveredNode;
-      Node missedNode;
+      JaCoCoSensor classData = null;
+      JaCoCoSensor methodeData = null;
+      JaCoCoSensor branchData = null;
+      JaCoCoSensor lineData = null;
+      JaCoCoSensor instructionData = null;
+
       for (int i = 0; i < nodesType.getLength(); i++) {
          typeNode = nodesType.item(i);
-         coveredNode = nodesCovered.item(i);
-         missedNode = nodesMissed.item(i);
-         System.out.println(typeNode.getNodeValue() + ":" + coveredNode.getNodeValue() + ":"
-               + missedNode.getNodeValue());
+
+         switch (typeNode.getNodeValue()) {
+         case "CLASS":
+            classData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
+                  Integer.valueOf(nodesMissed.item(i).getNodeValue()));
+            break;
+         case "METHOD":
+            methodeData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
+                  Integer.valueOf(nodesMissed.item(i).getNodeValue()));
+            break;
+         case "BRANCH":
+            branchData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
+                  Integer.valueOf(nodesMissed.item(i).getNodeValue()));
+            break;
+         case "LINE":
+            lineData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
+                  Integer.valueOf(nodesMissed.item(i).getNodeValue()));
+            break;
+         case "INSTRUCTION":
+            instructionData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
+                  Integer.valueOf(nodesMissed.item(i).getNodeValue()));
+            break;
+         }
       }
+      JaCoCoModel data = new JaCoCoModel(classData, methodeData, branchData, lineData, instructionData);
+      return data;
+
+   }
+
+   /**
+    * Liefert das XML-Dokument.
+    * @return
+    * @throws ParserConfigurationException
+    * @throws SAXException
+    * @throws IOException
+    */
+   private static Document getDocument(final File pFile) throws ParserConfigurationException, SAXException, IOException {
+      DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+      domFactory.setNamespaceAware(true);
+      domFactory.setIgnoringComments(true);
+      DocumentBuilder builder = domFactory.newDocumentBuilder();
+      builder.setEntityResolver(new EntityResolver() {
+         @Override
+         public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
+            return new InputSource(new StringReader(""));
+         }
+      });
+      Document doc = builder.parse(pFile);
+      return doc;
    }
 }

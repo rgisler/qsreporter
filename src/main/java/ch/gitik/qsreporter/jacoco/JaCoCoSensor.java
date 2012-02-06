@@ -72,4 +72,13 @@ public final class JaCoCoSensor {
       }
       return coverage;
    }
+
+   /**
+    * @see java.lang.Object#toString()
+    */
+   @Override
+   public final String toString() {
+      return "Sensor[C:" + this.coverage + ",M:" + this.missed + ",T:" + this.getTotal() + ",P:"
+            + this.getPercent() + "%]";
+   }
 }

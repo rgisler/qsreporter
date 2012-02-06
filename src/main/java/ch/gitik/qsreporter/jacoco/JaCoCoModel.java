@@ -21,4 +21,81 @@ package ch.gitik.qsreporter.jacoco;
  */
 public class JaCoCoModel {
 
+   private final JaCoCoSensor clazz;
+   private final JaCoCoSensor methode;
+   private final JaCoCoSensor branch;
+   private final JaCoCoSensor line;
+   private final JaCoCoSensor instruction;
+
+   /**
+    * Konstruktor.
+    * @param pClass Klassen Coverage.
+    * @param pMethode Methodene Coverage.
+    * @param pBranch Branch Coverage.
+    * @param pline Line Coverage.
+    * @param pInstruction Statement Coverage.
+    */
+   public JaCoCoModel(final JaCoCoSensor pClass, final JaCoCoSensor pMethode, final JaCoCoSensor pBranch, final JaCoCoSensor pline, final JaCoCoSensor pInstruction) {
+      this.clazz = pClass;
+      this.methode = pMethode;
+      this.branch = pBranch;
+      this.line = pline;
+      this.instruction = pInstruction;
+   }
+   
+   /**
+    * Getter fuer Class.
+    * @return Liefert clazz.
+    */
+   public JaCoCoSensor getClazz() {
+      return clazz;
+   }
+
+   /**
+    * Getter fuer methode.
+    * @return Liefert methode.
+    */
+   public JaCoCoSensor getMethode() {
+      return methode;
+   }
+
+   /**
+    * Getter fuer branch.
+    * @return Liefert branch.
+    */
+   public JaCoCoSensor getBranch() {
+      return branch;
+   }
+
+   /**
+    * Getter fuer instruction.
+    * @return Liefert instruction.
+    */
+   public final JaCoCoSensor getInstruction() {
+      return instruction;
+   }
+
+   /**
+    * Getter fuer line.
+    * @return Liefert line.
+    */
+   public final JaCoCoSensor getLine() {
+      return line;
+   }
+   
+   public final String toString() {
+      StringBuffer buffer = new StringBuffer(200);
+      buffer.append("JaCoCoData[");
+      buffer.append(this.clazz);
+      buffer.append(", ");
+      buffer.append(this.methode);
+      buffer.append(", ");
+      buffer.append(this.branch);
+      buffer.append(", ");
+      buffer.append(this.line);
+      buffer.append(", ");
+      buffer.append(this.instruction);
+      buffer.append(']');
+      return buffer.toString();
+   }
 }
