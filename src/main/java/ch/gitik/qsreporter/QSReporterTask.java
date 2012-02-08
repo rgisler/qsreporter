@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  * $Id: AbstractBpmsTask.java 38 2007-02-12 12:50:46Z rog $
  */
 package ch.gitik.qsreporter;
@@ -44,7 +44,7 @@ public class QSReporterTask extends Task {
     * @see org.apache.tools.ant.Task#execute()
     */
    @Override
-   public void execute() {
+   public final void execute() {
       if (this.verbose) {
          System.out.println("QSReporterTask is alive...");
       }
@@ -76,19 +76,19 @@ public class QSReporterTask extends Task {
 
    /**
     * Setzt jaCoCoXML.
-    * @param jaCoCoXML
+    * @param pJaCoCoXML
     *           Setzt jaCoCoXML.
     */
-   public void setJaCoCoXML(String jaCoCoXML) {
-      this.jaCoCoXML = jaCoCoXML;
+   public final void setJaCoCoXML(final String pJaCoCoXML) {
+      this.jaCoCoXML = pJaCoCoXML;
    }
 
    /**
     * Setzt verbose.
-    * @param verbose
+    * @param pVerbose
     *           Setzt verbose.
     */
-   public void setVerbose(boolean pVerbose) {
+   public final void setVerbose(final boolean pVerbose) {
       this.verbose = pVerbose;
    }
 }
