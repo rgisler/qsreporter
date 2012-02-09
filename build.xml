@@ -380,6 +380,10 @@
             <html destdir="${coverage}" footer="Gisler iNFORMATiK" />
             <xml destfile="${coverage}/coverage.xml" />
          </jacoco:report>
+
+         <taskdef name="QSReporter" classname="ch.gitik.qsreporter.QSReporterTask" classpathref="libsetdev" />
+         <QSReporter jacocoxml="${coverage}/coverage.xml" />
+
       </sequential>
    </macrodef>
 </project>
