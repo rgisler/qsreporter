@@ -17,6 +17,7 @@ package ch.gitik.qsreporter;
 
 import java.io.File;
 
+import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 
 /**
@@ -32,10 +33,16 @@ public final class Test {
     */
    public static void main(final String[] args) {
 
-      final File file = new File("cfg/testdata/coverage.xml");
-      final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
-      final JaCoCoModel data = extractor.extract(file);
+      File file; 
+      file = new File("cfg/testdata/coverage.xml");
+      final QSDataExtractorJaCoCo extractorJaCoCo = new QSDataExtractorJaCoCo();
+      final JaCoCoModel data = extractorJaCoCo.extract(file);
       System.out.println(data);
+      
+      file = new File("cfg/testdata/checkstyle.xml");
+      final QSDataExtractorCheckstyle extractorCheckstyle = new QSDataExtractorCheckstyle();
+      final CheckstyleModel dataCheckstyle = extractorCheckstyle.extract(file);
+      System.out.println(dataCheckstyle);
    }
    
    /**
