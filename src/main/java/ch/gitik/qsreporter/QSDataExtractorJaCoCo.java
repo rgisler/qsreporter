@@ -17,10 +17,7 @@ package ch.gitik.qsreporter;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -31,8 +28,6 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
@@ -42,7 +37,7 @@ import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
 /**
  * @author Roland Gisler
  */
-public class QSDataExtractorJaCoCo {
+public class QSDataExtractorJaCoCo extends AbstractDataExtractor {
 
    /**
     * Extrahiert Coveragedaten aus JaCoCo XML-Report.
@@ -140,30 +135,4 @@ public class QSDataExtractorJaCoCo {
       return new JaCoCoModel(classData, methodeData, branchData, lineData, instructionData);
    }
 
-   /**
-    * Liefert das XML-Dokument.
-    * @param pFile
-    *           XML-Report.
-    * @return Coveragedaten.
-    * @throws ParserConfigurationException
-    *            Bla.
-    * @throws SAXException
-    *            Bla.
-    * @throws IOException
-    *            Bla.
-    */
-   private static Document getDocument(final File pFile) throws ParserConfigurationException, SAXException, IOException {
-      final DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-      domFactory.setNamespaceAware(true);
-      domFactory.setIgnoringComments(true);
-      final DocumentBuilder builder = domFactory.newDocumentBuilder();
-      builder.setEntityResolver(new EntityResolver() {
-         @Override
-         public InputSource resolveEntity(final String publicId, final String systemId) throws SAXException,
-               IOException {
-            return new InputSource(new StringReader(""));
-         }
-      });
-      return builder.parse(pFile);
-   }
 }
