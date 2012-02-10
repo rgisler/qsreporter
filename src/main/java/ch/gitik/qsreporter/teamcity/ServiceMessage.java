@@ -17,6 +17,10 @@
  */
 package ch.gitik.qsreporter.teamcity;
 
+import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.pmd.PmdModel;
+
 /**
  * Erzeugt eine Servicemessage fuer TeamCity.
  * @author Roland Gisler
@@ -41,5 +45,43 @@ public final class ServiceMessage {
     * Konstruktor.
     */
    private ServiceMessage() {
+   }
+
+   /**
+    * Erzeugt Checkstyle ServiceMessages fuer TeamCity.
+    * @param data
+    *           Checkstyledaten.
+    */
+   public static void serviceMessagesCheckstyle(final CheckstyleModel data) {
+      ServiceMessage.buildStatistic("checkstyle.error", Integer.toString(data.getError().getCount()));
+      ServiceMessage.buildStatistic("checkstyle.warning", Integer.toString(data.getWarning().getCount()));
+      ServiceMessage.buildStatistic("checkstyle.info", Integer.toString(data.getInfo().getCount()));
+   }
+
+   /**
+    * Erzeugt JaCoCo ServiceMessages fuer TeamCity.
+    * @param data
+    *           Coveragedaten.
+    */
+   public static void serviceMessagesJaCoCo(final JaCoCoModel data) {
+      ServiceMessage.buildStatistic("coverage.class", Integer.toString(data.getClazz().getPercent()));
+      ServiceMessage.buildStatistic("coverage.methode", Integer.toString(data.getMethode().getPercent()));
+      ServiceMessage.buildStatistic("coverage.branch", Integer.toString(data.getBranch().getPercent()));
+      ServiceMessage.buildStatistic("coverage.line", Integer.toString(data.getLine().getPercent()));
+      ServiceMessage.buildStatistic("coverage.statement",
+            Integer.toString(data.getInstruction().getPercent()));
+   }
+
+   /**
+    * Erzeugt PMD ServiceMessages fuer TeamCity.
+    * @param data
+    *           PMD-Daten.
+    */
+   public static void serviceMessagesPmd(final PmdModel data) {
+      ServiceMessage.buildStatistic("pmd.level1", Integer.toString(data.getLevel1().getCount()));
+      ServiceMessage.buildStatistic("pmd.level2", Integer.toString(data.getLevel2().getCount()));
+      ServiceMessage.buildStatistic("pmd.level3", Integer.toString(data.getLevel3().getCount()));
+      ServiceMessage.buildStatistic("pmd.level4", Integer.toString(data.getLevel4().getCount()));
+      ServiceMessage.buildStatistic("pmd.level5", Integer.toString(data.getLevel5().getCount()));
    }
 }
