@@ -48,17 +48,30 @@ public class QSReporterTask extends Task {
       if (this.verbose) {
          System.out.println("QSReporterTask is alive...");
       }
+      this.processJaCoCoData();
+      this.processCheckstyleData();
+      this.processPmdData();
+   }
 
-      if (this.jaCoCoXML != null) {
-         File xmlFile = new File(jaCoCoXML);
+   /**
+    * Extrahiert PMD Daten.
+    */
+   private void processPmdData() {
+      if (this.pmdXML != null) {
+         File xmlFile = new File(pmdXML);
          if (xmlFile.exists()) {
-            System.out.println("Evaluating JaCoCo XML-Report: " + xmlFile.getName());
+            System.out.println("Evaluating PMD XML-Report: " + xmlFile.getName());
          }
-         final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
-         final JaCoCoModel data = extractor.extract(xmlFile);
-         ServiceMessage.serviceMessagesJaCoCo(data);
+         final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
+         final PmdModel data = extractor.extract(xmlFile);
+         ServiceMessage.serviceMessagesPmd(data);
       }
+   }
 
+   /**
+    * Extrahiert Checkstyle Daten.
+    */
+   private void processCheckstyleData() {
       if (this.checkstyleXML != null) {
          File xmlFile = new File(checkstyleXML);
          if (xmlFile.exists()) {
@@ -68,15 +81,20 @@ public class QSReporterTask extends Task {
          final CheckstyleModel data = extractor.extract(xmlFile);
          ServiceMessage.serviceMessagesCheckstyle(data);
       }
+   }
 
-      if (this.pmdXML != null) {
-         File xmlFile = new File(pmdXML);
+   /**
+    * Extrahiert JaCoCo Daten.
+    */
+   private void processJaCoCoData() {
+      if (this.jaCoCoXML != null) {
+         File xmlFile = new File(jaCoCoXML);
          if (xmlFile.exists()) {
-            System.out.println("Evaluating PMD XML-Report: " + xmlFile.getName());
+            System.out.println("Evaluating JaCoCo XML-Report: " + xmlFile.getName());
          }
-         final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
-         final PmdModel data = extractor.extract(xmlFile);
-         ServiceMessage.serviceMessagesPmd(data);
+         final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
+         final JaCoCoModel data = extractor.extract(xmlFile);
+         ServiceMessage.serviceMessagesJaCoCo(data);
       }
    }
 
