@@ -15,19 +15,28 @@
  */
 package ch.gitik.qsreporter.teamcity;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.checkstyle.CheckstyleSensor;
+import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
+import ch.gitik.qsreporter.pmd.PmdModel;
+import ch.gitik.qsreporter.pmd.PmdSensor;
+
 /**
- * 
  * @author Roland Gisler
- * @version $Revision$ 
+ * @version $Revision$
  */
 public class ServiceMessageTest {
 
    /**
-    * Test method for {@link ch.gitik.qsreporter.teamcity.ServiceMessage#ServiceMessage(java.lang.String, int)}.
+    * Test method for
+    * {@link ch.gitik.qsreporter.teamcity.ServiceMessage#ServiceMessage(java.lang.String, int)}
+    * .
     */
    @Test
    public final void testServiceMessage() {
@@ -35,38 +44,76 @@ public class ServiceMessageTest {
    }
 
    /**
-    * Test method for {@link ch.gitik.qsreporter.teamcity.ServiceMessage#toString()}.
+    * Test method for
+    * {@link ch.gitik.qsreporter.teamcity.ServiceMessage#toString()}.
     */
    @Test
    public final void testToString() {
       ServiceMessage message = new ServiceMessage("key", 200);
       assertNotNull(message.toString());
-      assertTrue(message.toString().indexOf("key") > 0);
-      assertTrue(message.toString().indexOf("200") > 0);
+      assertTrue(message.toString().indexOf("'key'") > 0);
+      assertTrue(message.toString().indexOf("'200'") > 0);
    }
 
    /**
-    * Test method for {@link ch.gitik.qsreporter.teamcity.ServiceMessage#serviceMessagesCheckstyle(ch.gitik.qsreporter.checkstyle.CheckstyleModel)}.
+    * Test method for
+    * {@link ch.gitik.qsreporter.teamcity.ServiceMessage#toString()}.
+    */
+   @Test
+   public final void testToStringWithNull() {
+      ServiceMessage message = new ServiceMessage(null, 100);
+      assertNotNull(message.toString());
+      assertTrue(message.toString().indexOf("'unknown.key'") > 0);
+      assertTrue(message.toString().indexOf("'0'") > 0);
+   }
+
+   /**
+    * Test method for
+    * {@link ch.gitik.qsreporter.teamcity.ServiceMessage#serviceMessagesCheckstyle(ch.gitik.qsreporter.checkstyle.CheckstyleModel)}
+    * .
     */
    @Test
    public final void testServiceMessagesCheckstyle() {
-      //fail("Not yet implemented"); // TODO
+      CheckstyleModel model = new CheckstyleModel(new CheckstyleSensor(111), new CheckstyleSensor(222),
+            new CheckstyleSensor(333));
+      String message = ServiceMessage.serviceMessagesCheckstyle(model);
+      assertTrue(message.toString().indexOf("'111'") > 0);
+      assertTrue(message.toString().indexOf("'222'") > 0);
+      assertTrue(message.toString().indexOf("'333'") > 0);
    }
 
    /**
-    * Test method for {@link ch.gitik.qsreporter.teamcity.ServiceMessage#serviceMessagesJaCoCo(ch.gitik.qsreporter.jacoco.JaCoCoModel)}.
+    * Test method for
+    * {@link ch.gitik.qsreporter.teamcity.ServiceMessage#serviceMessagesJaCoCo(ch.gitik.qsreporter.jacoco.JaCoCoModel)}
+    * .
     */
    @Test
    public final void testServiceMessagesJaCoCo() {
-      //fail("Not yet implemented"); // TODO
+      JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80),
+            new JaCoCoSensor(30, 70), new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
+      String message = ServiceMessage.serviceMessagesJaCoCo(model);
+      assertTrue(message.toString().indexOf("'10'") > 0);
+      assertTrue(message.toString().indexOf("'20'") > 0);
+      assertTrue(message.toString().indexOf("'30'") > 0);
+      assertTrue(message.toString().indexOf("'40'") > 0);
+      assertTrue(message.toString().indexOf("'50'") > 0);
    }
 
    /**
-    * Test method for {@link ch.gitik.qsreporter.teamcity.ServiceMessage#serviceMessagesPmd(ch.gitik.qsreporter.pmd.PmdModel)}.
+    * Test method for
+    * {@link ch.gitik.qsreporter.teamcity.ServiceMessage#serviceMessagesPmd(ch.gitik.qsreporter.pmd.PmdModel)}
+    * .
     */
    @Test
    public final void testServiceMessagesPmd() {
-      //fail("Not yet implemented"); // TODO
+      PmdModel model = new PmdModel(new PmdSensor(111), new PmdSensor(222), new PmdSensor(333),
+            new PmdSensor(444), new PmdSensor(555));
+      String message = ServiceMessage.serviceMessagesPmd(model);
+      assertTrue(message.toString().indexOf("'111'") > 0);
+      assertTrue(message.toString().indexOf("'222'") > 0);
+      assertTrue(message.toString().indexOf("'333'") > 0);
+      assertTrue(message.toString().indexOf("'444'") > 0);
+      assertTrue(message.toString().indexOf("'555'") > 0);
    }
 
 }
