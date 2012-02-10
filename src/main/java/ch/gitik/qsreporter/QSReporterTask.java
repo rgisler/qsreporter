@@ -58,7 +58,7 @@ public class QSReporterTask extends Task {
     */
    private void processPmdData() {
       if (this.pmdXML != null) {
-         File xmlFile = new File(pmdXML);
+         final File xmlFile = new File(pmdXML);
          if (xmlFile.exists()) {
             System.out.println("Evaluating PMD XML-Report: " + xmlFile.getName());
          }
@@ -73,7 +73,7 @@ public class QSReporterTask extends Task {
     */
    private void processCheckstyleData() {
       if (this.checkstyleXML != null) {
-         File xmlFile = new File(checkstyleXML);
+         final File xmlFile = new File(checkstyleXML);
          if (xmlFile.exists()) {
             System.out.println("Evaluating Checkstyle XML-Report: " + xmlFile.getName());
          }
@@ -88,7 +88,7 @@ public class QSReporterTask extends Task {
     */
    private void processJaCoCoData() {
       if (this.jaCoCoXML != null) {
-         File xmlFile = new File(jaCoCoXML);
+         final File xmlFile = new File(jaCoCoXML);
          if (xmlFile.exists()) {
             System.out.println("Evaluating JaCoCo XML-Report: " + xmlFile.getName());
          }
