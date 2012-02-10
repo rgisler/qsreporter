@@ -101,13 +101,13 @@ public final class JaCoCoModel {
       final StringBuffer buffer = new StringBuffer(50);
       buffer.append("JaCoCoData[");
       buffer.append(this.clazz);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.methode);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.branch);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.line);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.instruction);
       buffer.append(']');
       return buffer.toString();

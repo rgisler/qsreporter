@@ -74,9 +74,9 @@ public final class CheckstyleModel {
       final StringBuffer buffer = new StringBuffer(50);
       buffer.append("CheckstyleData[");
       buffer.append(this.error);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.warning);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.info);
       buffer.append(']');
       return buffer.toString();

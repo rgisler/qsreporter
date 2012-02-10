@@ -101,13 +101,13 @@ public final class PmdModel {
       final StringBuffer buffer = new StringBuffer(50);
       buffer.append("PMDData[");
       buffer.append(this.level1);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.level2);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.level3);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.level4);
-      buffer.append(", ");
+      buffer.append(',');
       buffer.append(this.level5);
       buffer.append(']');
       return buffer.toString();
