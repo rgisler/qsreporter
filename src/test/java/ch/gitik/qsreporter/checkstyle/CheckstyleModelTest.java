@@ -15,7 +15,8 @@
  */
 package ch.gitik.qsreporter.checkstyle;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -27,24 +28,21 @@ public class CheckstyleModelTest {
 
    @Test
    public void testCheckstyleModel() {
-      CheckstyleModel model = new CheckstyleModel(null, null, null);
+      CheckstyleModel model = new CheckstyleModel(0, 0, 0);
       assertNotNull(model);
    }
 
    @Test
    public void testGetter() {
-      final CheckstyleSensor s1 = new CheckstyleSensor(1);
-      final CheckstyleSensor s2 = new CheckstyleSensor(2);
-      final CheckstyleSensor s3 = new CheckstyleSensor(3);
-      CheckstyleModel model = new CheckstyleModel(s1, s2, s3);
-      assertEquals(s1, model.getError());
-      assertEquals(s2, model.getWarning());
-      assertEquals(s3, model.getInfo());
+      CheckstyleModel model = new CheckstyleModel(12, 13, 14);
+      assertEquals(12, model.getError());
+      assertEquals(13, model.getWarning());
+      assertEquals(14, model.getInfo());
    }
 
    @Test
    public void testToString() {
-      CheckstyleModel model = new CheckstyleModel(null, null, null);
+      CheckstyleModel model = new CheckstyleModel(1, 1, 1);
       assertNotNull(model.toString());
    }
 }

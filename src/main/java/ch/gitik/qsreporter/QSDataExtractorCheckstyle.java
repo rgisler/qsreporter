@@ -30,7 +30,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
-import ch.gitik.qsreporter.checkstyle.CheckstyleSensor;
 
 /**
  * @author Roland Gisler
@@ -88,15 +87,15 @@ public class QSDataExtractorCheckstyle extends AbstractDataExtractor {
 
       expression = xpath.compile("count(//file/error)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final CheckstyleSensor errors = new CheckstyleSensor(((Double) resultNumber).intValue());
+      final int errors = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//file/warning)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final CheckstyleSensor warnings = new CheckstyleSensor(((Double) resultNumber).intValue());
+      final int warnings = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//file/info)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final CheckstyleSensor infos = new CheckstyleSensor(((Double) resultNumber).intValue());
+      final int infos = ((Double) resultNumber).intValue();
 
       return new CheckstyleModel(errors, warnings, infos);
    }

@@ -40,10 +40,9 @@ public class QSDataExtractorCheckstyleTest {
       final QSDataExtractorCheckstyle extractor = new QSDataExtractorCheckstyle();
       final CheckstyleModel data = extractor.extract(file);
       assertNotNull(data);
-      
-      assertEquals(3,data.getError().getCount());
-      assertEquals(0,data.getWarning().getCount());
-      assertEquals(0,data.getInfo().getCount());
+      assertEquals(3, data.getError());
+      assertEquals(0, data.getWarning());
+      assertEquals(0, data.getInfo());
    }
 
 }
