@@ -46,7 +46,7 @@ public class QSReporterTask extends Task {
    @Override
    public final void execute() {
       if (this.verbose) {
-         System.out.println("QSReporterTask is alive...");
+         log("QSReporterTask is alive...");
       }
       this.processJaCoCoData();
       this.processCheckstyleData();
@@ -60,11 +60,11 @@ public class QSReporterTask extends Task {
       if (this.pmdXML != null) {
          final File xmlFile = new File(pmdXML);
          if (xmlFile.exists()) {
-            System.out.println("Evaluating PMD XML-Report: " + xmlFile.getName());
+            log("Evaluating PMD XML-Report: " + xmlFile.getName());
          }
          final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
          final PmdModel data = extractor.extract(xmlFile);
-         ServiceMessage.serviceMessagesPmd(data);
+         log(ServiceMessage.serviceMessagesPmd(data));
       }
    }
 
@@ -75,11 +75,11 @@ public class QSReporterTask extends Task {
       if (this.checkstyleXML != null) {
          final File xmlFile = new File(checkstyleXML);
          if (xmlFile.exists()) {
-            System.out.println("Evaluating Checkstyle XML-Report: " + xmlFile.getName());
+            log("Evaluating Checkstyle XML-Report: " + xmlFile.getName());
          }
          final QSDataExtractorCheckstyle extractor = new QSDataExtractorCheckstyle();
          final CheckstyleModel data = extractor.extract(xmlFile);
-         ServiceMessage.serviceMessagesCheckstyle(data);
+         log(ServiceMessage.serviceMessagesCheckstyle(data));
       }
    }
 
@@ -90,11 +90,11 @@ public class QSReporterTask extends Task {
       if (this.jaCoCoXML != null) {
          final File xmlFile = new File(jaCoCoXML);
          if (xmlFile.exists()) {
-            System.out.println("Evaluating JaCoCo XML-Report: " + xmlFile.getName());
+            log("Evaluating JaCoCo XML-Report: " + xmlFile.getName());
          }
          final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
          final JaCoCoModel data = extractor.extract(xmlFile);
-         ServiceMessage.serviceMessagesJaCoCo(data);
+         log(ServiceMessage.serviceMessagesJaCoCo(data));
       }
    }
 
