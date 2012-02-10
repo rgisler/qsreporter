@@ -41,9 +41,9 @@ public class QSDataExtractorClassycleTest {
       final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
       final ClassycleModel data = extractor.extract(file);
       assertNotNull(data);
-      assertEquals(5,data.getPackage().getCount());
-      assertEquals(19,data.getClazz().getCount());
-      assertEquals(0,data.getCycle().getCount());
+      assertEquals(5,data.getPackage());
+      assertEquals(19,data.getClazz());
+      assertEquals(0,data.getCycle());
    }
 
 }

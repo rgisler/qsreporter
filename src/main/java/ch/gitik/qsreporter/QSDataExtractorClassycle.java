@@ -30,7 +30,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import ch.gitik.qsreporter.classycle.ClassycleModel;
-import ch.gitik.qsreporter.classycle.ClassycleSensor;
 
 /**
  * @author Roland Gisler
@@ -86,15 +85,15 @@ public class QSDataExtractorClassycle extends AbstractDataExtractor {
 
       expression = xpath.compile("count(//packages/package)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final ClassycleSensor packageSensor = new ClassycleSensor(((Double) resultNumber).intValue());
+      final int packageSensor = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//classes/class)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final ClassycleSensor classSensor = new ClassycleSensor(((Double) resultNumber).intValue());
+      final int classSensor = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//cycles/cylcle)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final ClassycleSensor cycleSensor = new ClassycleSensor(((Double) resultNumber).intValue());
+      final int cycleSensor = ((Double) resultNumber).intValue();
 
       return new ClassycleModel(packageSensor, classSensor, cycleSensor);
    }

@@ -21,11 +21,11 @@ package ch.gitik.qsreporter.classycle;
  */
 public final class ClassycleModel {
 
-   private final ClassycleSensor packageCount;
+   private final int packageCount;
 
-   private final ClassycleSensor classCount;
+   private final int classCount;
 
-   private final ClassycleSensor cylcleCount;
+   private final int cylcleCount;
 
    /**
     * Konstruktor.
@@ -36,8 +36,8 @@ public final class ClassycleModel {
     * @param pCycle
     *           Anzahl Cycles.
     */
-   public ClassycleModel(final ClassycleSensor pPackage, final ClassycleSensor pClass,
-         final ClassycleSensor pCycle) {
+   public ClassycleModel(final int pPackage, final int pClass,
+         final int pCycle) {
       this.packageCount = pPackage;
       this.classCount = pClass;
       this.cylcleCount = pCycle;
@@ -47,7 +47,7 @@ public final class ClassycleModel {
     * Liefert Anzahl Packages zurueck.
     * @return Anzahl Packages.
     */
-   public ClassycleSensor getPackage() {
+   public int getPackage() {
       return this.packageCount;
    }
 
@@ -55,7 +55,7 @@ public final class ClassycleModel {
     * Liefert Anzahl Klassen zurueck.
     * @return Anzahl Klassen.
     */
-   public ClassycleSensor getClazz() {
+   public int getClazz() {
       return this.classCount;
    }
 
@@ -63,7 +63,7 @@ public final class ClassycleModel {
     * Liefert Anzahl Cylcles zurueck.
     * @return Anzahl Cylcles.
     */
-   public ClassycleSensor getCycle() {
+   public int getCycle() {
       return this.cylcleCount;
    }
 

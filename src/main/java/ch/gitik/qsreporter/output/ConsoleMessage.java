@@ -58,11 +58,11 @@ public class ConsoleMessage {
     */
    public static String serviceMessagesClassycle(final ClassycleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("classycle.package", data.getPackage().getCount()));
+      message.append(new TeamcityServiceMessage("classycle.package", data.getPackage()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("classycle.class", data.getClazz().getCount()));
+      message.append(new TeamcityServiceMessage("classycle.class", data.getClazz()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("classycle.cycle", data.getCycle().getCount()));
+      message.append(new TeamcityServiceMessage("classycle.cycle", data.getCycle()));
       return message.toString();
    }
 
