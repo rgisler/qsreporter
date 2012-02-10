@@ -31,7 +31,7 @@ import org.xml.sax.SAXException;
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 
 /**
- * Abstrakte Basisklasse für Datenextraktor.
+ * Abstrakte Basisklasse fuer Datenextraktor.
  * @author Roland Gisler
  */
 public abstract class AbstractDataExtractor {
