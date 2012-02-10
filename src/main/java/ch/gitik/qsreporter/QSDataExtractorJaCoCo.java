@@ -51,8 +51,7 @@ public class QSDataExtractorJaCoCo extends AbstractDataExtractor {
          final Document doc = getDocument(pFile);
          data = this.getData(doc);
       } catch (SAXParseException err) {
-         System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
-         System.out.println(" " + err.getMessage());
+         err.printStackTrace();
       } catch (SAXException e) {
          e.printStackTrace();
       } catch (XPathExpressionException e) {
