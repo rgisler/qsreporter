@@ -39,11 +39,11 @@ public class ConsoleMessage {
       message.append("+----------------------------------------------------------------------+");
       message.append('\n');
       message.append("| Checkstyle: ");
-      message.append(data.getError().getCount());
+      message.append(data.getError());
       message.append(" Error(s), ");
-      message.append(data.getWarning().getCount());
+      message.append(data.getWarning());
       message.append(" Warning(s), ");
-      message.append(data.getInfo().getCount());
+      message.append(data.getInfo());
       message.append(" Warning(s)");
       message.append('\n');
       message.append("+----------------------------------------------------------------------+");

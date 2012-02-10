@@ -67,11 +67,11 @@ public final class TeamcityServiceMessage {
     */
    public static String serviceMessagesCheckstyle(final CheckstyleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("checkstyle.error", data.getError().getCount()));
+      message.append(new TeamcityServiceMessage("checkstyle.error", data.getError()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("checkstyle.warning", data.getWarning().getCount()));
+      message.append(new TeamcityServiceMessage("checkstyle.warning", data.getWarning()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("checkstyle.info", data.getInfo().getCount()));
+      message.append(new TeamcityServiceMessage("checkstyle.info", data.getInfo()));
       return message.toString();
    }
 

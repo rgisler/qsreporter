@@ -17,12 +17,11 @@
  */
 package ch.gitik.qsreporter.output;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
-import ch.gitik.qsreporter.checkstyle.CheckstyleSensor;
 
 /**
  * 
@@ -32,8 +31,7 @@ public class ConsoleMessageTest extends ConsoleMessage {
 
    @Test
    public void testConsoleCheckstyle() {
-      CheckstyleModel model = new CheckstyleModel(new CheckstyleSensor(10), new CheckstyleSensor(30),
-            new CheckstyleSensor(30));
+      CheckstyleModel model = new CheckstyleModel(10,20,30);
       String console = ConsoleMessage.consoleCheckstyle(model);
       System.out.println(console);
       assertNotNull(console);

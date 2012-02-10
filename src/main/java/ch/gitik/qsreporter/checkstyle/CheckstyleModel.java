@@ -21,11 +21,11 @@ package ch.gitik.qsreporter.checkstyle;
  */
 public final class CheckstyleModel {
 
-   private final CheckstyleSensor error;
+   private final int error;
 
-   private final CheckstyleSensor warning;
+   private final int warning;
 
-   private final CheckstyleSensor info;
+   private final int info;
 
    /**
     * Konstruktor.
@@ -36,8 +36,8 @@ public final class CheckstyleModel {
     * @param pInfo
     *           Anzahl Infos.
     */
-   public CheckstyleModel(final CheckstyleSensor pError, final CheckstyleSensor pWarning,
-         final CheckstyleSensor pInfo) {
+   public CheckstyleModel(final int pError, final int pWarning,
+         final int pInfo) {
       this.error = pError;
       this.warning = pWarning;
       this.info = pInfo;
@@ -47,24 +47,24 @@ public final class CheckstyleModel {
     * Liefert error zurück.
     * @return error Error-Sensor.
     */
-   public CheckstyleSensor getError() {
-      return error;
+   public int getError() {
+      return this.error;
    }
 
    /**
     * Liefert warning zurück.
     * @return warning Warnings-Sensor.
     */
-   public CheckstyleSensor getWarning() {
-      return warning;
+   public int getWarning() {
+      return this.warning;
    }
 
    /**
     * Liefert info zurück.
     * @return info Info-Sensor.
     */
-   public CheckstyleSensor getInfo() {
-      return info;
+   public int getInfo() {
+      return this.info;
    }
 
    /*
