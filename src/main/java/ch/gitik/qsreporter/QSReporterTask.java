@@ -22,6 +22,7 @@ import java.io.File;
 import org.apache.tools.ant.Task;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.pmd.PmdModel;
 import ch.gitik.qsreporter.teamcity.ServiceMessage;
@@ -38,6 +39,8 @@ public class QSReporterTask extends Task {
 
    private String checkstyleXML = null;
 
+   private String classycleXML = null;
+
    private String pmdXML = null;
 
    /*
@@ -50,6 +53,7 @@ public class QSReporterTask extends Task {
       }
       this.processJaCoCoData();
       this.processCheckstyleData();
+      this.processClassycleData();
       this.processPmdData();
    }
 
@@ -73,7 +77,7 @@ public class QSReporterTask extends Task {
     */
    private void processCheckstyleData() {
       if (this.checkstyleXML != null) {
-         final File xmlFile = new File(checkstyleXML);
+         final File xmlFile = new File(this.checkstyleXML);
          if (xmlFile.exists()) {
             log("Evaluating Checkstyle XML-Report: " + xmlFile.getName());
          }
@@ -84,11 +88,26 @@ public class QSReporterTask extends Task {
    }
 
    /**
+    * Extrahiert Classycle Daten.
+    */
+   private void processClassycleData() {
+      if (this.classycleXML != null) {
+         final File xmlFile = new File(this.classycleXML);
+         if (xmlFile.exists()) {
+            log("Evaluating Classycle XML-Report: " + xmlFile.getName());
+         }
+         final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
+         final ClassycleModel data = extractor.extract(xmlFile);
+         log(ServiceMessage.serviceMessagesClassycle(data));
+      }
+   }
+
+   /**
     * Extrahiert JaCoCo Daten.
     */
    private void processJaCoCoData() {
       if (this.jaCoCoXML != null) {
-         final File xmlFile = new File(jaCoCoXML);
+         final File xmlFile = new File(this.jaCoCoXML);
          if (xmlFile.exists()) {
             log("Evaluating JaCoCo XML-Report: " + xmlFile.getName());
          }
@@ -114,6 +133,15 @@ public class QSReporterTask extends Task {
     */
    public final void setCheckstyleXML(final String pCheckstyleXML) {
       this.checkstyleXML = pCheckstyleXML;
+   }
+
+   /**
+    * Setter fuer classycleXML.
+    * @param pClassycleXML
+    *           Setzt classycleXML.
+    */
+   public final void setClassycleXML(final String pClassycleXML) {
+      this.classycleXML = pClassycleXML;
    }
 
    /**

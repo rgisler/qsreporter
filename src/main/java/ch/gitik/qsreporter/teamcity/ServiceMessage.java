@@ -18,6 +18,7 @@
 package ch.gitik.qsreporter.teamcity;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.pmd.PmdModel;
 
@@ -71,6 +72,22 @@ public final class ServiceMessage {
       message.append(new ServiceMessage("checkstyle.warning", data.getWarning().getCount()));
       message.append('\n');
       message.append(new ServiceMessage("checkstyle.info", data.getInfo().getCount()));
+      return message.toString();
+   }
+
+   /**
+    * Erzeugt Classycle ServiceMessages fuer TeamCity.
+    * @param data
+    *           Classycle Daten.
+    * @return String mit ServiceMessages.
+    */
+   public static String serviceMessagesClassycle(final ClassycleModel data) {
+      final StringBuffer message = new StringBuffer(BUFFER_SIZE);
+      message.append(new ServiceMessage("classycle.package", data.getPackage().getCount()));
+      message.append('\n');
+      message.append(new ServiceMessage("classycle.class", data.getClazz().getCount()));
+      message.append('\n');
+      message.append(new ServiceMessage("classycle.cycle", data.getCycle().getCount()));
       return message.toString();
    }
 

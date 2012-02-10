@@ -213,6 +213,7 @@
       <copy todir="${classycle}/images">
          <fileset dir="${libdev}/classycle/images" includes="*.png" />
       </copy>
+      <qsreporter classyclexml="${classycle}/classycle.xml" />
    </target>
 
    <!-- ================================================================== -->
