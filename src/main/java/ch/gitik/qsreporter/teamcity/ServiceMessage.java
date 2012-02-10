@@ -27,9 +27,11 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  */
 public final class ServiceMessage {
 
-   final private String key;
+   private static final int BUFFER_SIZE = 200;
 
-   final private int value;
+   private final String key;
+
+   private final int value;
 
    /**
     * Erzeugt eine Servicemessage fuer TeamCity.
@@ -39,16 +41,16 @@ public final class ServiceMessage {
     *           Wert als Integer.
     */
    public ServiceMessage(final String pKey, final int pValue) {
-      if (pKey != null) {
-         this.key = pKey;
-         this.value = pValue;
-      } else {
+      if (pKey == null) {
          this.key = "unknown.key";
          this.value = 0;
+      } else {
+         this.key = pKey;
+         this.value = pValue;
       }
    }
 
-   /**
+   /*
     * @see java.lang.Object#toString()
     */
    @Override
@@ -63,7 +65,7 @@ public final class ServiceMessage {
     * @return String mit ServiceMessages.
     */
    public static String serviceMessagesCheckstyle(final CheckstyleModel data) {
-      StringBuffer message = new StringBuffer(200);
+      final StringBuffer message = new StringBuffer(BUFFER_SIZE);
       message.append(new ServiceMessage("checkstyle.error", data.getError().getCount()));
       message.append('\n');
       message.append(new ServiceMessage("checkstyle.warning", data.getWarning().getCount()));
@@ -79,7 +81,7 @@ public final class ServiceMessage {
     * @return String mit ServiceMessages.
     */
    public static String serviceMessagesJaCoCo(final JaCoCoModel data) {
-      StringBuffer message = new StringBuffer(200);
+      final StringBuffer message = new StringBuffer(BUFFER_SIZE);
       message.append(new ServiceMessage("coverage.class", data.getClazz().getPercent()));
       message.append('\n');
       message.append(new ServiceMessage("coverage.methode", data.getMethode().getPercent()));
@@ -99,7 +101,7 @@ public final class ServiceMessage {
     * @return String mit ServiceMessages.
     */
    public static String serviceMessagesPmd(final PmdModel data) {
-      StringBuffer message = new StringBuffer(200);
+      final StringBuffer message = new StringBuffer(BUFFER_SIZE);
       message.append(new ServiceMessage("pmd.level1", data.getLevel1().getCount()));
       message.append('\n');
       message.append(new ServiceMessage("pmd.level2", data.getLevel2().getCount()));
