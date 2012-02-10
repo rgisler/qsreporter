@@ -24,8 +24,8 @@ import org.apache.tools.ant.Task;
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.output.TeamcityServiceMessage;
 import ch.gitik.qsreporter.pmd.PmdModel;
-import ch.gitik.qsreporter.teamcity.ServiceMessage;
 
 /**
  * QSReporter Ant Task.
@@ -68,7 +68,7 @@ public class QSReporterTask extends Task {
          }
          final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
          final PmdModel data = extractor.extract(xmlFile);
-         log(ServiceMessage.serviceMessagesPmd(data));
+         log(TeamcityServiceMessage.serviceMessagesPmd(data));
       }
    }
 
@@ -83,7 +83,7 @@ public class QSReporterTask extends Task {
          }
          final QSDataExtractorCheckstyle extractor = new QSDataExtractorCheckstyle();
          final CheckstyleModel data = extractor.extract(xmlFile);
-         log(ServiceMessage.serviceMessagesCheckstyle(data));
+         log(TeamcityServiceMessage.serviceMessagesCheckstyle(data));
       }
    }
 
@@ -98,7 +98,7 @@ public class QSReporterTask extends Task {
          }
          final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
          final ClassycleModel data = extractor.extract(xmlFile);
-         log(ServiceMessage.serviceMessagesClassycle(data));
+         log(TeamcityServiceMessage.serviceMessagesClassycle(data));
       }
    }
 
@@ -113,7 +113,7 @@ public class QSReporterTask extends Task {
          }
          final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
          final JaCoCoModel data = extractor.extract(xmlFile);
-         log(ServiceMessage.serviceMessagesJaCoCo(data));
+         log(TeamcityServiceMessage.serviceMessagesJaCoCo(data));
       }
    }
 

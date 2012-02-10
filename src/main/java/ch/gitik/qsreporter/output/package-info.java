@@ -17,5 +17,5 @@
 /**
  * Hilfsklassen fuer TeamCity CI-Server.
  */
-package ch.gitik.qsreporter.teamcity;
+package ch.gitik.qsreporter.output;
 

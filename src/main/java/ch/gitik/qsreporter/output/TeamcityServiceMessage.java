@@ -15,7 +15,7 @@
  *
  * $Id: AbstractBpmsTask.java 38 2007-02-12 12:50:46Z rog $
  */
-package ch.gitik.qsreporter.teamcity;
+package ch.gitik.qsreporter.output;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.classycle.ClassycleModel;
@@ -26,7 +26,7 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  * Erzeugt eine Servicemessage fuer TeamCity.
  * @author Roland Gisler
  */
-public final class ServiceMessage {
+public final class TeamcityServiceMessage {
 
    private static final int BUFFER_SIZE = 200;
 
@@ -41,7 +41,7 @@ public final class ServiceMessage {
     * @param pValue
     *           Wert als Integer.
     */
-   public ServiceMessage(final String pKey, final int pValue) {
+   public TeamcityServiceMessage(final String pKey, final int pValue) {
       if (pKey == null) {
          this.key = "unknown.key";
          this.value = 0;
@@ -67,11 +67,11 @@ public final class ServiceMessage {
     */
    public static String serviceMessagesCheckstyle(final CheckstyleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new ServiceMessage("checkstyle.error", data.getError().getCount()));
+      message.append(new TeamcityServiceMessage("checkstyle.error", data.getError().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("checkstyle.warning", data.getWarning().getCount()));
+      message.append(new TeamcityServiceMessage("checkstyle.warning", data.getWarning().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("checkstyle.info", data.getInfo().getCount()));
+      message.append(new TeamcityServiceMessage("checkstyle.info", data.getInfo().getCount()));
       return message.toString();
    }
 
@@ -83,11 +83,11 @@ public final class ServiceMessage {
     */
    public static String serviceMessagesClassycle(final ClassycleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new ServiceMessage("classycle.package", data.getPackage().getCount()));
+      message.append(new TeamcityServiceMessage("classycle.package", data.getPackage().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("classycle.class", data.getClazz().getCount()));
+      message.append(new TeamcityServiceMessage("classycle.class", data.getClazz().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("classycle.cycle", data.getCycle().getCount()));
+      message.append(new TeamcityServiceMessage("classycle.cycle", data.getCycle().getCount()));
       return message.toString();
    }
 
@@ -99,15 +99,15 @@ public final class ServiceMessage {
     */
    public static String serviceMessagesJaCoCo(final JaCoCoModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new ServiceMessage("coverage.class", data.getClazz().getPercent()));
+      message.append(new TeamcityServiceMessage("coverage.class", data.getClazz().getPercent()));
       message.append('\n');
-      message.append(new ServiceMessage("coverage.methode", data.getMethode().getPercent()));
+      message.append(new TeamcityServiceMessage("coverage.methode", data.getMethode().getPercent()));
       message.append('\n');
-      message.append(new ServiceMessage("coverage.branch", data.getBranch().getPercent()));
+      message.append(new TeamcityServiceMessage("coverage.branch", data.getBranch().getPercent()));
       message.append('\n');
-      message.append(new ServiceMessage("coverage.line", data.getLine().getPercent()));
+      message.append(new TeamcityServiceMessage("coverage.line", data.getLine().getPercent()));
       message.append('\n');
-      message.append(new ServiceMessage("coverage.statement", data.getInstruction().getPercent()));
+      message.append(new TeamcityServiceMessage("coverage.statement", data.getInstruction().getPercent()));
       return message.toString();
    }
 
@@ -119,15 +119,15 @@ public final class ServiceMessage {
     */
    public static String serviceMessagesPmd(final PmdModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new ServiceMessage("pmd.level1", data.getLevel1().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level1", data.getLevel1().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("pmd.level2", data.getLevel2().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level2", data.getLevel2().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("pmd.level3", data.getLevel3().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level3", data.getLevel3().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("pmd.level4", data.getLevel4().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level4", data.getLevel4().getCount()));
       message.append('\n');
-      message.append(new ServiceMessage("pmd.level5", data.getLevel5().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level5", data.getLevel5().getCount()));
       return message.toString();
    }
 }
