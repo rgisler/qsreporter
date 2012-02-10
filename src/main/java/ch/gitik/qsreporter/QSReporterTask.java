@@ -135,20 +135,20 @@ public class QSReporterTask extends Task {
 
    /**
     * Setter fuer checkstyleXML.
-    * @param checkstyleXML
+    * @param pCheckstyleXML
     *           Setzt checkstyleXML.
     */
-   public void setCheckstyleXML(String checkstyleXML) {
-      this.checkstyleXML = checkstyleXML;
+   public final void setCheckstyleXML(final String pCheckstyleXML) {
+      this.checkstyleXML = pCheckstyleXML;
    }
 
    /**
     * Setter fuer pmdXML.
-    * @param pmdXML
+    * @param pPmdXML
     *           Setzt pmdXML.
     */
-   public void setPmdXML(String pmdXML) {
-      this.pmdXML = pmdXML;
+   public final void setPmdXML(final String pPmdXML) {
+      this.pmdXML = pPmdXML;
    }
 
    /**

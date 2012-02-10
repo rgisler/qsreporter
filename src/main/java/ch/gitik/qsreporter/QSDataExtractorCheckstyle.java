@@ -26,8 +26,6 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
@@ -86,7 +84,7 @@ public class QSDataExtractorCheckstyle extends AbstractDataExtractor {
       final XPath xpath = factory.newXPath();
       XPathExpression expression;
       Object resultNumber;
-      
+
       expression = xpath.compile("count(//file/error)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
       CheckstyleSensor errors = new CheckstyleSensor(((Double) resultNumber).intValue());
@@ -98,7 +96,6 @@ public class QSDataExtractorCheckstyle extends AbstractDataExtractor {
       expression = xpath.compile("count(//file/info)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
       CheckstyleSensor infos = new CheckstyleSensor(((Double) resultNumber).intValue());
-
 
       return new CheckstyleModel(errors, warnings, infos);
    }

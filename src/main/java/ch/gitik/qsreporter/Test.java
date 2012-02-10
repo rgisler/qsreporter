@@ -34,12 +34,12 @@ public final class Test {
     */
    public static void main(final String[] args) {
 
-      File file; 
+      File file;
       file = new File("build/coverage/coverage.xml");
       final QSDataExtractorJaCoCo extractorJaCoCo = new QSDataExtractorJaCoCo();
       final JaCoCoModel data = extractorJaCoCo.extract(file);
       System.out.println(data);
-      
+
       file = new File("build/checkstyle/checkstyle.xml");
       final QSDataExtractorCheckstyle extractorCheckstyle = new QSDataExtractorCheckstyle();
       final CheckstyleModel dataCheckstyle = extractorCheckstyle.extract(file);
@@ -50,7 +50,7 @@ public final class Test {
       final PmdModel dataPmd = extractorPmd.extract(file);
       System.out.println(dataPmd);
    }
-   
+
    /**
     * Konstruktor.
     */

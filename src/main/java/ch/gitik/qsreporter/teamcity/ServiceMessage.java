@@ -25,13 +25,21 @@ public final class ServiceMessage {
 
    /**
     * Erzeugt eine Servicemessage fuer TeamCity.
-    * @param key Key.
-    * @param value Wert.
+    * @param key
+    *           Key.
+    * @param value
+    *           Wert.
     */
    public static void buildStatistic(final String key, final String value) {
       if ((key == null) || (value == null)) {
          return;
       }
       System.out.println("##teamcity[buildStatisticValue key='" + key + "' value='" + value + "']");
+   }
+
+   /**
+    * Konstruktor.
+    */
+   private ServiceMessage() {
    }
 }

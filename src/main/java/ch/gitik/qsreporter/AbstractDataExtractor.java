@@ -28,8 +28,6 @@ import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
-
 /**
  * Abstrakte Basisklasse fuer Datenextraktor.
  * @author Roland Gisler
@@ -48,7 +46,8 @@ public abstract class AbstractDataExtractor {
     * @throws IOException
     *            Bla.
     */
-   protected static Document getDocument(final File pFile) throws ParserConfigurationException, SAXException, IOException {
+   protected static Document getDocument(final File pFile) throws ParserConfigurationException, SAXException,
+         IOException {
       final DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
       domFactory.setNamespaceAware(true);
       domFactory.setIgnoringComments(true);

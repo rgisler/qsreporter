@@ -36,7 +36,8 @@ public final class CheckstyleModel {
     * @param pInfo
     *           Anzahl Infos.
     */
-   public CheckstyleModel(final CheckstyleSensor pError, final CheckstyleSensor pWarning, final CheckstyleSensor pInfo) {
+   public CheckstyleModel(final CheckstyleSensor pError, final CheckstyleSensor pWarning,
+         final CheckstyleSensor pInfo) {
       this.error = pError;
       this.warning = pWarning;
       this.info = pInfo;
