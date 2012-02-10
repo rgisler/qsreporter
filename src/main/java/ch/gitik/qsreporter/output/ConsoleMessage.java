@@ -23,7 +23,6 @@ import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.pmd.PmdModel;
 
 /**
- * 
  * @author Roland Gisler
  */
 public class ConsoleMessage {
@@ -36,16 +35,14 @@ public class ConsoleMessage {
     */
    public static String consoleCheckstyle(final CheckstyleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append("+----------------------------------------------------------------------+");
-      message.append('\n');
+      message.append("+----------------------------------------------------------------------+\n");
       message.append("| Checkstyle: ");
       message.append(data.getError());
       message.append(" Error(s), ");
       message.append(data.getWarning());
       message.append(" Warning(s), ");
       message.append(data.getInfo());
-      message.append(" Warning(s)");
-      message.append('\n');
+      message.append(" Warning(s)\n");
       message.append("+----------------------------------------------------------------------+");
       return message.toString();
    }
