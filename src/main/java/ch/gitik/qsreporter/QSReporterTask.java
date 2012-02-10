@@ -40,12 +40,6 @@ public class QSReporterTask extends Task {
 
    private String pmdXML = null;
 
-   /**
-    * Konstruktur.
-    */
-   public QSReporterTask() {
-   }
-
    /*
     * @see org.apache.tools.ant.Task#execute()
     */
@@ -97,7 +91,8 @@ public class QSReporterTask extends Task {
       ServiceMessage.buildStatistic("coverage.methode", Integer.toString(data.getMethode().getPercent()));
       ServiceMessage.buildStatistic("coverage.branch", Integer.toString(data.getBranch().getPercent()));
       ServiceMessage.buildStatistic("coverage.line", Integer.toString(data.getLine().getPercent()));
-      ServiceMessage.buildStatistic("coverage.statement", Integer.toString(data.getInstruction().getPercent()));
+      ServiceMessage.buildStatistic("coverage.statement",
+            Integer.toString(data.getInstruction().getPercent()));
    }
 
    /**

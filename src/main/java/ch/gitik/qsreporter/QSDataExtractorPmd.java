@@ -87,23 +87,23 @@ public class QSDataExtractorPmd extends AbstractDataExtractor {
 
       expression = xpath.compile("count(//file/violation[@priority='1'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      PmdSensor level1 = new PmdSensor(((Double) resultNumber).intValue());
+      final PmdSensor level1 = new PmdSensor(((Double) resultNumber).intValue());
 
       expression = xpath.compile("count(//file/violation[@priority='2'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      PmdSensor level2 = new PmdSensor(((Double) resultNumber).intValue());
+      final PmdSensor level2 = new PmdSensor(((Double) resultNumber).intValue());
 
       expression = xpath.compile("count(//file/violation[@priority='3'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      PmdSensor level3 = new PmdSensor(((Double) resultNumber).intValue());
+      final PmdSensor level3 = new PmdSensor(((Double) resultNumber).intValue());
 
       expression = xpath.compile("count(//file/violation[@priority='4'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      PmdSensor level4 = new PmdSensor(((Double) resultNumber).intValue());
+      final PmdSensor level4 = new PmdSensor(((Double) resultNumber).intValue());
 
       expression = xpath.compile("count(//file/violation[@priority='5'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      PmdSensor level5 = new PmdSensor(((Double) resultNumber).intValue());
+      final PmdSensor level5 = new PmdSensor(((Double) resultNumber).intValue());
 
       return new PmdModel(level1, level2, level3, level4, level5);
    }

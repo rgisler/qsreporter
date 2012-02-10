@@ -49,7 +49,8 @@ public class QSDataExtractorCheckstyle extends AbstractDataExtractor {
          final Document doc = getDocument(pFile);
          data = this.getData(doc);
       } catch (SAXParseException err) {
-         System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
+         System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri "
+               + err.getSystemId());
          System.out.println(" " + err.getMessage());
       } catch (SAXException e) {
          e.printStackTrace();
@@ -77,8 +78,8 @@ public class QSDataExtractorCheckstyle extends AbstractDataExtractor {
     * @throws XPathExpressionException
     *            Bla.
     */
-   public final CheckstyleModel getData(final Document xmlDoc) throws ParserConfigurationException, SAXException,
-         IOException, XPathExpressionException {
+   public final CheckstyleModel getData(final Document xmlDoc) throws ParserConfigurationException,
+         SAXException, IOException, XPathExpressionException {
 
       final XPathFactory factory = XPathFactory.newInstance();
       final XPath xpath = factory.newXPath();
@@ -87,15 +88,15 @@ public class QSDataExtractorCheckstyle extends AbstractDataExtractor {
 
       expression = xpath.compile("count(//file/error)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      CheckstyleSensor errors = new CheckstyleSensor(((Double) resultNumber).intValue());
+      final CheckstyleSensor errors = new CheckstyleSensor(((Double) resultNumber).intValue());
 
       expression = xpath.compile("count(//file/warning)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      CheckstyleSensor warnings = new CheckstyleSensor(((Double) resultNumber).intValue());
+      final CheckstyleSensor warnings = new CheckstyleSensor(((Double) resultNumber).intValue());
 
       expression = xpath.compile("count(//file/info)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      CheckstyleSensor infos = new CheckstyleSensor(((Double) resultNumber).intValue());
+      final CheckstyleSensor infos = new CheckstyleSensor(((Double) resultNumber).intValue());
 
       return new CheckstyleModel(errors, warnings, infos);
    }
