@@ -57,6 +57,15 @@ public class ConsoleMessage {
     */
    public static String classycleOut(final ClassycleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
+      message.append("+----------------------------------------------------------------------+\n");
+      message.append("| Classycle: ");
+      message.append(data.getPackage());
+      message.append(" Package(s), ");
+      message.append(data.getClazz());
+      message.append(" Class(es), ");
+      message.append(data.getCycle());
+      message.append(" Cycle(s)\n");
+      message.append("+----------------------------------------------------------------------+");
       return message.toString();
    }
 
@@ -79,6 +88,19 @@ public class ConsoleMessage {
     */
    public static String pmdOut(final PmdModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
+      message.append("+----------------------------------------------------------------------+\n");
+      message.append("| PMD: ");
+      message.append(data.getLevel1());
+      message.append(" Level 1, ");
+      message.append(data.getLevel2());
+      message.append(" Level 2, ");
+      message.append(data.getLevel3());
+      message.append(" Level 3, ");
+      message.append(data.getLevel4());
+      message.append(" Level 4, ");
+      message.append(data.getLevel5());
+      message.append(" Level 5\n");
+      message.append("+----------------------------------------------------------------------+");
       return message.toString();
    }
 }

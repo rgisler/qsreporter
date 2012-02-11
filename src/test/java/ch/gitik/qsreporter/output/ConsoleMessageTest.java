@@ -22,6 +22,10 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.classycle.ClassycleModel;
+import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
+import ch.gitik.qsreporter.pmd.PmdModel;
 
 /**
  * 
@@ -30,11 +34,35 @@ import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 public class ConsoleMessageTest extends ConsoleMessage {
 
    @Test
-      public void testCheckstyleOut() {
-         CheckstyleModel model = new CheckstyleModel(10,20,30);
-         String console = ConsoleMessage.checkstyleOut(model);
-         System.out.println(console);
-         assertNotNull(console);
-      }
+   public void testCheckstyleOut() {
+      CheckstyleModel model = new CheckstyleModel(10, 20, 30);
+      String console = ConsoleMessage.checkstyleOut(model);
+      System.out.println(console);
+      assertNotNull(console);
+   }
 
+   @Test
+   public void testPmdOut() {
+      PmdModel model = new PmdModel(10, 20, 30, 40, 50);
+      String console = ConsoleMessage.pmdOut(model);
+      System.out.println(console);
+      assertNotNull(console);
+   }
+
+   @Test
+   public void testJaCoCoOut() {
+      JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80), new JaCoCoSensor(30, 70),
+            new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
+      String console = ConsoleMessage.jaCoCoOut(model);
+      System.out.println(console);
+      assertNotNull(console);
+   }
+
+   @Test
+   public void testClassycleOut() {
+      ClassycleModel model = new ClassycleModel(10, 60, 2);
+      String console = ConsoleMessage.classycleOut(model);
+      System.out.println(console);
+      assertNotNull(console);
+   }
 }
