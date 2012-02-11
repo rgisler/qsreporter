@@ -27,13 +27,15 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  */
 public class ConsoleMessage {
 
+   private static final int BUFFER_SIZE = 200;
+
    /**
     * Erzeugt Checkstyle ServiceMessages fuer TeamCity.
     * @param data
     *           Checkstyle Daten.
     * @return String mit ServiceMessages.
     */
-   public static String consoleCheckstyle(final CheckstyleModel data) {
+   public static String checkstyleOut(final CheckstyleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
       message.append("+----------------------------------------------------------------------+\n");
       message.append("| Checkstyle: ");
@@ -53,13 +55,8 @@ public class ConsoleMessage {
     *           Classycle Daten.
     * @return String mit ServiceMessages.
     */
-   public static String serviceMessagesClassycle(final ClassycleModel data) {
+   public static String classycleOut(final ClassycleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("classycle.package", data.getPackage()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("classycle.class", data.getClazz()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("classycle.cycle", data.getCycle()));
       return message.toString();
    }
 
@@ -69,17 +66,8 @@ public class ConsoleMessage {
     *           Coveragedaten.
     * @return String mit ServiceMessages.
     */
-   public static String serviceMessagesJaCoCo(final JaCoCoModel data) {
+   public static String jaCoCoOut(final JaCoCoModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("coverage.class", data.getClazz().getPercent()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.methode", data.getMethode().getPercent()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.branch", data.getBranch().getPercent()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.line", data.getLine().getPercent()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.statement", data.getInstruction().getPercent()));
       return message.toString();
    }
 
@@ -89,20 +77,8 @@ public class ConsoleMessage {
     *           PMD-Daten.
     * @return String mit ServiceMessages.
     */
-   public static String serviceMessagesPmd(final PmdModel data) {
+   public static String pmdOut(final PmdModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("pmd.level1", data.getLevel1()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level2", data.getLevel2()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level3", data.getLevel3()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level4", data.getLevel4()));
-      message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level5", data.getLevel5()));
       return message.toString();
    }
-
-   private static final int BUFFER_SIZE = 200;
-
 }

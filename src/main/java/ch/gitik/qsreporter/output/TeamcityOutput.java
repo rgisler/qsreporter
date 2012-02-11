@@ -26,37 +26,43 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  * Erzeugt eine Servicemessage fuer TeamCity.
  * @author Roland Gisler
  */
-public final class TeamcityServiceMessage {
+public final class TeamcityOutput {
 
    private static final int BUFFER_SIZE = 200;
 
-   private final String key;
-
-   private final int value;
-
    /**
-    * Erzeugt eine Servicemessage fuer TeamCity.
-    * @param pKey
-    *           Key.
-    * @param pValue
-    *           Wert als Integer.
+    * Hilfsklasse fuer ServiceMessage.
     */
-   public TeamcityServiceMessage(final String pKey, final int pValue) {
-      if (pKey == null) {
-         this.key = "unknown.key";
-         this.value = 0;
-      } else {
-         this.key = pKey;
-         this.value = pValue;
-      }
-   }
+   private static class ServiceMessage {
 
-   /*
-    * @see java.lang.Object#toString()
-    */
-   @Override
-   public String toString() {
-      return "##teamcity[buildStatisticValue key='" + key + "' value='" + value + "']";
+      private final String key;
+
+      private final int value;
+
+      /**
+       * Erzeugt eine Servicemessage fuer TeamCity.
+       * @param pKey
+       *           Key.
+       * @param pValue
+       *           Wert als Integer.
+       */
+      public ServiceMessage(final String pKey, final int pValue) {
+         if (pKey == null) {
+            this.key = "unknown.key";
+            this.value = 0;
+         } else {
+            this.key = pKey;
+            this.value = pValue;
+         }
+      }
+
+      /*
+       * @see java.lang.Object#toString()
+       */
+      @Override
+      public String toString() {
+         return "##teamcity[buildStatisticValue key='" + key + "' value='" + value + "']";
+      }
    }
 
    /**
@@ -65,13 +71,13 @@ public final class TeamcityServiceMessage {
     *           Checkstyle Daten.
     * @return String mit ServiceMessages.
     */
-   public static String serviceMessagesCheckstyle(final CheckstyleModel data) {
+   public static String checkstyleOut(final CheckstyleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("checkstyle.error", data.getError()));
+      message.append(new ServiceMessage("checkstyle.error", data.getError()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("checkstyle.warning", data.getWarning()));
+      message.append(new ServiceMessage("checkstyle.warning", data.getWarning()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("checkstyle.info", data.getInfo()));
+      message.append(new ServiceMessage("checkstyle.info", data.getInfo()));
       return message.toString();
    }
 
@@ -81,13 +87,13 @@ public final class TeamcityServiceMessage {
     *           Classycle Daten.
     * @return String mit ServiceMessages.
     */
-   public static String serviceMessagesClassycle(final ClassycleModel data) {
+   public static String classycleOut(final ClassycleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("classycle.package", data.getPackage()));
+      message.append(new ServiceMessage("classycle.package", data.getPackage()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("classycle.class", data.getClazz()));
+      message.append(new ServiceMessage("classycle.class", data.getClazz()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("classycle.cycle", data.getCycle()));
+      message.append(new ServiceMessage("classycle.cycle", data.getCycle()));
       return message.toString();
    }
 
@@ -97,17 +103,17 @@ public final class TeamcityServiceMessage {
     *           Coveragedaten.
     * @return String mit ServiceMessages.
     */
-   public static String serviceMessagesJaCoCo(final JaCoCoModel data) {
+   public static String jacocoOut(final JaCoCoModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("coverage.class", data.getClazz().getPercent()));
+      message.append(new ServiceMessage("coverage.class", data.getClazz().getPercent()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.methode", data.getMethode().getPercent()));
+      message.append(new ServiceMessage("coverage.methode", data.getMethode().getPercent()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.branch", data.getBranch().getPercent()));
+      message.append(new ServiceMessage("coverage.branch", data.getBranch().getPercent()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.line", data.getLine().getPercent()));
+      message.append(new ServiceMessage("coverage.line", data.getLine().getPercent()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("coverage.statement", data.getInstruction().getPercent()));
+      message.append(new ServiceMessage("coverage.statement", data.getInstruction().getPercent()));
       return message.toString();
    }
 
@@ -117,17 +123,17 @@ public final class TeamcityServiceMessage {
     *           PMD-Daten.
     * @return String mit ServiceMessages.
     */
-   public static String serviceMessagesPmd(final PmdModel data) {
+   public static String pmdOut(final PmdModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("pmd.level1", data.getLevel1()));
+      message.append(new ServiceMessage("pmd.level1", data.getLevel1()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level2", data.getLevel2()));
+      message.append(new ServiceMessage("pmd.level2", data.getLevel2()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level3", data.getLevel3()));
+      message.append(new ServiceMessage("pmd.level3", data.getLevel3()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level4", data.getLevel4()));
+      message.append(new ServiceMessage("pmd.level4", data.getLevel4()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level5", data.getLevel5()));
+      message.append(new ServiceMessage("pmd.level5", data.getLevel5()));
       return message.toString();
    }
 }

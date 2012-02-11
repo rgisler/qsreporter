@@ -29,51 +29,17 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class TeamcityServiceMessageTest {
+public class TeamcityOutputTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.output.TeamcityServiceMessage#ServiceMessage(java.lang.String, int)}
+    * {@link ch.gitik.qsreporter.output.TeamcityOutput#checkstyleOut(ch.gitik.qsreporter.checkstyle.CheckstyleModel)}
     * .
     */
    @Test
-   public final void testServiceMessage() {
-      assertNotNull(new TeamcityServiceMessage("key", 100));
-   }
-
-   /**
-    * Test method for
-    * {@link ch.gitik.qsreporter.output.TeamcityServiceMessage#toString()}.
-    */
-   @Test
-   public final void testToString() {
-      TeamcityServiceMessage message = new TeamcityServiceMessage("key", 200);
-      assertNotNull(message.toString());
-      assertTrue(message.toString().indexOf("'key'") > 0);
-      assertTrue(message.toString().indexOf("'200'") > 0);
-   }
-
-   /**
-    * Test method for
-    * {@link ch.gitik.qsreporter.output.TeamcityServiceMessage#toString()}.
-    */
-   @Test
-   public final void testToStringWithNull() {
-      TeamcityServiceMessage message = new TeamcityServiceMessage(null, 100);
-      assertNotNull(message.toString());
-      assertTrue(message.toString().indexOf("'unknown.key'") > 0);
-      assertTrue(message.toString().indexOf("'0'") > 0);
-   }
-
-   /**
-    * Test method for
-    * {@link ch.gitik.qsreporter.output.TeamcityServiceMessage#serviceMessagesCheckstyle(ch.gitik.qsreporter.checkstyle.CheckstyleModel)}
-    * .
-    */
-   @Test
-   public final void testServiceMessagesCheckstyle() {
+   public final void testCheckstyleOut() {
       CheckstyleModel model = new CheckstyleModel(111, 222, 333);
-      String message = TeamcityServiceMessage.serviceMessagesCheckstyle(model);
+      String message = TeamcityOutput.checkstyleOut(model);
       assertTrue(message.toString().indexOf("'111'") > 0);
       assertTrue(message.toString().indexOf("'222'") > 0);
       assertTrue(message.toString().indexOf("'333'") > 0);
@@ -81,14 +47,14 @@ public class TeamcityServiceMessageTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.output.TeamcityServiceMessage#serviceMessagesJaCoCo(ch.gitik.qsreporter.jacoco.JaCoCoModel)}
+    * {@link ch.gitik.qsreporter.output.TeamcityOutput#jacocoOut(ch.gitik.qsreporter.jacoco.JaCoCoModel)}
     * .
     */
    @Test
-   public final void testServiceMessagesJaCoCo() {
+   public final void testJacocoOut() {
       JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80),
             new JaCoCoSensor(30, 70), new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
-      String message = TeamcityServiceMessage.serviceMessagesJaCoCo(model);
+      String message = TeamcityOutput.jacocoOut(model);
       assertTrue(message.toString().indexOf("'10'") > 0);
       assertTrue(message.toString().indexOf("'20'") > 0);
       assertTrue(message.toString().indexOf("'30'") > 0);
@@ -98,13 +64,13 @@ public class TeamcityServiceMessageTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.output.TeamcityServiceMessage#serviceMessagesPmd(ch.gitik.qsreporter.pmd.PmdModel)}
+    * {@link ch.gitik.qsreporter.output.TeamcityOutput#pmdOut(ch.gitik.qsreporter.pmd.PmdModel)}
     * .
     */
    @Test
-   public final void testServiceMessagesPmd() {
+   public final void testPmdOut() {
       PmdModel model = new PmdModel(111, 222, 333, 444, 555);
-      String message = TeamcityServiceMessage.serviceMessagesPmd(model);
+      String message = TeamcityOutput.pmdOut(model);
       assertTrue(message.toString().indexOf("'111'") > 0);
       assertTrue(message.toString().indexOf("'222'") > 0);
       assertTrue(message.toString().indexOf("'333'") > 0);

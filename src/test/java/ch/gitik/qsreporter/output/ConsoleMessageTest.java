@@ -30,11 +30,11 @@ import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 public class ConsoleMessageTest extends ConsoleMessage {
 
    @Test
-   public void testConsoleCheckstyle() {
-      CheckstyleModel model = new CheckstyleModel(10,20,30);
-      String console = ConsoleMessage.consoleCheckstyle(model);
-      System.out.println(console);
-      assertNotNull(console);
-   }
+      public void testCheckstyleOut() {
+         CheckstyleModel model = new CheckstyleModel(10,20,30);
+         String console = ConsoleMessage.checkstyleOut(model);
+         System.out.println(console);
+         assertNotNull(console);
+      }
 
 }
