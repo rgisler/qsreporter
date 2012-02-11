@@ -42,11 +42,11 @@ public class QSDataExtractorPmdTest {
       final PmdModel data = extractor.extract(file);
       assertNotNull(data);
       
-      assertEquals(0,data.getLevel1().getCount());
-      assertEquals(0,data.getLevel2().getCount());
-      assertEquals(12,data.getLevel3().getCount());
-      assertEquals(6,data.getLevel4().getCount());
-      assertEquals(0,data.getLevel5().getCount());
+      assertEquals(0,data.getLevel1());
+      assertEquals(0,data.getLevel2());
+      assertEquals(12,data.getLevel3());
+      assertEquals(6,data.getLevel4());
+      assertEquals(0,data.getLevel5());
    }
 
 }

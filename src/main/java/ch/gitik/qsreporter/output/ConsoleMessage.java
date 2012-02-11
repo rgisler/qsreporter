@@ -91,15 +91,15 @@ public class ConsoleMessage {
     */
    public static String serviceMessagesPmd(final PmdModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(new TeamcityServiceMessage("pmd.level1", data.getLevel1().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level1", data.getLevel1()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level2", data.getLevel2().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level2", data.getLevel2()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level3", data.getLevel3().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level3", data.getLevel3()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level4", data.getLevel4().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level4", data.getLevel4()));
       message.append('\n');
-      message.append(new TeamcityServiceMessage("pmd.level5", data.getLevel5().getCount()));
+      message.append(new TeamcityServiceMessage("pmd.level5", data.getLevel5()));
       return message.toString();
    }
 

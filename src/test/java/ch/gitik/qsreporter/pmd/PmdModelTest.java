@@ -28,28 +28,23 @@ public class PmdModelTest {
 
    @Test
    public void testPmdModel() {
-      PmdModel model = new PmdModel(null, null, null, null, null);
+      PmdModel model = new PmdModel(0, 0, 0, 0, 0);
       assertNotNull(model);
    }
 
    @Test
    public void testGetter() {
-      final PmdSensor s1 = new PmdSensor(1);
-      final PmdSensor s2 = new PmdSensor(2);
-      final PmdSensor s3 = new PmdSensor(3);
-      final PmdSensor s4 = new PmdSensor(4);
-      final PmdSensor s5 = new PmdSensor(5);
-      PmdModel model = new PmdModel(s1, s2, s3, s4, s5);
-      assertEquals(s1, model.getLevel1());
-      assertEquals(s2, model.getLevel2());
-      assertEquals(s3, model.getLevel3());
-      assertEquals(s4, model.getLevel4());
-      assertEquals(s5, model.getLevel5());
+      PmdModel model = new PmdModel(11, 22, 33, 44, 55);
+      assertEquals(11, model.getLevel1());
+      assertEquals(22, model.getLevel2());
+      assertEquals(33, model.getLevel3());
+      assertEquals(44, model.getLevel4());
+      assertEquals(55, model.getLevel5());
    }
 
    @Test
    public void testToString() {
-      PmdModel model = new PmdModel(null, null, null, null, null);
+      PmdModel model = new PmdModel(1, 1, 1, 1, 1);
       assertNotNull(model.toString());
    }
 }

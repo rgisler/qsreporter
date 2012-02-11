@@ -30,7 +30,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import ch.gitik.qsreporter.pmd.PmdModel;
-import ch.gitik.qsreporter.pmd.PmdSensor;
 
 /**
  * @author Roland Gisler
@@ -49,7 +48,8 @@ public class QSDataExtractorPmd extends AbstractDataExtractor {
          final Document doc = getDocument(pFile);
          data = this.getData(doc);
       } catch (SAXParseException err) {
-         System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
+         System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri "
+               + err.getSystemId());
          System.out.println(" " + err.getMessage());
       } catch (SAXException e) {
          e.printStackTrace();
@@ -77,8 +77,8 @@ public class QSDataExtractorPmd extends AbstractDataExtractor {
     * @throws XPathExpressionException
     *            Bla.
     */
-   public final PmdModel getData(final Document xmlDoc) throws ParserConfigurationException, SAXException, IOException,
-         XPathExpressionException {
+   public final PmdModel getData(final Document xmlDoc) throws ParserConfigurationException, SAXException,
+         IOException, XPathExpressionException {
 
       final XPathFactory factory = XPathFactory.newInstance();
       final XPath xpath = factory.newXPath();
@@ -87,23 +87,23 @@ public class QSDataExtractorPmd extends AbstractDataExtractor {
 
       expression = xpath.compile("count(//file/violation[@priority='1'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final PmdSensor level1 = new PmdSensor(((Double) resultNumber).intValue());
+      final int level1 = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//file/violation[@priority='2'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final PmdSensor level2 = new PmdSensor(((Double) resultNumber).intValue());
+      final int level2 = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//file/violation[@priority='3'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final PmdSensor level3 = new PmdSensor(((Double) resultNumber).intValue());
+      final int level3 = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//file/violation[@priority='4'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final PmdSensor level4 = new PmdSensor(((Double) resultNumber).intValue());
+      final int level4 = ((Double) resultNumber).intValue();
 
       expression = xpath.compile("count(//file/violation[@priority='5'])");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final PmdSensor level5 = new PmdSensor(((Double) resultNumber).intValue());
+      final int level5 = ((Double) resultNumber).intValue();
 
       return new PmdModel(level1, level2, level3, level4, level5);
    }

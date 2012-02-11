@@ -24,7 +24,6 @@ import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
 import ch.gitik.qsreporter.pmd.PmdModel;
-import ch.gitik.qsreporter.pmd.PmdSensor;
 
 /**
  * @author Roland Gisler
@@ -87,8 +86,8 @@ public class TeamcityServiceMessageTest {
     */
    @Test
    public final void testServiceMessagesJaCoCo() {
-      JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80), new JaCoCoSensor(30, 70),
-            new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
+      JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80),
+            new JaCoCoSensor(30, 70), new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
       String message = TeamcityServiceMessage.serviceMessagesJaCoCo(model);
       assertTrue(message.toString().indexOf("'10'") > 0);
       assertTrue(message.toString().indexOf("'20'") > 0);
@@ -104,8 +103,7 @@ public class TeamcityServiceMessageTest {
     */
    @Test
    public final void testServiceMessagesPmd() {
-      PmdModel model = new PmdModel(new PmdSensor(111), new PmdSensor(222), new PmdSensor(333), new PmdSensor(444),
-            new PmdSensor(555));
+      PmdModel model = new PmdModel(111, 222, 333, 444, 555);
       String message = TeamcityServiceMessage.serviceMessagesPmd(model);
       assertTrue(message.toString().indexOf("'111'") > 0);
       assertTrue(message.toString().indexOf("'222'") > 0);

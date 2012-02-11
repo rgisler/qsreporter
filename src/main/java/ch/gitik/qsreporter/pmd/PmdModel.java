@@ -21,15 +21,15 @@ package ch.gitik.qsreporter.pmd;
  */
 public final class PmdModel {
 
-   private final PmdSensor level1;
+   private final int level1;
 
-   private final PmdSensor level2;
+   private final int level2;
 
-   private final PmdSensor level3;
+   private final int level3;
 
-   private final PmdSensor level4;
+   private final int level4;
 
-   private final PmdSensor level5;
+   private final int level5;
 
    /**
     * Konstruktor.
@@ -44,8 +44,8 @@ public final class PmdModel {
     * @param pLevel5
     *           Anzahl Level 5.
     */
-   public PmdModel(final PmdSensor pLevel1, final PmdSensor pLevel2, final PmdSensor pLevel3, final PmdSensor pLevel4,
-         final PmdSensor pLevel5) {
+   public PmdModel(final int pLevel1, final int pLevel2, final int pLevel3, final int pLevel4,
+         final int pLevel5) {
       this.level1 = pLevel1;
       this.level2 = pLevel2;
       this.level3 = pLevel3;
@@ -57,7 +57,7 @@ public final class PmdModel {
     * Liefert Level 1 zurueck.
     * @return Anzahl Level 1.
     */
-   public PmdSensor getLevel1() {
+   public int getLevel1() {
       return this.level1;
    }
 
@@ -65,7 +65,7 @@ public final class PmdModel {
     * Liefert Level 2 zurueck.
     * @return Anzahl Level 2.
     */
-   public PmdSensor getLevel2() {
+   public int getLevel2() {
       return this.level2;
    }
 
@@ -73,7 +73,7 @@ public final class PmdModel {
     * Liefert Level 3 zurueck.
     * @return Anzahl Level 3.
     */
-   public PmdSensor getLevel3() {
+   public int getLevel3() {
       return this.level3;
    }
 
@@ -81,7 +81,7 @@ public final class PmdModel {
     * Liefert Level 4 zurueck.
     * @return Anzahl Level 4.
     */
-   public PmdSensor getLevel4() {
+   public int getLevel4() {
       return this.level4;
    }
 
@@ -89,7 +89,7 @@ public final class PmdModel {
     * Liefert Level 5 zurueck.
     * @return Anzahl Level 5.
     */
-   public PmdSensor getLevel5() {
+   public int getLevel5() {
       return this.level5;
    }
 
