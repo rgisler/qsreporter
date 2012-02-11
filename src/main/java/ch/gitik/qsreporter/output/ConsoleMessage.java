@@ -77,6 +77,9 @@ public class ConsoleMessage {
     */
    public static String jaCoCoOut(final JaCoCoModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
+      message.append("+----------------------------------------------------------------------+\n");
+      // TODO Consolenausgabe für JaCoCo ergänzen
+      message.append("+----------------------------------------------------------------------+\n");
       return message.toString();
    }
 
