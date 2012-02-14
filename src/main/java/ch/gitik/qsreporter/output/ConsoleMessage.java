@@ -27,6 +27,8 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  */
 public class ConsoleMessage {
 
+   private static final String HORIZBAR = "+------------+----------------------------------------------------------------------+\n";
+
    private static final int BUFFER_SIZE = 200;
 
    /**
@@ -37,15 +39,15 @@ public class ConsoleMessage {
     */
    public static String checkstyleOut(final CheckstyleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append("+----------------------------------------------------------------------+\n");
-      message.append("| Checkstyle: ");
+      message.append(HORIZBAR);
+      message.append("| Checkstyle | Errors: ");
       message.append(data.getError());
-      message.append(" Error(s), ");
+      message.append(" - Warnings: ");
       message.append(data.getWarning());
-      message.append(" Warning(s), ");
+      message.append(" - Infos: ");
       message.append(data.getInfo());
-      message.append(" Warning(s)\n");
-      message.append("+----------------------------------------------------------------------+");
+      message.append('\n');
+      message.append(HORIZBAR);
       return message.toString();
    }
 
@@ -57,15 +59,15 @@ public class ConsoleMessage {
     */
    public static String classycleOut(final ClassycleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append("+----------------------------------------------------------------------+\n");
-      message.append("| Classycle: ");
+      message.append(HORIZBAR);
+      message.append("| Classycle  | Packages: ");
       message.append(data.getPackage());
-      message.append(" Package(s), ");
+      message.append(" - Classes: ");
       message.append(data.getClazz());
-      message.append(" Class(es), ");
+      message.append(" - Cycles: ");
       message.append(data.getCycle());
-      message.append(" Cycle(s)\n");
-      message.append("+----------------------------------------------------------------------+");
+      message.append('\n');
+      message.append(HORIZBAR);
       return message.toString();
    }
 
@@ -77,9 +79,17 @@ public class ConsoleMessage {
     */
    public static String jaCoCoOut(final JaCoCoModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append("+----------------------------------------------------------------------+\n");
-      // TODO Consolenausgabe für JaCoCo ergänzen
-      message.append("+----------------------------------------------------------------------+\n");
+      message.append(HORIZBAR);
+      message.append("| Jacoco     | Statement: ");
+      message.append(data.getInstruction().getPercent());
+      message.append("% - Branches: ");
+      message.append(data.getBranch().getPercent());
+      message.append("% - Methods: ");
+      message.append(data.getMethode().getPercent());
+      message.append("% - Classes: ");
+      message.append(data.getClazz().getPercent());
+      message.append("%\n");
+      message.append(HORIZBAR);
       return message.toString();
    }
 
@@ -91,19 +101,19 @@ public class ConsoleMessage {
     */
    public static String pmdOut(final PmdModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append("+----------------------------------------------------------------------+\n");
-      message.append("| PMD: ");
+      message.append(HORIZBAR);
+      message.append("| PMD        | Level1: ");
       message.append(data.getLevel1());
-      message.append(" Level 1, ");
+      message.append(" - Level2: ");
       message.append(data.getLevel2());
-      message.append(" Level 2, ");
+      message.append(" - Level3: ");
       message.append(data.getLevel3());
-      message.append(" Level 3, ");
+      message.append(" - Level4: ");
       message.append(data.getLevel4());
-      message.append(" Level 4, ");
+      message.append(" - Level5: ");
       message.append(data.getLevel5());
-      message.append(" Level 5\n");
-      message.append("+----------------------------------------------------------------------+");
+      message.append('\n');
+      message.append(HORIZBAR);
       return message.toString();
    }
 }

@@ -24,6 +24,7 @@ import org.apache.tools.ant.Task;
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.output.ConsoleMessage;
 import ch.gitik.qsreporter.output.TeamcityOutput;
 import ch.gitik.qsreporter.pmd.PmdModel;
 
@@ -51,70 +52,96 @@ public class QSReporterTask extends Task {
       if (this.verbose) {
          log("QSReporterTask is alive...");
       }
-      this.processJaCoCoData();
-      this.processCheckstyleData();
-      this.processClassycleData();
-      this.processPmdData();
-   }
 
-   /**
-    * Extrahiert PMD Daten.
-    */
-   private void processPmdData() {
-      if (this.pmdXML != null) {
-         final File xmlFile = new File(pmdXML);
-         if (xmlFile.exists()) {
-            log("Evaluating PMD XML-Report: " + xmlFile.getName());
+      final CheckstyleModel checkstyleData = this.processCheckstyleData();
+      final ClassycleModel classycleData = this.processClassycleData();
+      final JaCoCoModel jacocoData = this.processJaCoCoData();
+      final PmdModel pmdData = this.processPmdData();
+
+      String teamcity = this.getProject().getProperty("teamcity.buildConfName");
+      if (teamcity != null) {
+         log("Teamcity-Server detected, Build-Configuration: '" + teamcity + "'");
+         if (checkstyleData != null) {
+            log(TeamcityOutput.checkstyleOut(checkstyleData));
          }
-         final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
-         final PmdModel data = extractor.extract(xmlFile);
-         log(TeamcityOutput.pmdOut(data));
+         if (classycleData != null) {
+            log(TeamcityOutput.classycleOut(classycleData));
+         }
+         if (jacocoData != null) {
+            log(TeamcityOutput.jacocoOut(jacocoData));
+         }
+         if (pmdData != null) {
+            log(TeamcityOutput.pmdOut(pmdData));
+         }
       }
    }
 
    /**
     * Extrahiert Checkstyle Daten.
     */
-   private void processCheckstyleData() {
+   private CheckstyleModel processCheckstyleData() {
+      CheckstyleModel data = null;
       if (this.checkstyleXML != null) {
          final File xmlFile = new File(this.checkstyleXML);
          if (xmlFile.exists()) {
             log("Evaluating Checkstyle XML-Report: " + xmlFile.getName());
          }
          final QSDataExtractorCheckstyle extractor = new QSDataExtractorCheckstyle();
-         final CheckstyleModel data = extractor.extract(xmlFile);
-         log(TeamcityOutput.checkstyleOut(data));
+         data = extractor.extract(xmlFile);
+         log(ConsoleMessage.checkstyleOut(data));
       }
+      return data;
    }
 
    /**
     * Extrahiert Classycle Daten.
     */
-   private void processClassycleData() {
+   private ClassycleModel processClassycleData() {
+      ClassycleModel data = null;
       if (this.classycleXML != null) {
          final File xmlFile = new File(this.classycleXML);
          if (xmlFile.exists()) {
             log("Evaluating Classycle XML-Report: " + xmlFile.getName());
          }
          final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
-         final ClassycleModel data = extractor.extract(xmlFile);
-         log(TeamcityOutput.classycleOut(data));
+         data = extractor.extract(xmlFile);
+         log(ConsoleMessage.classycleOut(data));
       }
+      return data;
    }
 
    /**
     * Extrahiert JaCoCo Daten.
     */
-   private void processJaCoCoData() {
+   private JaCoCoModel processJaCoCoData() {
+      JaCoCoModel data = null;
       if (this.jaCoCoXML != null) {
          final File xmlFile = new File(this.jaCoCoXML);
          if (xmlFile.exists()) {
             log("Evaluating JaCoCo XML-Report: " + xmlFile.getName());
          }
          final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
-         final JaCoCoModel data = extractor.extract(xmlFile);
-         log(TeamcityOutput.jacocoOut(data));
+         data = extractor.extract(xmlFile);
+         log(ConsoleMessage.jaCoCoOut(data));
       }
+      return data;
+   }
+
+   /**
+    * Extrahiert PMD Daten.
+    */
+   private PmdModel processPmdData() {
+      PmdModel data = null;
+      if (this.pmdXML != null) {
+         final File xmlFile = new File(pmdXML);
+         if (xmlFile.exists()) {
+            log("Evaluating PMD XML-Report: " + xmlFile.getName());
+         }
+         final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
+         data = extractor.extract(xmlFile);
+         log(ConsoleMessage.pmdOut(data));
+      }
+      return data;
    }
 
    /**
