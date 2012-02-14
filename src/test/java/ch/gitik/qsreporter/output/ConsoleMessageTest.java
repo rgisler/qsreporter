@@ -31,7 +31,7 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  * 
  * @author Roland Gisler
  */
-public class ConsoleMessageTest extends ConsoleMessage {
+public class ConsoleMessageTest {
 
    @Test
    public void testCheckstyleOut() {
