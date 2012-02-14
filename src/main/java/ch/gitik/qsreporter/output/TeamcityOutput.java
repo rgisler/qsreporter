@@ -66,6 +66,12 @@ public final class TeamcityOutput {
    }
 
    /**
+    * Privater Konstruktor.
+    */
+   private TeamcityOutput() {
+   }
+
+   /**
     * Erzeugt Checkstyle ServiceMessages fuer TeamCity.
     * @param data
     *           Checkstyle Daten.

@@ -58,9 +58,9 @@ public class QSReporterTask extends Task {
       final JaCoCoModel jacocoData = this.processJaCoCoData();
       final PmdModel pmdData = this.processPmdData();
 
-      String teamcity = this.getProject().getProperty("teamcity.buildConfName");
-      if (teamcity != null) {
-         log("Teamcity-Server detected, Build-Configuration: '" + teamcity + "'");
+      final String teamcityConfig = this.getProject().getProperty("teamcity.buildConfName");
+      if (teamcityConfig != null) {
+         log("Teamcity-Server detected, Build-Configuration: '" + teamcityConfig + "'");
          if (checkstyleData != null) {
             log(TeamcityOutput.checkstyleOut(checkstyleData));
          }
@@ -78,6 +78,7 @@ public class QSReporterTask extends Task {
 
    /**
     * Extrahiert Checkstyle Daten.
+    * @return CheckstyleDaten.
     */
    private CheckstyleModel processCheckstyleData() {
       CheckstyleModel data = null;
@@ -95,6 +96,7 @@ public class QSReporterTask extends Task {
 
    /**
     * Extrahiert Classycle Daten.
+    * @return ClassycleDaten.
     */
    private ClassycleModel processClassycleData() {
       ClassycleModel data = null;
@@ -112,6 +114,7 @@ public class QSReporterTask extends Task {
 
    /**
     * Extrahiert JaCoCo Daten.
+    * @return JaCoCoDaten.
     */
    private JaCoCoModel processJaCoCoData() {
       JaCoCoModel data = null;
@@ -129,6 +132,7 @@ public class QSReporterTask extends Task {
 
    /**
     * Extrahiert PMD Daten.
+    * @return PMD-Daten.
     */
    private PmdModel processPmdData() {
       PmdModel data = null;

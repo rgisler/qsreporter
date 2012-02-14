@@ -25,12 +25,18 @@ import ch.gitik.qsreporter.pmd.PmdModel;
 /**
  * @author Roland Gisler
  */
-public class ConsoleMessage {
+public final class ConsoleMessage {
 
    private static final String HORIZBAR = "+------------+----------------------------------------------------------------------+\n";
 
    private static final int BUFFER_SIZE = 200;
 
+   /**
+    * Privater Konstruktor.
+    */
+   private ConsoleMessage() {
+   }
+   
    /**
     * Erzeugt Checkstyle ServiceMessages fuer TeamCity.
     * @param data
