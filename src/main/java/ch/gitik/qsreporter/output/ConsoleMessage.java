@@ -71,7 +71,7 @@ public final class ConsoleMessage {
       message.append(" - Classes: ");
       message.append(data.getClazz());
       message.append(" - Cycles: ");
-      message.append(data.getCycle());
+      message.append(data.getClassCycle());
       message.append('\n');
       message.append(HORIZBAR);
       return message.toString();

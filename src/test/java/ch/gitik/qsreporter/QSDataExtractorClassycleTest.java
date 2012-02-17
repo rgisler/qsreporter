@@ -43,7 +43,7 @@ public class QSDataExtractorClassycleTest {
       assertNotNull(data);
       assertEquals(5,data.getPackage());
       assertEquals(19,data.getClazz());
-      assertEquals(0,data.getCycle());
+      assertEquals(0,data.getClassCycle());
    }
 
 }

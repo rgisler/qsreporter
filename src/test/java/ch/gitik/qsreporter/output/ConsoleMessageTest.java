@@ -60,7 +60,7 @@ public class ConsoleMessageTest {
 
    @Test
    public void testClassycleOut() {
-      ClassycleModel model = new ClassycleModel(10, 60, 2);
+      ClassycleModel model = new ClassycleModel(10, 60, 2, 1);
       String console = ConsoleMessage.classycleOut(model);
       System.out.println(console);
       assertNotNull(console);

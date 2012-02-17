@@ -91,10 +91,14 @@ public class QSDataExtractorClassycle extends AbstractDataExtractor {
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
       final int classSensor = ((Double) resultNumber).intValue();
 
+      expression = xpath.compile("count(//packages/packageCycle)");
+      resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
+      final int packageCycleSensor = ((Double) resultNumber).intValue();
+
       expression = xpath.compile("count(//cycles/cylcle)");
       resultNumber = expression.evaluate(xmlDoc, XPathConstants.NUMBER);
-      final int cycleSensor = ((Double) resultNumber).intValue();
+      final int classCycleSensor = ((Double) resultNumber).intValue();
 
-      return new ClassycleModel(packageSensor, classSensor, cycleSensor);
+      return new ClassycleModel(packageSensor, classSensor, packageCycleSensor, classCycleSensor);
    }
 }

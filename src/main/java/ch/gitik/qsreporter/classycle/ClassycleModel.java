@@ -16,7 +16,7 @@
 package ch.gitik.qsreporter.classycle;
 
 /**
- * Datenmodell fuer Checkstyle.
+ * Datenmodell fuer Classycle.
  * @author Roland Gisler
  */
 public final class ClassycleModel {
@@ -25,7 +25,9 @@ public final class ClassycleModel {
 
    private final int classCount;
 
-   private final int cylcleCount;
+   private final int packageCycleCount;
+
+   private final int classCycleCount;
 
    /**
     * Konstruktor.
@@ -33,14 +35,14 @@ public final class ClassycleModel {
     *           Anzahl Packages.
     * @param pClass
     *           Anzahl Klassen.
-    * @param pCycle
+    * @param packageCycle
     *           Anzahl Cycles.
     */
-   public ClassycleModel(final int pPackage, final int pClass,
-         final int pCycle) {
+   public ClassycleModel(final int pPackage, final int pClass, final int packageCycle, final int classCycle) {
       this.packageCount = pPackage;
       this.classCount = pClass;
-      this.cylcleCount = pCycle;
+      this.packageCycleCount = packageCycle;
+      this.classCycleCount = classCycle;
    }
 
    /**
@@ -60,11 +62,19 @@ public final class ClassycleModel {
    }
 
    /**
-    * Liefert Anzahl Cylcles zurueck.
-    * @return Anzahl Cylcles.
+    * Liefert Anzahl Package Cylcles zurueck.
+    * @return Anzahl Package Cylcles.
     */
-   public int getCycle() {
-      return this.cylcleCount;
+   public int getPackageCycle() {
+      return this.packageCycleCount;
+   }
+
+   /**
+    * Liefert Anzahl Class Cylcles zurueck.
+    * @return Anzahl Class Cylcles.
+    */
+   public int getClassCycle() {
+      return this.classCycleCount;
    }
 
    /*
@@ -78,7 +88,9 @@ public final class ClassycleModel {
       buffer.append(',');
       buffer.append(this.classCount);
       buffer.append(',');
-      buffer.append(this.cylcleCount);
+      buffer.append(this.packageCycleCount);
+      buffer.append(',');
+      buffer.append(this.classCycleCount);
       buffer.append(']');
       return buffer.toString();
    }

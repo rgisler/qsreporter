@@ -28,21 +28,22 @@ public class ClassycleModelTest {
 
    @Test
    public void testClassycleModel() {
-      ClassycleModel model = new ClassycleModel(0, 0, 0);
+      ClassycleModel model = new ClassycleModel(0, 0, 0, 0);
       assertNotNull(model);
    }
 
    @Test
    public void testGetter() {
-      ClassycleModel model = new ClassycleModel(24, 25, 26);
+      ClassycleModel model = new ClassycleModel(24, 25, 26, 27);
       assertEquals(24, model.getPackage());
       assertEquals(25, model.getClazz());
-      assertEquals(26, model.getCycle());
+      assertEquals(26, model.getPackageCycle());
+      assertEquals(27, model.getClassCycle());
    }
 
    @Test
    public void testToString() {
-      ClassycleModel model = new ClassycleModel(0, 0, 0);
+      ClassycleModel model = new ClassycleModel(0, 0, 0, 0);
       assertNotNull(model.toString());
    }
 }
