@@ -105,33 +105,25 @@ public class QSDataExtractorJaCoCo extends AbstractDataExtractor {
 
       for (int i = 0; i < nodesType.getLength(); i++) {
          typeNode = nodesType.item(i);
+         String type = typeNode.getNodeValue();
 
-         switch (typeNode.getNodeValue()) {
-         case "CLASS":
+         if ("CLASS".equals(type)) {
             classData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
                   Integer.valueOf(nodesMissed.item(i).getNodeValue()));
-            break;
-         case "METHOD":
+         } else if ("METHOD".equals(type)) {
             methodeData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
                   Integer.valueOf(nodesMissed.item(i).getNodeValue()));
-            break;
-         case "BRANCH":
+         } else if ("BRANCH".equals(type)) {
             branchData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
                   Integer.valueOf(nodesMissed.item(i).getNodeValue()));
-            break;
-         case "LINE":
+         } else if ("LINE".equals(type)) {
             lineData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
                   Integer.valueOf(nodesMissed.item(i).getNodeValue()));
-            break;
-         case "INSTRUCTION":
+         } else if ("INSTRUCTION".equals(type)) {
             instructionData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
                   Integer.valueOf(nodesMissed.item(i).getNodeValue()));
-            break;
-         default:
-            // Unbekannte Elemente ignorieren
          }
       }
       return new JaCoCoModel(classData, methodeData, branchData, lineData, instructionData);
    }
-
 }
