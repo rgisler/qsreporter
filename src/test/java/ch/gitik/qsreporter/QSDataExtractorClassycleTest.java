@@ -37,7 +37,7 @@ public class QSDataExtractorClassycleTest {
     */
    @Test
    public void testGetDataValid() {
-      final File file = new File("cfg/testdata/Classycle.xml");
+      final File file = new File("cfg/testdata/classycle.xml");
       final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
       final ClassycleModel data = extractor.extract(file);
       assertNotNull(data);
