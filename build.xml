@@ -59,7 +59,7 @@
    <property name="distname" value="${proj.name}-${proj.version}" />
    <property name="coverage.data" value="${coverage}/jacoco.exec" />
    <property name="checkstyle.config.file" value="${libdev}/checkstyle/cfg/checkstyle_gitik.xml" />
-   <property name="pmd.config.file" value="${libdev}/pmd/cfg/pmd_gitik.xml" />
+   <property name="pmd.config.file" value="pmd_gitik.xml" />
 
    <!-- define runtime libraries -->
    <path id="libset">
@@ -73,6 +73,7 @@
       <fileset dir="${libdev}">
          <include name="**/*.jar" />
       </fileset>
+      <pathelement path="${libdev}/pmd/cfg"/>
    </path>
 
    <!-- Taskdef for coverage -->
@@ -223,7 +224,7 @@
       <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="libsetdev" />
       <mkdir dir="${pmd}" />
       <pmd rulesetfiles="${pmd.config.file}">
-         <formatter type="xml" toFile="${pmd}/pmd.xml" linkPrefix="../java2html/" />
+         <formatter type="xml" toFile="${pmd}/pmd.xml" />
          <fileset dir="${src.main}">
             <include name="**/*.java" />
          </fileset>
