@@ -105,8 +105,7 @@ public class QSDataExtractorJaCoCo extends AbstractDataExtractor {
 
       for (int i = 0; i < nodesType.getLength(); i++) {
          typeNode = nodesType.item(i);
-         String type = typeNode.getNodeValue();
-
+         final String type = typeNode.getNodeValue();
          if ("CLASS".equals(type)) {
             classData = new JaCoCoSensor(Integer.valueOf(nodesCovered.item(i).getNodeValue()),
                   Integer.valueOf(nodesMissed.item(i).getNodeValue()));
