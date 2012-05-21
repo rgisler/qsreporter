@@ -70,7 +70,9 @@ public final class ConsoleMessage {
       message.append(data.getPackage());
       message.append(" - Classes: ");
       message.append(data.getClazz());
-      message.append(" - Cycles: ");
+      message.append(" - Package Cycles: ");
+      message.append(data.getPackageCycle());
+      message.append(" - Class Cycles: ");
       message.append(data.getClassCycle());
       message.append('\n');
       message.append(HORIZBAR);
