@@ -34,15 +34,15 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  */
 public class QSReporterTask extends Task {
 
-   private boolean verbose = false;
+   private boolean verbose;
 
-   private String jaCoCoXML = null;
+   private String jaCoCoXML;
 
-   private String checkstyleXML = null;
+   private String checkstyleXML;
 
-   private String classycleXML = null;
+   private String classycleXML;
 
-   private String pmdXML = null;
+   private String pmdXML;
 
    /*
     * @see org.apache.tools.ant.Task#execute()
