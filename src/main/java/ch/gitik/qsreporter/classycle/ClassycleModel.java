@@ -36,7 +36,9 @@ public final class ClassycleModel {
     * @param pClass
     *           Anzahl Klassen.
     * @param packageCycle
-    *           Anzahl Cycles.
+    *           Anzahl Packagecycles.
+    * @param classCycle
+    *           Anzahl Classcycles.
     */
    public ClassycleModel(final int pPackage, final int pClass, final int packageCycle, final int classCycle) {
       this.packageCount = pPackage;
