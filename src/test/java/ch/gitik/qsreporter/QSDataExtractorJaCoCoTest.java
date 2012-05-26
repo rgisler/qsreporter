@@ -60,4 +60,12 @@ public class QSDataExtractorJaCoCoTest {
       assertEquals(81, data.getLine().getPercent());
       assertEquals(86, data.getInstruction().getPercent());
    }
+
+   @Test
+   public void testGetDataInvalid() {
+      final File file = new File("cfg/testdata/invalid.xml");
+      final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
+      final JaCoCoModel data = extractor.extract(file);
+      assertNull(data);
+   }
 }

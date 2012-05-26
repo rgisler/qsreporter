@@ -45,4 +45,11 @@ public class QSDataExtractorCheckstyleTest {
       assertEquals(0, data.getInfo());
    }
 
+   @Test
+   public void testGetDataInvalid() {
+      final File file = new File("cfg/testdata/invalid.xml");
+      final QSDataExtractorCheckstyle extractor = new QSDataExtractorCheckstyle();
+      final CheckstyleModel data = extractor.extract(file);
+      assertNull(data);
+   }
 }

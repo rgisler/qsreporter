@@ -17,6 +17,7 @@ package ch.gitik.qsreporter;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.io.File;
 
@@ -41,12 +42,19 @@ public class QSDataExtractorPmdTest {
       final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
       final PmdModel data = extractor.extract(file);
       assertNotNull(data);
-      
-      assertEquals(0,data.getLevel1());
-      assertEquals(0,data.getLevel2());
-      assertEquals(12,data.getLevel3());
-      assertEquals(6,data.getLevel4());
-      assertEquals(0,data.getLevel5());
+
+      assertEquals(0, data.getLevel1());
+      assertEquals(0, data.getLevel2());
+      assertEquals(12, data.getLevel3());
+      assertEquals(6, data.getLevel4());
+      assertEquals(0, data.getLevel5());
    }
 
+   @Test
+   public void testGetDataInValid() {
+      final File file = new File("cfg/testdata/invalid.xml");
+      final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
+      final PmdModel data = extractor.extract(file);
+      assertNull(data);
+   }
 }

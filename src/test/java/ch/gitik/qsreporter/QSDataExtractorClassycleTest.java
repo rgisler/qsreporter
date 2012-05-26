@@ -15,12 +15,12 @@
  */
 package ch.gitik.qsreporter;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.io.File;
 
 import org.junit.Test;
+import org.xml.sax.SAXParseException;
 
 import ch.gitik.qsreporter.classycle.ClassycleModel;
 
@@ -46,4 +46,11 @@ public class QSDataExtractorClassycleTest {
       assertEquals(0,data.getClassCycle());
    }
 
+   @Test
+   public void testGetDataInvalid() {
+      final File file = new File("cfg/testdata/invalid.xml");
+      final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
+      final ClassycleModel data = extractor.extract(file);
+      assertNull(data);
+   }
 }
