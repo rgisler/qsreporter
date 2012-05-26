@@ -99,7 +99,9 @@ public final class TeamcityOutput {
       message.append('\n');
       message.append(new ServiceMessage("classycle.class", data.getClazz()));
       message.append('\n');
-      message.append(new ServiceMessage("classycle.cycle", data.getClassCycle()));
+      message.append(new ServiceMessage("classycle.packagecycle", data.getPackageCycle()));
+      message.append('\n');
+      message.append(new ServiceMessage("classycle.classcycle", data.getClassCycle()));
       return message.toString();
    }
 

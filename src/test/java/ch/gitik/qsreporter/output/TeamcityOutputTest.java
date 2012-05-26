@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
 import ch.gitik.qsreporter.pmd.PmdModel;
@@ -78,4 +79,18 @@ public class TeamcityOutputTest {
       assertTrue(message.toString().indexOf("'555'") > 0);
    }
 
+   /**
+    * Test method for
+    * {@link ch.gitik.qsreporter.output.TeamcityOutput#classycle(ch.gitik.qsreporter.classycle.ClassycleModel)}
+    * .
+    */
+   @Test
+   public final void testClassycleOut() {
+      ClassycleModel model = new ClassycleModel(111, 222, 333, 444);
+      String message = TeamcityOutput.classycleOut(model);
+      assertTrue(message.toString().indexOf("'111'") > 0);
+      assertTrue(message.toString().indexOf("'222'") > 0);
+      assertTrue(message.toString().indexOf("'333'") > 0);
+      assertTrue(message.toString().indexOf("'444'") > 0);
+   }
 }
