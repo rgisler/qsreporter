@@ -24,6 +24,7 @@ import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
+import ch.gitik.qsreporter.output.TeamcityOutput.ServiceMessage;
 import ch.gitik.qsreporter.pmd.PmdModel;
 
 /**
@@ -53,8 +54,8 @@ public class TeamcityOutputTest {
     */
    @Test
    public final void testJacocoOut() {
-      JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80),
-            new JaCoCoSensor(30, 70), new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
+      JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80), new JaCoCoSensor(30, 70),
+            new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
       String message = TeamcityOutput.jacocoOut(model);
       assertTrue(message.toString().indexOf("'10'") > 0);
       assertTrue(message.toString().indexOf("'20'") > 0);
@@ -92,5 +93,17 @@ public class TeamcityOutputTest {
       assertTrue(message.toString().indexOf("'222'") > 0);
       assertTrue(message.toString().indexOf("'333'") > 0);
       assertTrue(message.toString().indexOf("'444'") > 0);
+   }
+
+   @Test
+   public void testServiceMessageValid() {
+      TeamcityOutput.ServiceMessage sm = new TeamcityOutput.ServiceMessage("key", 1);
+      assertTrue(sm.toString().indexOf("key") > 0);
+   }
+
+   @Test
+   public void testServiceMessageInValid() {
+      TeamcityOutput.ServiceMessage sm = new TeamcityOutput.ServiceMessage(null, 1);
+      assertTrue(sm.toString().indexOf("unknown.key") > 0);
    }
 }

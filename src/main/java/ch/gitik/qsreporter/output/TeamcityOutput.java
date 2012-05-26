@@ -33,7 +33,7 @@ public final class TeamcityOutput {
    /**
     * Hilfsklasse fuer ServiceMessage.
     */
-   private static class ServiceMessage {
+   public static class ServiceMessage {
 
       private final String key;
 
