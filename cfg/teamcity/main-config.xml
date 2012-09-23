@@ -26,7 +26,8 @@
   <graph title="Classycle" defaultFilters="showFailed" hideFilters="" seriesTitle="Item">
     <valueType key="classycle.package" title="Packages" />
     <valueType key="classycle.class" title="Classes" />
-    <valueType key="classycle.cycle" title="Cycles" />
+    <valueType key="classycle.packagecycle" title="Package Cycles" />
+    <valueType key="classycle.classcycle" title="Class Cycles" />
   </graph>
   <graph title="Coverage" defaultFilters="showFailed" hideFilters="" seriesTitle="Coverage Type">
     <valueType key="coverage.class" title="Classes" />
