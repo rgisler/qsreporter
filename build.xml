@@ -176,7 +176,7 @@
          <manifest>
             <attribute name="Implementation-Title" value="${proj.name}" />
             <attribute name="Implementation-Version" value="${proj.version}" />
-            <attribute name="Implementation-Vendor" value="HSLU" />
+            <attribute name="Implementation-Vendor" value="Gisler iNFORMATiK" />
             <attribute name="Implementation-User" value="${proj.autor}" />
             <attribute name="Built-By" value="${proj.autor}" />
             <attribute name="Sealed" value="false" />
