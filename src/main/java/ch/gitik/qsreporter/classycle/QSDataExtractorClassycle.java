@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.gitik.qsreporter;
+package ch.gitik.qsreporter.classycle;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +29,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import ch.gitik.qsreporter.classycle.ClassycleModel;
+import ch.gitik.qsreporter.AbstractDataExtractor;
 
 /**
  * @author Roland Gisler

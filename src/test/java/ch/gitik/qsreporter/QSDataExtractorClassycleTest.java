@@ -23,6 +23,7 @@ import org.junit.Test;
 import org.xml.sax.SAXParseException;
 
 import ch.gitik.qsreporter.classycle.ClassycleModel;
+import ch.gitik.qsreporter.classycle.QSDataExtractorClassycle;
 
 /**
  * @author Roland Gisler
@@ -32,7 +33,7 @@ public class QSDataExtractorClassycleTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.QSDataExtractorClassycle#getData(org.w3c.dom.Document)}
+    * {@link ch.gitik.qsreporter.classycle.QSDataExtractorClassycle#getData(org.w3c.dom.Document)}
     * .
     */
    @Test

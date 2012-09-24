@@ -22,6 +22,7 @@ import java.io.File;
 import org.junit.Test;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.checkstyle.QSDataExtractorCheckstyle;
 
 /**
  * @author Roland Gisler
@@ -31,7 +32,7 @@ public class QSDataExtractorCheckstyleTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.QSDataExtractorCheckstyle#getData(org.w3c.dom.Document)}
+    * {@link ch.gitik.qsreporter.checkstyle.QSDataExtractorCheckstyle#getData(org.w3c.dom.Document)}
     * .
     */
    @Test

@@ -22,6 +22,7 @@ import java.io.File;
 import org.junit.Test;
 
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.jacoco.QSDataExtractorJaCoCo;
 
 /**
  * 

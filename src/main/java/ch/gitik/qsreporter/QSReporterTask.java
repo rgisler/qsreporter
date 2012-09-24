@@ -22,11 +22,15 @@ import java.io.File;
 import org.apache.tools.ant.Task;
 
 import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
+import ch.gitik.qsreporter.checkstyle.QSDataExtractorCheckstyle;
 import ch.gitik.qsreporter.classycle.ClassycleModel;
+import ch.gitik.qsreporter.classycle.QSDataExtractorClassycle;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
+import ch.gitik.qsreporter.jacoco.QSDataExtractorJaCoCo;
 import ch.gitik.qsreporter.output.ConsoleMessage;
 import ch.gitik.qsreporter.output.TeamcityOutput;
 import ch.gitik.qsreporter.pmd.PmdModel;
+import ch.gitik.qsreporter.pmd.QSDataExtractorPmd;
 
 /**
  * QSReporter Ant Task.

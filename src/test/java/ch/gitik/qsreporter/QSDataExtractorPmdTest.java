@@ -24,6 +24,7 @@ import java.io.File;
 import org.junit.Test;
 
 import ch.gitik.qsreporter.pmd.PmdModel;
+import ch.gitik.qsreporter.pmd.QSDataExtractorPmd;
 
 /**
  * @author Roland Gisler
@@ -33,7 +34,7 @@ public class QSDataExtractorPmdTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.QSDataExtractorPmd#getData(org.w3c.dom.Document)}
+    * {@link ch.gitik.qsreporter.pmd.QSDataExtractorPmd#getData(org.w3c.dom.Document)}
     * .
     */
    @Test
