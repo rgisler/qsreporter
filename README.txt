@@ -15,13 +15,20 @@
  *
  * -----------------------------------------------------------------------
  
- Ant-Task mit welchem die Coveragewerte von JaCoCo aus dem XML 
- ausgelesen werden und als Servicemessages fÃ¼r Teamcity ausgegeben
- werden. Somit kÃ¶nnen diese in Custom-Charts angezeigt werden.
+ Ant-Task mit welchem die Ergebnisse (Summen) von 
  
- Geplante Erweiterungen:
- - Andere Quellen: Checkstyle, PMD, Classycle, Findbugs..
-
+ - Checkstyle
+ - Classycle
+ - PMD 
  
+ sowie von 
+ 
+ - JaCoCo (eclemma, Coverage)
+ 
+ aus deren XML-Reports gelesen und auf der Konsole ausgegeben werden.
+ Damit hat man einen einfachen Überblick was sich verändert hat.
   
- 
+ Zusätzlich detektiert der Task ob er auf einem TeamCity-Buildagent 
+ ausgeführt wird und produziert automatisch TeamCity Servicemessages,
+ welche wiederum für eigene Statistiken in TeamCity verwendet werden
+ können.
