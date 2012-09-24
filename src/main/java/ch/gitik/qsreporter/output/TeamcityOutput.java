@@ -60,7 +60,7 @@ public final class TeamcityOutput {
        * @see java.lang.Object#toString()
        */
       @Override
-      public String toString() {
+      public final String toString() {
          return "##teamcity[buildStatisticValue key='" + key + "' value='" + value + "']";
       }
    }
