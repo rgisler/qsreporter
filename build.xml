@@ -325,14 +325,12 @@
          <zipfileset dir="${basedir}" prefix="${distname}">
             <include name="README" />
          </zipfileset>
-         <zipfileset dir="${bin}" prefix="${distname}/bin">
-            <include name="*" />
-         </zipfileset>
          <zipfileset dir="${target}/lib" prefix="${distname}/lib">
             <include name="*.jar" />
          </zipfileset>
          <zipfileset dir="${lib}" prefix="${distname}/lib">
             <include name="*.jar" />
+            <exclude name="ant*.jar" />
          </zipfileset>
          <zipfileset dir="${javadoc}" prefix="${distname}/doc">
             <include name="**/*.*" />
