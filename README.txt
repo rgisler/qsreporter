@@ -32,3 +32,5 @@
  ausgeführt wird und produziert automatisch TeamCity Servicemessages,
  welche wiederum für eigene Statistiken in TeamCity verwendet werden
  können.
+ 
+ September 2012, Roland Gisler, Gisler iNFORMATiK
