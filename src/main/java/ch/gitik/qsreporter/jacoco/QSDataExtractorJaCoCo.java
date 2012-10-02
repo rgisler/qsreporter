@@ -96,11 +96,11 @@ public class QSDataExtractorJaCoCo extends AbstractDataExtractor {
       final NodeList nodesMissed = (NodeList) resultMissed;
 
       Node typeNode;
-      JaCoCoSensor classData = null;
-      JaCoCoSensor methodeData = null;
-      JaCoCoSensor branchData = null;
-      JaCoCoSensor lineData = null;
-      JaCoCoSensor instructionData = null;
+      JaCoCoSensor classData = new JaCoCoSensor(0, 0);
+      JaCoCoSensor methodeData = new JaCoCoSensor(0, 0);
+      JaCoCoSensor branchData = new JaCoCoSensor(0, 0);
+      JaCoCoSensor lineData = new JaCoCoSensor(0, 0);
+      JaCoCoSensor instructionData = new JaCoCoSensor(0, 0);
 
       for (int i = 0; i < nodesType.getLength(); i++) {
          typeNode = nodesType.item(i);
