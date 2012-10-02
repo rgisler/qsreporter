@@ -69,4 +69,35 @@ public class QSDataExtractorJaCoCoTest {
       final JaCoCoModel data = extractor.extract(file);
       assertNull(data);
    }
+
+   @Test
+   public void testGetDataValidZero() {
+      final File file = new File("cfg/testdata/coverage-empty.xml");
+      final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
+      final JaCoCoModel data = extractor.extract(file);
+      assertNotNull(data);
+      assertEquals(0, data.getClazz().getCoverage());
+      assertEquals(0, data.getMethode().getCoverage());
+      assertEquals(0, data.getBranch().getCoverage());
+      assertEquals(0, data.getLine().getCoverage());
+      assertEquals(0, data.getInstruction().getCoverage());
+
+      assertEquals(4, data.getClazz().getMissed());
+      assertEquals(9, data.getMethode().getMissed());
+      assertEquals(0, data.getBranch().getMissed());
+      assertEquals(19, data.getLine().getMissed());
+      assertEquals(111, data.getInstruction().getMissed());
+
+      assertEquals(4, data.getClazz().getTotal());
+      assertEquals(9, data.getMethode().getTotal());
+      assertEquals(0, data.getBranch().getTotal());
+      assertEquals(19, data.getLine().getTotal());
+      assertEquals(111, data.getInstruction().getTotal());
+
+      assertEquals(0, data.getClazz().getPercent());
+      assertEquals(0, data.getMethode().getPercent());
+      assertEquals(0, data.getBranch().getPercent());
+      assertEquals(0, data.getLine().getPercent());
+      assertEquals(0, data.getInstruction().getPercent());
+   }
 }
