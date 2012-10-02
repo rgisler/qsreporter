@@ -29,10 +29,10 @@
       </header>
       <section>
         <h2>Was ist das?</h2>
-		<p>
-			QS-Reporter ist ein kleiner Task für Apache Ant, welcher die Resultate von verschiedenen 
-			QS-Reportwerkzeugen aus deren XML-Reports ausliest und auf der Konsole ausgibt:
-		</p>
+        <p>
+            QS-Reporter ist ein kleiner Task für Apache Ant, welcher die Resultate von verschiedenen 
+            QS-Reportwerkzeugen aus deren XML-Reports ausliest und auf der Konsole ausgibt:
+        </p>
 <pre><code>...
 [qsreporter] Evaluating JaCoCo XML-Report: coverage.xml
 [qsreporter] +------------+----------------------------------------------------------------------+
@@ -40,11 +40,11 @@
 [qsreporter] +------------+----------------------------------------------------------------------+
 ...
 </code></pre>
-		<p>
-			Damit hat man die Werte im Buildlog jederzeit im Blick, ohne dass man die Reports öffnen muss.
-			Wirklich interessant wird <code>qsreporter</code> aber beim Einsatz von TeamCity. Der Task detektiert
-			wenn er auf einem TeamCityagent ausgeführt wird, und produziert dann automatisch Teamcity Servicemessages: 
-		</p>
+        <p>
+            Damit hat man die Werte im Buildlog jederzeit im Blick, ohne dass man die Reports öffnen muss.
+            Wirklich interessant wird <code>qsreporter</code> aber beim Einsatz von TeamCity. Der Task detektiert
+            wenn er auf einem TeamCityagent ausgeführt wird, und produziert dann automatisch Teamcity Servicemessages: 
+        </p>
 <pre><code>...
 [16:30:06] [qsreporter] Teamcity-Server detected, Build-Configuration: 'qsreporter'
 [16:30:06] [qsreporter] ##teamcity[buildStatisticValue key='checkstyle.error' value='1']
@@ -52,26 +52,37 @@
 [16:30:06] [qsreporter] ##teamcity[buildStatisticValue key='checkstyle.info' value='0']
 ...
 </code></pre>
-		<p>
-			Damit lassen sich auf dem TeamCity-Server aussagekräftige Statistiken aufbauen.
-		</p>
+        <p>
+            Damit lassen sich auf dem TeamCity-Server aussagekräftige Statistiken aufbauen.
+        </p>
 
         <h2>Einsatz</h2>
-		<p>
-			Das Projekt selber enthält <code>qsreporter</code>. Verwendung siehe im 
-			<a href="https://github.com/rgisler/qsreporter/blob/master/build.xml"><code>build.xml</code></a>.
-		</p>
+        <p>
+            Das Projekt selber enthält <code>qsreporter</code>. Verwendung siehe im 
+            <a href="https://github.com/rgisler/qsreporter/blob/master/build.xml"><code>build.xml</code></a>.
+        </p>
 
-	<h3>Releases</h3>
-	<p>
-		<ul>
-			<li><a href="releases/qsreporter-1.0.0-bin.zip">Version 1.0.0</a> - Support für Checkstyle, Classycle, PMD und JaCoCo</li>
-		</ul>
-	</p>
-	
-	<h3>Kontakt</h3>
-	<p>
-		<code>qsreporter</code> wird von <a href="mailto:roland.gisler@gisler-informatik.ch">Roland Gisler</a> entwickelt.
-	</p>
+        <h3>Releases</h3>
+        <p>
+            <ul>
+                <li>
+                  <a href="releases/qsreporter-1.0.1-bin.zip">Version 1.0.1</a> - Support für Checkstyle, Classycle, PMD und JaCoCo
+                  <ul>
+                     <li><a href="https://github.com/rgisler/qsreporter/issues/4">#4</a> - Bug bei Coverage von 0% behoben.</li>
+                  </ul>
+               </li>
+                <li>
+                  <a href="releases/qsreporter-1.0.0-bin.zip">Version 1.0.0</a> - Support für Checkstyle, Classycle, PMD und JaCoCo
+                  <ul>
+                     <li>Erster Release.</li>
+                  </ul>
+               </li>
+            </ul>
+        </p>
 
+        <h3>Kontakt</h3>
+        <p>
+            <code>qsreporter</code> wird von <a href="mailto:roland.gisler@gisler-informatik.ch">Roland Gisler</a> entwickelt.
+        </p>
+    </section>
 </html>
