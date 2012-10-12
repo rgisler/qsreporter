@@ -15,10 +15,7 @@
  * limitations under the License.
  */
 -->
-<project name="qsreporter"
-         default="dist"
-         basedir="."
-         xmlns:jacoco="antlib:org.jacoco.ant">
+<project name="qsreporter" default="dist" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
 
    <!-- Properties hierarchisch einlesen -->
    <property file="${basedir}/build.properties" />
@@ -65,23 +62,24 @@
    <!-- calculated properties -->
    <property name="distname" value="${proj.name}-${proj.version}" />
    <property name="coverage.data" value="${coverage}/jacoco.exec" />
-   <property name="checkstyle.config.file"
-             value="${libdev}/checkstyle/cfg/checkstyle_gitik.xml" />
+   <property name="checkstyle.config.file" value="${libdev}/checkstyle/cfg/checkstyle_gitik.xml" />
    <property name="pmd.config.file" value="${libdev}/pmd/cfg/pmd_gitik.xml" />
 
    <!-- define runtime libraries -->
-   <path id="libset">
+   <path id="libset.runtime">
       <fileset dir="${lib}">
          <include name="*.jar" />
       </fileset>
    </path>
 
-   <!-- define build-time libraries (simplified)-->
-   <path id="libsetdev">
+   <!-- define test libraries -->
+   <path id="libset.test">
       <fileset dir="${libdev}">
-         <include name="**/*.jar" />
+         <include name="*.jar" />
       </fileset>
-      <pathelement path="${libdev}/pmd/cfg" />
+      <fileset dir="${libdev}/jacoco">
+         <include name="*.jar" />
+      </fileset>
    </path>
 
    <!-- Taskdef for coverage -->
@@ -90,22 +88,24 @@
    </taskdef>
 
    <!-- Taskdef for QSReporter -->
-   <taskdef name="qsreporter" classname="ch.gitik.qsreporter.QSReporterTask" classpathref="libsetdev" />
+   <taskdef name="qsreporter" classname="ch.gitik.qsreporter.QSReporterTask">
+      <classpath>
+         <fileset dir="${libdev}/qsreporter">
+            <include name="*.jar" />
+         </fileset>
+      </classpath>
+   </taskdef>
 
    <!--====================================================================-->
    <!-- info -->
    <!--====================================================================-->
    <target name="info" description="display runtime version info">
-      <echo message="============================================================="
-            level="info" />
+      <echo message="=============================================================" level="info" />
       <echo message=" Building: ${ant.project.name}" level="info" />
-      <echo message="============================================================="
-            level="info" />
-      <echo message=" Java Version : ${java.version} ${java.vendor} on ${os.name}"
-            level="info" />
+      <echo message="=============================================================" level="info" />
+      <echo message=" Java Version : ${java.version} ${java.vendor} on ${os.name}" level="info" />
       <echo message=" ANT Version  : ${ant.version}" level="info" />
-      <echo message=" Source       : Level ${proj.java.version} (encoding: ${proj.encoding})"
-            level="info" />
+      <echo message=" Source       : Level ${proj.java.version} (encoding: ${proj.encoding})" level="info" />
       <echo message=" UserConfDir  : ${user.home}" level="info" />
    </target>
 
@@ -127,22 +127,13 @@
    <!-- ================================================================== -->
    <!-- Target: comile -->
    <!-- ================================================================== -->
-   <target name="compile"
-           depends="generate"
-           description="compile the source and tests ">
-      <echo message="Compiling for sourcelevel ${proj.java.version} and ${proj.encoding}-encoding..."
-            level="info" />
-      <javac destdir="${classes}"
-             source="${proj.java.version}"
-             target="${proj.java.version}"
-             encoding="${proj.encoding}"
-             debug="yes"
-             includeAntRuntime="false"
-             fork="true">
+   <target name="compile" depends="generate" description="compile the source and tests ">
+      <echo message="Compiling for sourcelevel ${proj.java.version} and ${proj.encoding}-encoding..." level="info" />
+      <javac destdir="${classes}" source="${proj.java.version}" target="${proj.java.version}" encoding="${proj.encoding}" debug="yes" includeAntRuntime="false" fork="true">
          <src path="${src.main}" />
          <src path="${generated}" />
          <classpath>
-            <path refid="libset" />
+            <path refid="libset.runtime" />
          </classpath>
       </javac>
       <copy todir="${classes}">
@@ -151,18 +142,11 @@
             <include name="**/*.xml" />
          </fileset>
       </copy>
-      <javac srcdir="${src.test}"
-             destdir="${test-classes}"
-             source="${proj.java.version}"
-             target="${proj.java.version}"
-             encoding="${proj.encoding}"
-             debug="yes"
-             includeAntRuntime="false"
-             fork="true">
+      <javac srcdir="${src.test}" destdir="${test-classes}" source="${proj.java.version}" target="${proj.java.version}" encoding="${proj.encoding}" debug="yes" includeAntRuntime="false" fork="true">
          <classpath>
             <pathelement path="${classes}" />
-            <path refid="libset" />
-            <path refid="libsetdev" />
+            <path refid="libset.test" />
+            <path refid="libset.runtime" />
          </classpath>
       </javac>
    </target>
@@ -193,12 +177,7 @@
       <mkdir dir="${coverage}" />
       <touch file="${coverage.data}" />
       <jacoco:agent property="test.vm.param" destfile="${coverage.data}" />
-      <junit printsummary="off"
-             haltonfailure="false"
-             fork="true"
-             forkmode="once"
-             showoutput="true"
-             failureproperty="test.failed">
+      <junit printsummary="off" haltonfailure="false" fork="true" forkmode="once" showoutput="true" failureproperty="test.failed">
          <jvmarg value="${test.vm.param}" />
          <sysproperty key="proj.basedir" value="${basedir}" />
          <formatter usefile="false" type="brief" />
@@ -212,8 +191,8 @@
          <classpath>
             <path location="${test-classes}" />
             <path location="${classes}" />
-            <path refid="libset" />
-            <path refid="libsetdev" />
+            <path refid="libset.test" />
+            <path refid="libset.runtime" />
          </classpath>
       </junit>
       <junit.report />
@@ -225,15 +204,18 @@
    <!-- Target: checkstyle -->
    <!-- ================================================================== -->
    <target name="checkstyle" depends="init" description="checkstyle report">
-      <taskdef resource="checkstyletask.properties" classpathref="libsetdev" />
+      <path id="libset.checkstyle">
+         <fileset dir="${libdev}/checkstyle">
+            <include name="*.jar" />
+         </fileset>
+      </path>
+      <taskdef resource="checkstyletask.properties" classpathref="libset.checkstyle" />
       <mkdir dir="${checkstyle}" />
       <checkstyle config="${checkstyle.config.file}" failonviolation="false">
          <fileset dir="${src.main}" includes="**/*.java" />
          <formatter type="xml" toFile="${checkstyle}/checkstyle.xml" />
       </checkstyle>
-      <xslt in="${checkstyle}/checkstyle.xml"
-            out="${checkstyle}/index.html"
-            style="${libdev}/checkstyle/style/checkstyle-noframes-severity-sorted.xsl" />
+      <xslt in="${checkstyle}/checkstyle.xml" out="${checkstyle}/index.html" style="${libdev}/checkstyle/style/checkstyle-noframes-severity-sorted.xsl" />
       <qsreporter checkstylexml="${checkstyle}/checkstyle.xml" />
    </target>
 
@@ -241,18 +223,20 @@
    <!-- Target: classycle -->
    <!-- ================================================================== -->
    <target name="classycle" depends="jar" description="classycle report">
-      <taskdef name="classycleReport"
-               classname="classycle.ant.ReportTask"
-               classpathref="libsetdev" />
+      <path id="libset.classycle">
+         <fileset dir="${libdev}/classycle">
+            <include name="*.jar" />
+         </fileset>
+         <pathelement path="${libdev}/pmd/cfg" />
+      </path>
+      <taskdef name="classycleReport" classname="classycle.ant.ReportTask" classpathref="libset.classycle" />
       <mkdir dir="${classycle}" />
       <classycleReport reportFile="${classycle}/classycle.xml">
          <fileset dir="${target}/lib/">
             <include name="${distname}.jar" />
          </fileset>
       </classycleReport>
-      <xslt in="${classycle}/classycle.xml"
-            out="${classycle}/index.html"
-            style="${libdev}/classycle/style/reportXMLtoHTML.xsl" />
+      <xslt in="${classycle}/classycle.xml" out="${classycle}/index.html" style="${libdev}/classycle/style/reportXMLtoHTML.xsl" />
       <copy todir="${classycle}/images">
          <fileset dir="${libdev}/classycle/images" includes="*.png" />
       </copy>
@@ -263,9 +247,13 @@
    <!-- Target: pmd -->
    <!-- ================================================================== -->
    <target name="pmd" depends="init" description="pmd report">
-      <taskdef name="pmd"
-               classname="net.sourceforge.pmd.ant.PMDTask"
-               classpathref="libsetdev" />
+      <path id="libset.pmd">
+         <fileset dir="${libdev}/pmd">
+            <include name="*.jar" />
+         </fileset>
+         <pathelement path="${libdev}/pmd/cfg" />
+      </path>
+      <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="libset.pmd" />
       <mkdir dir="${pmd}" />
       <pmd rulesetfiles="${pmd.config.file}">
          <formatter type="xml" toFile="${pmd}/pmd.xml" />
@@ -273,9 +261,7 @@
             <include name="**/*.java" />
          </fileset>
       </pmd>
-      <xslt in="${pmd}/pmd.xml"
-            out="${pmd}/index.html"
-            style="${libdev}/pmd/style/pmd-report-per-class.xslt" />
+      <xslt in="${pmd}/pmd.xml" out="${pmd}/index.html" style="${libdev}/pmd/style/pmd-report-per-class.xslt" />
       <qsreporter pmdxml="${pmd}/pmd.xml" />
    </target>
 
@@ -284,16 +270,7 @@
    <!-- ================================================================== -->
    <target name="javadoc" depends="init" description="create JavaDoc">
       <mkdir dir="${javadoc}" />
-      <javadoc defaultexcludes="yes"
-               classpathref="libset"
-               private="true"
-               destdir="${javadoc}"
-               encoding="${proj.encoding}"
-               author="true"
-               version="true"
-               use="true"
-               windowtitle="${proj.name}"
-               overview="${src.main}/overview.html">
+      <javadoc defaultexcludes="yes" classpathref="libset.runtime" private="true" destdir="${javadoc}" encoding="${proj.encoding}" author="true" version="true" use="true" windowtitle="${proj.name}" overview="${src.main}/overview.html">
          <doctitle>
             <![CDATA[<h1>Dokumentation</h1>]]>
          </doctitle>
@@ -317,9 +294,7 @@
    <!-- Hinweis: Spezielle Reihenfolge: QS-Reports auch erstellen wenn   -->
    <!--          Fehler vorhanden sind (compile, test etc.) -->
    <!-- ================================================================== -->
-   <target name="dist"
-           depends="clean, report, jar, build"
-           description="create distributions">
+   <target name="dist" depends="clean, report, jar, build" description="create distributions">
       <mkdir dir="${target}/dist" />
       <zip destfile="${target}/dist/${distname}-bin.zip">
          <zipfileset dir="${basedir}" prefix="${distname}">
@@ -357,7 +332,7 @@
       <java classname="${proj.startclass}">
          <classpath>
             <path location="${target}/lib/${distname}.jar" />
-            <path refid="libset" />
+            <path refid="libset.runtime" />
          </classpath>
       </java>
    </target>
@@ -374,9 +349,7 @@
    <!-- ================================================================== -->
    <!-- Target: reports -->
    <!-- ================================================================== -->
-   <target name="report"
-           depends="checkstyle,pmd,javadoc,classycle"
-           description="complete reports">
+   <target name="report" depends="checkstyle,pmd,javadoc,classycle" description="complete reports">
    </target>
 
    <!-- ================================================================== -->
