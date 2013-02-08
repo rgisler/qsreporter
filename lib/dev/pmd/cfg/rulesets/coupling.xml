@@ -1,26 +1,21 @@
 <?xml version="1.0"?>
-
-<ruleset name="Coupling"
-    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd"
-    xsi:noNamespaceSchemaLocation="http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
-
-  <description>
+<ruleset name="Coupling" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd"
+   xsi:noNamespaceSchemaLocation="http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+   <description>
 Rules which find instances of high or inappropriate coupling between objects and packages.
   </description>
-
-    <rule name="CouplingBetweenObjects"
-    		  since="1.04"
-        message="High amount of different objects as members denotes a high coupling"
-        class="net.sourceforge.pmd.lang.java.rule.coupling.CouplingBetweenObjectsRule"
-          externalInfoUrl="http://pmd.sourceforge.net/rules/java/coupling.html#CouplingBetweenObjects">
-    <description>
+   <rule name="CouplingBetweenObjects" since="1.04"
+      message="High amount of different objects as members denotes a high coupling"
+      class="net.sourceforge.pmd.lang.java.rule.coupling.CouplingBetweenObjectsRule"
+      externalInfoUrl="http://pmd.sourceforge.net/rules/java/coupling.html#CouplingBetweenObjects">
+      <description>
 This rule counts the number of unique attributes, local variables, and return types within an object. 
 A number higher than the specified threshold can indicate a high degree of coupling.
     </description>
-    <priority>3</priority>
-    <example>
+      <priority>3</priority>
+      <example>
 <![CDATA[
 import com.Blah;
 import org.Bar;
@@ -40,20 +35,18 @@ public class Foo {
 }
 ]]>
     </example>
-  </rule>
-
-  <rule name="ExcessiveImports"
-    		  since="1.04"
-     message="A high number of imports can indicate a high degree of coupling within an object."
-     class="net.sourceforge.pmd.lang.java.rule.coupling.ExcessiveImportsRule"
-          externalInfoUrl="http://pmd.sourceforge.net/rules/java/coupling.html#ExcessiveImports">
-     <description>
+   </rule>
+   <rule name="ExcessiveImports" since="1.04"
+      message="A high number of imports can indicate a high degree of coupling within an object."
+      class="net.sourceforge.pmd.lang.java.rule.coupling.ExcessiveImportsRule"
+      externalInfoUrl="http://pmd.sourceforge.net/rules/java/coupling.html#ExcessiveImports">
+      <description>
 A high number of imports can indicate a high degree of coupling within an object. This rule 
 counts the number of unique imports and reports a violation if the count is above the 
 user-specified threshold.
   </description>
-  <priority>3</priority>
-  <example>
+      <priority>3</priority>
+      <example>
       <![CDATA[
 import blah.blah.Baz;
 import blah.blah.Bif;
@@ -64,18 +57,16 @@ public class Foo {
       ]]>
   </example>
    </rule>
-
-    <rule name="LooseCoupling"
-    		 since="0.7"
-          message="Avoid using implementation types like ''{0}''; use the interface instead"
-          class="net.sourceforge.pmd.lang.java.rule.coupling.LooseCouplingRule"
-          externalInfoUrl="http://pmd.sourceforge.net/rules/java/coupling.html#LooseCoupling">
+   <rule name="LooseCoupling" since="0.7"
+      message="Avoid using implementation types like ''{0}''; use the interface instead"
+      class="net.sourceforge.pmd.lang.java.rule.coupling.LooseCouplingRule"
+      externalInfoUrl="http://pmd.sourceforge.net/rules/java/coupling.html#LooseCoupling">
       <description>
 The use of implementation types as object references limits your ability to use alternate
 implementations in the future as requirements change. Whenever available, referencing objects 
 by their interface types provides much more flexibility.
       </description>
-        <priority>3</priority>
+      <priority>3</priority>
       <example>
 <![CDATA[
 	// sub-optimal approach
@@ -93,6 +84,5 @@ public Set getFoo() {
 }
 ]]>
       </example>
-    </rule>
-
- </ruleset>
+   </rule>
+</ruleset>
