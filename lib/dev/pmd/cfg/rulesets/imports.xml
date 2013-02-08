@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
 <ruleset name="Import Statements" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd"
-   xsi:noNamespaceSchemaLocation="http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+   xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
    <description>
 These rules deal with different problems that can occur with import statements.
   </description>
    <rule name="DuplicateImports" since="0.5"
       message="Avoid duplicate imports such as ''{0}''" class="net.sourceforge.pmd.lang.java.rule.imports.DuplicateImportsRule"
-      externalInfoUrl="http://pmd.sourceforge.net/rules/java/imports.html#DuplicateImports">
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.0.2/rules/java/imports.html#DuplicateImports">
       <description>
 Duplicate or overlapping import statements should be avoided.
     </description>
@@ -24,7 +23,7 @@ public class Foo {}
    <rule name="DontImportJavaLang" since="0.5"
       message="Avoid importing anything from the package 'java.lang'"
       class="net.sourceforge.pmd.lang.java.rule.imports.DontImportJavaLangRule"
-      externalInfoUrl="http://pmd.sourceforge.net/rules/java/imports.html#DontImportJavaLang">
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.0.2/rules/java/imports.html#DontImportJavaLang">
       <description>
 Avoid importing anything from the package 'java.lang'.  These classes are automatically imported (JLS 7.5.3).
     </description>
@@ -45,7 +44,7 @@ public class Foo {}
    </rule>
    <rule name="UnusedImports" since="1.0" message="Avoid unused imports such as ''{0}''"
       class="net.sourceforge.pmd.lang.java.rule.imports.UnusedImportsRule"
-      externalInfoUrl="http://pmd.sourceforge.net/rules/java/imports.html#UnusedImports">
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.0.2/rules/java/imports.html#UnusedImports">
       <description>
 Avoid the use of unused import statements to prevent unwanted dependencies.
     </description>
@@ -61,7 +60,7 @@ public class Foo {}
    <rule name="ImportFromSamePackage" since="1.02"
       message="No need to import a type that lives in the same package"
       class="net.sourceforge.pmd.lang.java.rule.imports.ImportFromSamePackageRule"
-      externalInfoUrl="http://pmd.sourceforge.net/rules/java/imports.html#ImportFromSamePackage">
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.0.2/rules/java/imports.html#ImportFromSamePackage">
       <description>
 There is no need to import a type that lives in the same package.
      </description>
@@ -79,7 +78,7 @@ There is no need to import a type that lives in the same package.
    </rule>
    <rule name="TooManyStaticImports" language="java" since="4.1"
       class="net.sourceforge.pmd.lang.rule.XPathRule" message="Too many static imports may lead to messy code"
-      externalInfoUrl="http://pmd.sourceforge.net/rules/java/imports.html#TooManyStaticImports">
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.0.2/rules/java/imports.html#TooManyStaticImports">
       <description><![CDATA[
 If you overuse the static import feature, it can make your program unreadable and 
 unmaintainable, polluting its namespace with all the static members you import. 
@@ -108,7 +107,7 @@ import static Yoko; // Too much !
    <rule name="UnnecessaryFullyQualifiedName" language="java" since="5.0"
       class="net.sourceforge.pmd.lang.java.rule.imports.UnnecessaryFullyQualifiedNameRule"
       message="Unnecessary use of fully qualified name ''{0}'' due to existing import ''{1}''"
-      externalInfoUrl="http://pmd.sourceforge.net/rules/java/imports.html#UnnecessaryFullyQualifiedName">
+      externalInfoUrl="http://pmd.sourceforge.net/pmd-5.0.2/rules/java/imports.html#UnnecessaryFullyQualifiedName">
       <description><![CDATA[
 Import statements allow the use of non-fully qualified names.  The use of a fully qualified name
 which is covered by an import statement is redundant.  Consider using the non-fully qualified name.
