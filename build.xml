@@ -1,6 +1,6 @@
 <!--
  * Copyright 2012 Roland Gisler
- * Hochschule Luzern Technik & Architektur, Switzerland
+ * Gisler iNFORMATiK, Luzern, Switzerland
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,8 +27,8 @@
    <property name="proj.group" value="" />
    <property name="proj.name" value="template" />
    <property name="proj.version" value="0.0.0" />
-   <property name="proj.startclass" value="ch.hslu.demo.DemoApp" />
-   <property name="proj.autor" value="Vorname Nachname" />
+   <property name="proj.startclass" value="" />
+   <property name="proj.autor" value="Roland Gisler" />
    <property name="proj.encoding" value="UTF-8" />
 
    <!-- environment -->
@@ -276,7 +276,7 @@
             <![CDATA[<h1>Dokumentation</h1>]]>
          </doctitle>
          <bottom>
-            <![CDATA[<i>Copyright 2012 Hochschule Luzern Technik & Architektur, Switzerland</i>]]>
+            <![CDATA[<i>Copyright 2012 GiSLER iNFORMATiK, Luzern, Switzerland</i>]]>
          </bottom>
          <fileset dir="${src.main}">
             <include name="**/*.java" />
