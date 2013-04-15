@@ -15,7 +15,6 @@
  */
 package ch.gitik.qsreporter.output;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -24,7 +23,6 @@ import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
-import ch.gitik.qsreporter.output.TeamcityOutput.ServiceMessage;
 import ch.gitik.qsreporter.pmd.PmdModel;
 
 /**

@@ -15,12 +15,13 @@
  */
 package ch.gitik.qsreporter;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.io.File;
 
 import org.junit.Test;
-import org.xml.sax.SAXParseException;
 
 import ch.gitik.qsreporter.classycle.ClassycleModel;
 import ch.gitik.qsreporter.classycle.QSDataExtractorClassycle;
