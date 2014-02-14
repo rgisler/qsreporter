@@ -1,5 +1,5 @@
 <!--
- * Copyright 2012 Roland Gisler
+ * Copyright 2014 Roland Gisler
  * Gisler iNFORMATiK, Luzern, Switzerland
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -56,7 +56,7 @@
    <property name="pmd" location="${target}/pmd" />
 
    <!-- setting general properties -->
-   <property name="proj.java.version" value="1.6" />
+   <property name="proj.java.version" value="1.7" />
 
    <!-- calculated properties -->
    <property name="distname" value="${proj.name}-${proj.version}" />
