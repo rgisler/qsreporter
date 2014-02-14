@@ -24,7 +24,7 @@ import org.junit.Test;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class CheckstyleModelTest {
+public final class CheckstyleModelTest {
 
    @Test
    public void testCheckstyleModel() {

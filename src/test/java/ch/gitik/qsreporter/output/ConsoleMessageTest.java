@@ -28,10 +28,9 @@ import ch.gitik.qsreporter.jacoco.JaCoCoSensor;
 import ch.gitik.qsreporter.pmd.PmdModel;
 
 /**
- * 
  * @author Roland Gisler
  */
-public class ConsoleMessageTest {
+public final class ConsoleMessageTest {
 
    @Test
    public void testCheckstyleOut() {

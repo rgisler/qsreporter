@@ -24,7 +24,7 @@ import org.junit.Test;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class JaCoCoModelTest {
+public final class JaCoCoModelTest {
 
    @Test
    public void testJaCoCoModel() {

@@ -29,7 +29,7 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class TeamcityOutputTest {
+public final class TeamcityOutputTest {
 
    /**
     * Test method for
@@ -37,7 +37,7 @@ public class TeamcityOutputTest {
     * .
     */
    @Test
-   public final void testCheckstyleOut() {
+   public void testCheckstyleOut() {
       CheckstyleModel model = new CheckstyleModel(111, 222, 333);
       String message = TeamcityOutput.checkstyleOut(model);
       assertTrue(message.toString().indexOf("'111'") > 0);
@@ -51,7 +51,7 @@ public class TeamcityOutputTest {
     * .
     */
    @Test
-   public final void testJacocoOut() {
+   public void testJacocoOut() {
       JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80), new JaCoCoSensor(30, 70),
             new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
       String message = TeamcityOutput.jacocoOut(model);
@@ -64,11 +64,10 @@ public class TeamcityOutputTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.output.TeamcityOutput#pmdOut(ch.gitik.qsreporter.pmd.PmdModel)}
-    * .
+    * {@link ch.gitik.qsreporter.output.TeamcityOutput#pmdOut(ch.gitik.qsreporter.pmd.PmdModel)} .
     */
    @Test
-   public final void testPmdOut() {
+   public void testPmdOut() {
       PmdModel model = new PmdModel(111, 222, 333, 444, 555);
       String message = TeamcityOutput.pmdOut(model);
       assertTrue(message.toString().indexOf("'111'") > 0);
@@ -84,7 +83,7 @@ public class TeamcityOutputTest {
     * .
     */
    @Test
-   public final void testClassycleOut() {
+   public void testClassycleOut() {
       ClassycleModel model = new ClassycleModel(111, 222, 333, 444);
       String message = TeamcityOutput.classycleOut(model);
       assertTrue(message.toString().indexOf("'111'") > 0);

@@ -30,12 +30,11 @@ import ch.gitik.qsreporter.classycle.QSDataExtractorClassycle;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class QSDataExtractorClassycleTest {
+public final class QSDataExtractorClassycleTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.classycle.QSDataExtractorClassycle#getData(org.w3c.dom.Document)}
-    * .
+    * {@link ch.gitik.qsreporter.classycle.QSDataExtractorClassycle#getData(org.w3c.dom.Document)} .
     */
    @Test
    public void testGetDataValid() {
@@ -43,9 +42,9 @@ public class QSDataExtractorClassycleTest {
       final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
       final ClassycleModel data = extractor.extract(file);
       assertNotNull(data);
-      assertEquals(5,data.getPackage());
-      assertEquals(19,data.getClazz());
-      assertEquals(0,data.getClassCycle());
+      assertEquals(5, data.getPackage());
+      assertEquals(19, data.getClazz());
+      assertEquals(0, data.getClassCycle());
    }
 
    @Test

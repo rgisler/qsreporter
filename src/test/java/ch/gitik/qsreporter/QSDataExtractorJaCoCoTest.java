@@ -27,10 +27,9 @@ import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.jacoco.QSDataExtractorJaCoCo;
 
 /**
- * 
  * @author Roland Gisler
  */
-public class QSDataExtractorJaCoCoTest {
+public final class QSDataExtractorJaCoCoTest {
 
    @Test
    public void testGetDataValid() {

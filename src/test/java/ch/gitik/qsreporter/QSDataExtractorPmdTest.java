@@ -30,12 +30,11 @@ import ch.gitik.qsreporter.pmd.QSDataExtractorPmd;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class QSDataExtractorPmdTest {
+public final class QSDataExtractorPmdTest {
 
    /**
     * Test method for
-    * {@link ch.gitik.qsreporter.pmd.QSDataExtractorPmd#getData(org.w3c.dom.Document)}
-    * .
+    * {@link ch.gitik.qsreporter.pmd.QSDataExtractorPmd#getData(org.w3c.dom.Document)} .
     */
    @Test
    public void testGetDataValid() {
