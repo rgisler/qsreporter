@@ -26,12 +26,12 @@
  - JaCoCo (eclemma, Coverage)
  
  aus deren XML-Reports gelesen und auf der Konsole ausgegeben werden.
- Damit hat man einen einfachen �berblick was sich ver�ndert hat.
+ Damit hat man einen einfachen Überblick was sich verändert hat.
   
- Zus�tzlich detektiert der Task ob er auf einem TeamCity-Buildagent 
- ausgef�hrt wird und produziert automatisch TeamCity Servicemessages,
- welche wiederum f�r eigene Statistiken in TeamCity verwendet werden
- k�nnen.
+ Zusätzlich detektiert der Task ob er auf einem TeamCity-Buildagent 
+ ausgeführt wird und produziert automatisch TeamCity Servicemessages,
+ welche wiederum für eigene Statistiken in TeamCity verwendet werden
+ können.
  
  Oktober 2012, Roland Gisler, Gisler iNFORMATiK
 
