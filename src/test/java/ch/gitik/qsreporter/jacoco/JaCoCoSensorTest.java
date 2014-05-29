@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class JaCoCoSensorTest {
+public final class JaCoCoSensorTest {
 
    @Test
    public void testJaCoCoSensor() {

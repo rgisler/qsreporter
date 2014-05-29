@@ -30,7 +30,7 @@ import ch.gitik.qsreporter.checkstyle.QSDataExtractorCheckstyle;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class QSDataExtractorCheckstyleTest {
+public final class QSDataExtractorCheckstyleTest {
 
    /**
     * Test method for

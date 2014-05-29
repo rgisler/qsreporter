@@ -24,7 +24,7 @@ import org.junit.Test;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class ClassycleModelTest {
+public final class ClassycleModelTest {
 
    @Test
    public void testClassycleModel() {

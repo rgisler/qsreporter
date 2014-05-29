@@ -15,7 +15,6 @@
  */
 package ch.gitik.qsreporter.pmd;
 
-
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -26,47 +25,47 @@ import org.junit.Test;
  * @author Roland Gisler
  * @version $Revision$
  */
-public class PmdModelTest {
+public final class PmdModelTest {
 
    @Test
    public void testPmdModel() {
-      PmdModel model = new PmdModel(0, 0, 0, 0, 0);
+      final PmdModel model = new PmdModel(0, 0, 0, 0, 0);
       assertNotNull(model);
    }
 
    @Test
    public void testGetterLevel1() {
-      PmdModel model = new PmdModel(11, 22, 33, 44, 55);
+      final PmdModel model = new PmdModel(11, 22, 33, 44, 55);
       assertThat(model.getLevel1(), equalTo(11));
    }
 
    @Test
    public void testGetterLevel2() {
-      PmdModel model = new PmdModel(11, 22, 33, 44, 55);
+      final PmdModel model = new PmdModel(11, 22, 33, 44, 55);
       assertThat(model.getLevel2(), equalTo(22));
    }
 
    @Test
    public void testGetterLevel3() {
-      PmdModel model = new PmdModel(11, 22, 33, 44, 55);
+      final PmdModel model = new PmdModel(11, 22, 33, 44, 55);
       assertThat(model.getLevel3(), equalTo(33));
    }
 
    @Test
    public void testGetterLevel4() {
-      PmdModel model = new PmdModel(11, 22, 33, 44, 55);
+      final PmdModel model = new PmdModel(11, 22, 33, 44, 55);
       assertThat(model.getLevel4(), equalTo(44));
    }
 
    @Test
    public void testGetterLevel5() {
-      PmdModel model = new PmdModel(11, 22, 33, 44, 55);
+      final PmdModel model = new PmdModel(11, 22, 33, 44, 55);
       assertThat(model.getLevel5(), equalTo(55));
    }
 
    @Test
    public void testToString() {
-      PmdModel model = new PmdModel(1, 1, 1, 1, 1);
+      final PmdModel model = new PmdModel(1, 1, 1, 1, 1);
       assertNotNull(model.toString());
    }
 }
