@@ -2,3 +2,4 @@
 /build
 /.sonar
 /target/
+/cov-int/
