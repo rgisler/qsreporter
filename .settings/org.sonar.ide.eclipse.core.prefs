@@ -4,6 +4,10 @@ extraProperties=
 projectArtifactId=qsreporter
 projectBranch=
 projectGroupId=ch.gitik
+<<<<<<< HEAD
 projectKey=qsreporter\:qsreporter
+=======
+projectKey=ch.gitik\:qsreporter
+>>>>>>> refs/heads/master
 serverUrl=http\://gitikdev.cloudapp.net\:9000
 version=2
