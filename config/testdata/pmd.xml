@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2012-02-10T12:21:02.156">
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\AbstractDataExtractor.java">
+<violation beginline="31" endline="31" begincolumn="1" endcolumn="54" rule="UnusedImports" ruleset="Import Statement Rules" package="ch.gitik.qsreporter" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'ch.gitik.qsreporter.checkstyle.CheckstyleModel'
+</violation>
+<violation beginline="31" endline="31" begincolumn="1" endcolumn="54" rule="UnusedImports" ruleset="Type Resolution Rules" package="ch.gitik.qsreporter" externalInfoUrl="http://pmd.sourceforge.net/rules/typeresolution.html#UnusedImports" priority="4">
+Avoid unused imports such as 'ch.gitik.qsreporter.checkstyle.CheckstyleModel'
+</violation>
+<violation beginline="37" endline="73" begincolumn="17" endcolumn="1" rule="AbstractClassWithoutAbstractMethod" ruleset="Design Rules" package="ch.gitik.qsreporter" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#AbstractClassWithoutAbstractMethod" priority="3">
+This abstract class does not have any abstract methods
+</violation>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\QSDataExtractorCheckstyle.java">
+<violation beginline="29" endline="29" begincolumn="1" endcolumn="24" rule="UnusedImports" ruleset="Import Statement Rules" package="ch.gitik.qsreporter" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.w3c.dom.Node'
+</violation>
+<violation beginline="29" endline="29" begincolumn="1" endcolumn="24" rule="UnusedImports" ruleset="Type Resolution Rules" package="ch.gitik.qsreporter" externalInfoUrl="http://pmd.sourceforge.net/rules/typeresolution.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.w3c.dom.Node'
+</violation>
+<violation beginline="30" endline="30" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Import Statement Rules" package="ch.gitik.qsreporter" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.w3c.dom.NodeList'
+</violation>
+<violation beginline="30" endline="30" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Type Resolution Rules" package="ch.gitik.qsreporter" externalInfoUrl="http://pmd.sourceforge.net/rules/typeresolution.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.w3c.dom.NodeList'
+</violation>
+<violation beginline="92" endline="92" begincolumn="7" endcolumn="88" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorCheckstyle" method="getData" variable="errors" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'errors' could be declared final
+</violation>
+<violation beginline="96" endline="96" begincolumn="7" endcolumn="90" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorCheckstyle" method="getData" variable="warnings" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'warnings' could be declared final
+</violation>
+<violation beginline="100" endline="100" begincolumn="7" endcolumn="87" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorCheckstyle" method="getData" variable="infos" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'infos' could be declared final
+</violation>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\QSDataExtractorJaCoCo.java">
+<violation beginline="112" endline="113" begincolumn="25" endcolumn="70" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorJaCoCo" method="getData" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="116" endline="117" begincolumn="27" endcolumn="70" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorJaCoCo" method="getData" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="120" endline="121" begincolumn="26" endcolumn="70" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorJaCoCo" method="getData" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="124" endline="125" begincolumn="24" endcolumn="70" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorJaCoCo" method="getData" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="128" endline="129" begincolumn="31" endcolumn="70" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization Rules" package="ch.gitik.qsreporter" class="QSDataExtractorJaCoCo" method="getData" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+Avoid instantiating new objects inside loops
+</violation>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\QSReporterTask.java">
+<violation beginline="40" endline="41" begincolumn="11" endcolumn="4" rule="UncommentedEmptyConstructor" ruleset="Design Rules" package="ch.gitik.qsreporter" class="QSReporterTask" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UncommentedEmptyConstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\Test.java">
+<violation beginline="43" endline="43" begincolumn="39" endcolumn="57" rule="LongVariable" ruleset="Naming Rules" package="ch.gitik.qsreporter" class="Test" method="main" variable="extractorCheckstyle" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like extractorCheckstyle
+</violation>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\teamcity\ServiceMessage.java">
+<violation beginline="24" endline="37" begincolumn="35" endcolumn="1" rule="UseSingleton" ruleset="Design Rules" package="ch.gitik.qsreporter.teamcity" class="ServiceMessage" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseSingleton" priority="3">
+All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+</violation>
+</file>
+</pmd>

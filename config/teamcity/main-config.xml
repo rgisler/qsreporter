@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server rootURL="http://192.168.0.101:8080">
+  <version number="544" />
+  <db-compact>
+    <scheduler hour="3" minute="0" />
+    <policy type="builds" cleanup-level="ARTIFACTS">
+      <parameters>
+        <param name="keepBuilds.count" value="10" />
+      </parameters>
+    </policy>
+    <options>
+      <option name="preventDependenciesArtifactsFromCleanup" value="false" />
+    </options>
+  </db-compact>
+  <auth-type>
+    <login-module class="jetbrains.buildServer.serverSide.impl.auth.DefaultLoginModule" />
+    <login-description />
+    <guest-login allowed="false" guest-username="guest" />
+    <free-registration allowed="true" />
+  </auth-type>
+  <graph title="Checkstyle" defaultFilters="showFailed" hideFilters="" seriesTitle="Level">
+    <valueType key="checkstyle.error" title="Errors" />
+    <valueType key="checkstyle.warning" title="Warnings" />
+    <valueType key="checkstyle.info" title="Info" />
+  </graph>
+  <graph title="Classycle" defaultFilters="showFailed" hideFilters="" seriesTitle="Item">
+    <valueType key="classycle.package" title="Packages" />
+    <valueType key="classycle.class" title="Classes" />
+    <valueType key="classycle.packagecycle" title="Package Cycles" />
+    <valueType key="classycle.classcycle" title="Class Cycles" />
+  </graph>
+  <graph title="Coverage" defaultFilters="showFailed" hideFilters="" seriesTitle="Coverage Type">
+    <valueType key="coverage.class" title="Classes" />
+    <valueType key="coverage.methode" title="Methods" />
+    <valueType key="coverage.branch" title="Branches" />
+    <valueType key="coverage.line" title="Lines" />
+    <valueType key="coverage.statement" title="Statements" />
+  </graph>
+  <graph title="PMD" defaultFilters="showFailed" hideFilters="" seriesTitle="Level">
+    <valueType key="pmd.level1" title="Level 1" />
+    <valueType key="pmd.level2" title="Level 2" />
+    <valueType key="pmd.level3" title="Level 3" />
+    <valueType key="pmd.level4" title="Level 4" />
+    <valueType key="pmd.level5" title="Level 5" />
+  </graph>
+  <artifacts maxArtifactSize="300000000" />
+  <build-settings executionTimeout="0" />
+  <report-tab title="Code Coverage" startPage="coverage/index.html" />
+  <report-tab title="Checkstyle" startPage="checkstyle/index.html" />
+  <report-tab title="JavaDoc" startPage="javadoc/index.html" />
+  <report-tab title="PMD" startPage="pmd/index.html" />
+  <report-tab title="Classycle" startPage="classycle/index.html" />
+  <comment-transformation>
+    <transformation-pattern search="((https?://|ftp://|file://|mailto:)[\w`~@#$%^&amp;*-=|\/{}()\[\];:&quot;'&lt;&gt;?\.]+(?&lt;=[^\.,;&quot;'`\)\]}]))" replace="&lt;a target=&quot;_blank&quot; title=&quot;Click to open this link in a new window&quot; href=&quot;$1&quot;&gt;$1&lt;/a&gt;" description="Links transformation (default)" />
+    <transformation-pattern search="(&#xD;?&#xA;|&#xD;)" replace="&lt;br&gt;" description="Line feed transformation (default)" />
+  </comment-transformation>
+  <artifacts maxArtifactSize="300000000" />
+  <build-settings executionTimeout="0" />
+</server>
+

@@ -33,7 +33,7 @@ public final class QSDataExtractorJaCoCoTest {
 
    @Test
    public void testGetDataValid() {
-      final File file = new File("cfg/testdata/coverage.xml");
+      final File file = new File("config/testdata/coverage.xml");
       final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
       final JaCoCoModel data = extractor.extract(file);
       assertNotNull(data);
@@ -65,7 +65,7 @@ public final class QSDataExtractorJaCoCoTest {
 
    @Test
    public void testGetDataInvalid() {
-      final File file = new File("cfg/testdata/invalid.xml");
+      final File file = new File("config/testdata/invalid.xml");
       final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
       final JaCoCoModel data = extractor.extract(file);
       assertNull(data);
@@ -73,7 +73,7 @@ public final class QSDataExtractorJaCoCoTest {
 
    @Test
    public void testGetDataValidZero() {
-      final File file = new File("cfg/testdata/coverage-empty.xml");
+      final File file = new File("config/testdata/coverage-empty.xml");
       final QSDataExtractorJaCoCo extractor = new QSDataExtractorJaCoCo();
       final JaCoCoModel data = extractor.extract(file);
       assertNotNull(data);

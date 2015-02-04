@@ -38,7 +38,7 @@ public final class QSDataExtractorClassycleTest {
     */
    @Test
    public void testGetDataValid() {
-      final File file = new File("cfg/testdata/classycle.xml");
+      final File file = new File("config/testdata/classycle.xml");
       final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
       final ClassycleModel data = extractor.extract(file);
       assertNotNull(data);
@@ -49,7 +49,7 @@ public final class QSDataExtractorClassycleTest {
 
    @Test
    public void testGetDataInvalid() {
-      final File file = new File("cfg/testdata/invalid.xml");
+      final File file = new File("config/testdata/invalid.xml");
       final QSDataExtractorClassycle extractor = new QSDataExtractorClassycle();
       final ClassycleModel data = extractor.extract(file);
       assertNull(data);

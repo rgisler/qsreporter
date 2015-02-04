@@ -1,0 +1,71 @@
+<!--
+   * Copyright 2014 Roland Gisler
+   * Hochschule Luzern Technik & Architektur, Switzerland
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+-->
+<project name="template-addons">
+
+   <!-- Release-Properties einlesen -->
+   <property file="${basedir}/release.properties" />
+
+   <!-- Namen zusammenstellen -->
+   <property name="release.name.neutral" value="${template.release.name}-${template.release.version}.zip" />
+   <property name="release.name.netbeans" value="${template.release.name}-netbeans-${template.release.version}.zip" />
+   <property name="release.name.eclipse" value="${template.release.name}-eclipse-${template.release.version}.zip" />
+
+   <!-- ================================================================== -->
+   <!-- Target: dist-neutral -->
+   <!-- ================================================================== -->
+   <target name="dist-neutral" depends="dist" description="create distributions neutral">
+      <echo message="Baue Distribution Neutral: ${release.name.neutral}" level="info" />
+      <copy file="${target}/dist/${distname}-src.zip" tofile="${target}/dist/${release.name.neutral}" />
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Target: dist-eclipse -->
+   <!-- ================================================================== -->
+   <target name="dist-eclipse" depends="dist-neutral" description="create distributions for eclipse">
+      <echo message="Baue Distribution fuer Eclipse: ${release.name.eclipse}" level="info" />
+      <copy file="${target}/dist/${distname}-src.zip" tofile="${target}/dist/${release.name.eclipse}" />
+      <zip destfile="${target}/dist/${release.name.eclipse}" update="true">
+         <zipfileset dir="${basedir}" prefix="${proj.name}">
+            <include name=".project" />
+            <include name=".classpath" />
+         </zipfileset>
+      </zip>
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Target: dist-netbeans -->
+   <!-- ================================================================== -->
+   <target name="dist-netbeans" depends="dist-neutral" description="create distributions for netbeans">
+      <echo message="Baue Distribution fuer Netbeans: ${release.name.netbeans}" level="info" />
+      <copy file="${target}/dist/${distname}-src.zip" tofile="${target}/dist/${release.name.netbeans}" />
+      <zip destfile="${target}/dist/${release.name.netbeans}" update="true">
+         <zipfileset dir="${basedir}" prefix="${proj.name}">
+            <include name="nbproject/**/*" />
+            <exclude name="**/private/*" />
+         </zipfileset>
+      </zip>
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Target: dist-release -->
+   <!-- ================================================================== -->
+   <target name="dist-release" depends="dist-eclipse, dist-netbeans" description="create distributions for release">
+      <echo message="Distributionen fuer Template-Release erstellt." level="info" />
+   </target>
+
+</project>
