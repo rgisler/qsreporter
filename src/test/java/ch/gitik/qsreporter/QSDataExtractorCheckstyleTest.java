@@ -39,7 +39,7 @@ public final class QSDataExtractorCheckstyleTest {
     */
    @Test
    public void testGetDataValid() {
-      final File file = new File("cfg/testdata/checkstyle.xml");
+      final File file = new File("config/testdata/checkstyle.xml");
       final QSDataExtractorCheckstyle extractor = new QSDataExtractorCheckstyle();
       final CheckstyleModel data = extractor.extract(file);
       assertNotNull(data);
@@ -50,7 +50,7 @@ public final class QSDataExtractorCheckstyleTest {
 
    @Test
    public void testGetDataInvalid() {
-      final File file = new File("cfg/testdata/invalid.xml");
+      final File file = new File("config/testdata/invalid.xml");
       final QSDataExtractorCheckstyle extractor = new QSDataExtractorCheckstyle();
       final CheckstyleModel data = extractor.extract(file);
       assertNull(data);

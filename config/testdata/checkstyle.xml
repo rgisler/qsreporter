@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.5">
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\QSDataExtractorJaCoCo.java">
+<error line="157" severity="error" message="Zeile länger als 120 Zeichen" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\Test.java">
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\jacoco\JaCoCoModel.java">
+<error line="101" column="46" severity="error" message="&apos;50&apos; sollte durch eine Konstante definiert sein." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\jacoco\JaCoCoSensor.java">
+<error line="71" column="42" severity="error" message="&apos;100&apos; sollte durch eine Konstante definiert sein." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\jacoco\package-info.java">
+</file>
+<file name="R:\WorkGITIK\qsreporter\src\main\java\ch\gitik\qsreporter\package-info.java">
+</file>
+</checkstyle>

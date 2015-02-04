@@ -38,7 +38,7 @@ public final class QSDataExtractorPmdTest {
     */
    @Test
    public void testGetDataValid() {
-      final File file = new File("cfg/testdata/pmd.xml");
+      final File file = new File("config/testdata/pmd.xml");
       final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
       final PmdModel data = extractor.extract(file);
       assertNotNull(data);
@@ -52,7 +52,7 @@ public final class QSDataExtractorPmdTest {
 
    @Test
    public void testGetDataInValid() {
-      final File file = new File("cfg/testdata/invalid.xml");
+      final File file = new File("config/testdata/invalid.xml");
       final QSDataExtractorPmd extractor = new QSDataExtractorPmd();
       final PmdModel data = extractor.extract(file);
       assertNull(data);
