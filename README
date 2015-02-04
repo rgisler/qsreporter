@@ -1,5 +1,5 @@
  *
- * Copyright 2012 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2015 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,7 @@
  - Checkstyle
  - Classycle
  - PMD 
- 
- sowie von 
- 
- - JaCoCo (eclemma, Coverage)
+ - JaCoCo
  
  aus deren XML-Reports gelesen und auf der Konsole ausgegeben werden.
  Damit hat man einen einfachen Überblick was sich verändert hat.
@@ -33,5 +30,5 @@
  welche wiederum für eigene Statistiken in TeamCity verwendet werden
  können.
  
- Oktober 2012, Roland Gisler, Gisler iNFORMATiK
+ Januar 2015, Roland Gisler, Gisler iNFORMATiK
 
