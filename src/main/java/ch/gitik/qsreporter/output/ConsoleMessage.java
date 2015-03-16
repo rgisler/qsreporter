@@ -89,13 +89,13 @@ public final class ConsoleMessage {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
       message.append(HORIZBAR);
       message.append("| Jacoco     | Statement: ");
-      message.append(data.getInstruction().getPercent());
+      message.append(String.format("%.1f", data.getInstruction().getPercent()));
       message.append("% - Branches: ");
-      message.append(data.getBranch().getPercent());
+      message.append(String.format("%.1f", data.getBranch().getPercent()));
       message.append("% - Methods: ");
-      message.append(data.getMethode().getPercent());
+      message.append(String.format("%.1f", data.getMethode().getPercent()));
       message.append("% - Classes: ");
-      message.append(data.getClazz().getPercent());
+      message.append(String.format("%.1f", data.getClazz().getPercent()));
       message.append("%\n");
       message.append(HORIZBAR);
       return message.toString();

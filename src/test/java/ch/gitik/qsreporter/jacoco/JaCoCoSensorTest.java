@@ -32,31 +32,31 @@ public final class JaCoCoSensorTest {
    @Test
    public void testGetCovered() {
       JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
-      assertEquals(10, sensor.getCoverage());
+      assertEquals(10, sensor.getCoverage(), 0.01);
    }
 
    @Test
    public void testGetMissed() {
       JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
-      assertEquals(20, sensor.getMissed());
+      assertEquals(20, sensor.getMissed(), 0.01);
    }
 
    @Test
    public void testGetTotal() {
       JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
-      assertEquals(30, sensor.getTotal());
+      assertEquals(30, sensor.getTotal(), 0.01);
    }
 
    @Test
    public void testGetPercent() {
       JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
-      assertEquals(33, sensor.getPercent());
+      assertEquals(33.33, sensor.getPercent(), 0.01);
    }
 
    @Test
    public void testGetPercentZero() {
       JaCoCoSensor sensor = new JaCoCoSensor(0, 0);
-      assertEquals(0, sensor.getPercent());
+      assertEquals(0, sensor.getPercent(), 0.01);
    }
 
    @Test

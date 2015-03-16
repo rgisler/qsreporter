@@ -3,3 +3,4 @@
 /.sonar
 /target/
 /cov-int/
+/eclipse/

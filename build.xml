@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 -->
-<project name="template" default="build" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
+<project name="qsreporter" default="build" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
 
    <!-- Properties hierarchisch einlesen -->
    <property file="${basedir}/build.properties" />
@@ -103,7 +103,7 @@
    <!--====================================================================-->
    <target name="info" description="display runtime version info">
       <echo message="=============================================================" level="info" />
-      <echo message=" Building '${ant.project.name}'" level="info" />
+      <echo message=" Building '${ant.project.name}-${proj.version}'" level="info" />
       <echo message="=============================================================" level="info" />
       <echo message=" Java Version : ${java.version} ${java.vendor} on ${os.name}" level="info" />
       <echo message=" ANT Version  : ${ant.version}" level="info" />

@@ -56,11 +56,11 @@ public final class QSDataExtractorJaCoCoTest {
       assertEquals(99, data.getLine().getTotal());
       assertEquals(475, data.getInstruction().getTotal());
 
-      assertEquals(80, data.getClazz().getPercent());
-      assertEquals(90, data.getMethode().getPercent());
-      assertEquals(80, data.getBranch().getPercent());
-      assertEquals(81, data.getLine().getPercent());
-      assertEquals(86, data.getInstruction().getPercent());
+      assertEquals(80, data.getClazz().getPercent(), 0.01);
+      assertEquals(90.47, data.getMethode().getPercent(), 0.01);
+      assertEquals(80.76, data.getBranch().getPercent(), 0.01);
+      assertEquals(81.81, data.getLine().getPercent(), 0.01);
+      assertEquals(86.52, data.getInstruction().getPercent(), 0.01);
    }
 
    @Test
@@ -95,10 +95,10 @@ public final class QSDataExtractorJaCoCoTest {
       assertEquals(19, data.getLine().getTotal());
       assertEquals(111, data.getInstruction().getTotal());
 
-      assertEquals(0, data.getClazz().getPercent());
-      assertEquals(0, data.getMethode().getPercent());
-      assertEquals(0, data.getBranch().getPercent());
-      assertEquals(0, data.getLine().getPercent());
-      assertEquals(0, data.getInstruction().getPercent());
+      assertEquals(0, data.getClazz().getPercent(), 0.01);
+      assertEquals(0, data.getMethode().getPercent(), 0.01);
+      assertEquals(0, data.getBranch().getPercent(), 0.01);
+      assertEquals(0, data.getLine().getPercent(), 0.01);
+      assertEquals(0, data.getInstruction().getPercent(), 0.01);
    }
 }

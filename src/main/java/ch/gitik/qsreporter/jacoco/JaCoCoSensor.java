@@ -21,7 +21,7 @@ package ch.gitik.qsreporter.jacoco;
  */
 public final class JaCoCoSensor {
 
-   private static final int PERCENT_100 = 100;
+   private static final float PERCENT_100 = 100.0f;
 
    private final int coverage;
 
@@ -67,8 +67,8 @@ public final class JaCoCoSensor {
     * Getter fuer Abdeckung in Prozent.
     * @return Anzahl Zeilen.
     */
-   public int getPercent() {
-      int percent = 0;
+   public float getPercent() {
+      float percent = 0;
       if (this.getTotal() > 0) {
          percent = (this.getCoverage() * PERCENT_100 / this.getTotal());
       }
@@ -81,6 +81,6 @@ public final class JaCoCoSensor {
    @Override
    public String toString() {
       return "Sensor[C:" + this.coverage + ",M:" + this.missed + ",T:" + this.getTotal() + ",P:"
-            + this.getPercent() + "%]";
+            + String.format("%.1f", this.getPercent()) + "%]";
    }
 }

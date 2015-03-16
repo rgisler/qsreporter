@@ -55,11 +55,12 @@ public final class TeamcityOutputTest {
       JaCoCoModel model = new JaCoCoModel(new JaCoCoSensor(10, 90), new JaCoCoSensor(20, 80), new JaCoCoSensor(30, 70),
             new JaCoCoSensor(40, 60), new JaCoCoSensor(50, 50));
       String message = TeamcityOutput.jacocoOut(model);
-      assertTrue(message.toString().indexOf("'10'") > 0);
-      assertTrue(message.toString().indexOf("'20'") > 0);
-      assertTrue(message.toString().indexOf("'30'") > 0);
-      assertTrue(message.toString().indexOf("'40'") > 0);
-      assertTrue(message.toString().indexOf("'50'") > 0);
+      System.out.println(message);
+      assertTrue(message.toString().indexOf("'10.0'") > 0);
+      assertTrue(message.toString().indexOf("'20.0'") > 0);
+      assertTrue(message.toString().indexOf("'30.0'") > 0);
+      assertTrue(message.toString().indexOf("'40.0'") > 0);
+      assertTrue(message.toString().indexOf("'50.0'") > 0);
    }
 
    /**
@@ -94,13 +95,13 @@ public final class TeamcityOutputTest {
 
    @Test
    public void testServiceMessageValid() {
-      TeamcityOutput.ServiceMessage sm = new TeamcityOutput.ServiceMessage("key", 1);
+      TeamcityOutput.ServiceMessageInt sm = new TeamcityOutput.ServiceMessageInt("key", 1);
       assertTrue(sm.toString().indexOf("key") > 0);
    }
 
    @Test
    public void testServiceMessageInValid() {
-      TeamcityOutput.ServiceMessage sm = new TeamcityOutput.ServiceMessage(null, 1);
+      TeamcityOutput.ServiceMessageInt sm = new TeamcityOutput.ServiceMessageInt(null, 1);
       assertTrue(sm.toString().indexOf("unknown.key") > 0);
    }
 }
