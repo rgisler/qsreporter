@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2015 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,35 +21,45 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
- * @author Roland Gisler
- * @version $Revision$
+ * Testfälle für {@link JaCoCoModel}.
  */
 public final class JaCoCoModelTest {
 
+   /**
+    * Testfälle für
+    * {@link JaCoCoModel#JaCoCoModel(JaCoCoSensor, JaCoCoSensor, JaCoCoSensor, JaCoCoSensor, JaCoCoSensor)}
+    * .
+    */
    @Test
    public void testJaCoCoModel() {
-      JaCoCoModel model = new JaCoCoModel(null, null, null, null, null);
+      final JaCoCoModel model = new JaCoCoModel(null, null, null, null, null);
       assertNotNull(model);
    }
 
+   /**
+    * Testfälle für {@link JaCoCoModel}.
+    */
    @Test
    public void testGetter() {
-      final JaCoCoSensor s1 = new JaCoCoSensor(1, 6);
-      final JaCoCoSensor s2 = new JaCoCoSensor(2, 6);
-      final JaCoCoSensor s3 = new JaCoCoSensor(3, 7);
-      final JaCoCoSensor s4 = new JaCoCoSensor(4, 8);
-      final JaCoCoSensor s5 = new JaCoCoSensor(5, 9);
-      JaCoCoModel model = new JaCoCoModel(s1, s2, s3, s4, s5);
-      assertEquals(s1, model.getClazz());
-      assertEquals(s2, model.getMethode());
-      assertEquals(s3, model.getBranch());
-      assertEquals(s4, model.getLine());
-      assertEquals(s5, model.getInstruction());
+      final JaCoCoSensor sensor1 = new JaCoCoSensor(1, 6);
+      final JaCoCoSensor sensor2 = new JaCoCoSensor(2, 6);
+      final JaCoCoSensor sensor3 = new JaCoCoSensor(3, 7);
+      final JaCoCoSensor sensor4 = new JaCoCoSensor(4, 8);
+      final JaCoCoSensor sensor5 = new JaCoCoSensor(5, 9);
+      final JaCoCoModel model = new JaCoCoModel(sensor1, sensor2, sensor3, sensor4, sensor5);
+      assertEquals(sensor1, model.getClazz());
+      assertEquals(sensor2, model.getMethode());
+      assertEquals(sensor3, model.getBranch());
+      assertEquals(sensor4, model.getLine());
+      assertEquals(sensor5, model.getInstruction());
    }
 
+   /**
+    * Testfälle für {@link JaCoCoModel#toString()}.
+    */
    @Test
    public void testToString() {
-      JaCoCoModel model = new JaCoCoModel(null, null, null, null, null);
+      final JaCoCoModel model = new JaCoCoModel(null, null, null, null, null);
       assertNotNull(model.toString());
    }
 }

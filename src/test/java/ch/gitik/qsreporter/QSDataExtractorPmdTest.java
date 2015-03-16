@@ -27,8 +27,7 @@ import ch.gitik.qsreporter.pmd.PmdModel;
 import ch.gitik.qsreporter.pmd.QSDataExtractorPmd;
 
 /**
- * @author Roland Gisler
- * @version $Revision$
+ * Testfälle für {@link ch.gitik.qsreporter.pmd.QSDataExtractorPmd} .
  */
 public final class QSDataExtractorPmdTest {
 
@@ -50,6 +49,9 @@ public final class QSDataExtractorPmdTest {
       assertEquals(0, data.getLevel5());
    }
 
+   /**
+    * Test method for {@link ch.gitik.qsreporter.pmd.QSDataExtractorPmd#extract(File)} .
+    */
    @Test
    public void testGetDataInValid() {
       final File file = new File("config/testdata/invalid.xml");

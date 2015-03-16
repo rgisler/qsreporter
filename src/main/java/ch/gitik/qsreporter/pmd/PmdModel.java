@@ -33,19 +33,13 @@ public final class PmdModel {
 
    /**
     * Konstruktor.
-    * @param pLevel1
-    *           Anzahl Level 1.
-    * @param pLevel2
-    *           Anzahl Level 2.
-    * @param pLevel3
-    *           Anzahl Level 3.
-    * @param pLevel4
-    *           Anzahl Level 4.
-    * @param pLevel5
-    *           Anzahl Level 5.
+    * @param pLevel1 Anzahl Level 1.
+    * @param pLevel2 Anzahl Level 2.
+    * @param pLevel3 Anzahl Level 3.
+    * @param pLevel4 Anzahl Level 4.
+    * @param pLevel5 Anzahl Level 5.
     */
-   public PmdModel(final int pLevel1, final int pLevel2, final int pLevel3, final int pLevel4,
-         final int pLevel5) {
+   public PmdModel(final int pLevel1, final int pLevel2, final int pLevel3, final int pLevel4, final int pLevel5) {
       this.level1 = pLevel1;
       this.level2 = pLevel2;
       this.level3 = pLevel3;
@@ -98,18 +92,9 @@ public final class PmdModel {
     */
    @Override
    public String toString() {
-      final StringBuffer buffer = new StringBuffer(50);
-      buffer.append("PMDData[");
-      buffer.append(this.level1);
-      buffer.append(',');
-      buffer.append(this.level2);
-      buffer.append(',');
-      buffer.append(this.level3);
-      buffer.append(',');
-      buffer.append(this.level4);
-      buffer.append(',');
-      buffer.append(this.level5);
-      buffer.append(']');
+      final StringBuffer buffer = new StringBuffer(50).append("PMDData[").append(this.level1).append(',')
+            .append(this.level2).append(',').append(this.level3).append(',').append(this.level4).append(',')
+            .append(this.level5).append(']');
       return buffer.toString();
    }
 }

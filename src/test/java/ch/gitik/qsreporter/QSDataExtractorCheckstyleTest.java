@@ -27,8 +27,7 @@ import ch.gitik.qsreporter.checkstyle.CheckstyleModel;
 import ch.gitik.qsreporter.checkstyle.QSDataExtractorCheckstyle;
 
 /**
- * @author Roland Gisler
- * @version $Revision$
+ * Testfälle für {@link ch.gitik.qsreporter.checkstyle.QSDataExtractorCheckstyle}.
  */
 public final class QSDataExtractorCheckstyleTest {
 
@@ -48,6 +47,11 @@ public final class QSDataExtractorCheckstyleTest {
       assertEquals(0, data.getInfo());
    }
 
+   /**
+    * Test method for
+    * {@link ch.gitik.qsreporter.checkstyle.QSDataExtractorCheckstyle#getData(org.w3c.dom.Document)}
+    * .
+    */
    @Test
    public void testGetDataInvalid() {
       final File file = new File("config/testdata/invalid.xml");

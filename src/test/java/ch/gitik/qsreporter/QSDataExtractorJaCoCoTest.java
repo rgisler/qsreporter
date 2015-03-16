@@ -27,10 +27,13 @@ import ch.gitik.qsreporter.jacoco.JaCoCoModel;
 import ch.gitik.qsreporter.jacoco.QSDataExtractorJaCoCo;
 
 /**
- * @author Roland Gisler
+ * Testfälle für {@link QSDataExtractorJaCoCo}.
  */
 public final class QSDataExtractorJaCoCoTest {
 
+   /**
+    * Testfall für {@link QSDataExtractorJaCoCo#extract(File)}.
+    */
    @Test
    public void testGetDataValid() {
       final File file = new File("config/testdata/coverage.xml");
@@ -63,6 +66,9 @@ public final class QSDataExtractorJaCoCoTest {
       assertEquals(86.52, data.getInstruction().getPercent(), 0.01);
    }
 
+   /**
+    * Testfall für {@link QSDataExtractorJaCoCo#extract(File)}.
+    */
    @Test
    public void testGetDataInvalid() {
       final File file = new File("config/testdata/invalid.xml");
@@ -71,6 +77,9 @@ public final class QSDataExtractorJaCoCoTest {
       assertNull(data);
    }
 
+   /**
+    * Testfall für {@link QSDataExtractorJaCoCo#extract(File)}.
+    */
    @Test
    public void testGetDataValidZero() {
       final File file = new File("config/testdata/coverage-empty.xml");

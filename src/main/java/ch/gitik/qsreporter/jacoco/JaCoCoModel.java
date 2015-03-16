@@ -33,16 +33,11 @@ public final class JaCoCoModel {
 
    /**
     * Konstruktor.
-    * @param pClass
-    *           Klassen Coverage.
-    * @param pMethode
-    *           Methodene Coverage.
-    * @param pBranch
-    *           Branch Coverage.
-    * @param pline
-    *           Line Coverage.
-    * @param pInstruction
-    *           Statement Coverage.
+    * @param pClass Klassen Coverage.
+    * @param pMethode Methodene Coverage.
+    * @param pBranch Branch Coverage.
+    * @param pline Line Coverage.
+    * @param pInstruction Statement Coverage.
     */
    public JaCoCoModel(final JaCoCoSensor pClass, final JaCoCoSensor pMethode, final JaCoCoSensor pBranch,
          final JaCoCoSensor pline, final JaCoCoSensor pInstruction) {
@@ -98,18 +93,9 @@ public final class JaCoCoModel {
     */
    @Override
    public String toString() {
-      final StringBuffer buffer = new StringBuffer(50);
-      buffer.append("JaCoCoData[");
-      buffer.append(this.clazz);
-      buffer.append(',');
-      buffer.append(this.methode);
-      buffer.append(',');
-      buffer.append(this.branch);
-      buffer.append(',');
-      buffer.append(this.line);
-      buffer.append(',');
-      buffer.append(this.instruction);
-      buffer.append(']');
+      final StringBuffer buffer = new StringBuffer(50).append("JaCoCoData[").append(this.clazz).append(',')
+            .append(this.methode).append(',').append(this.branch).append(',').append(this.line).append(',')
+            .append(this.instruction).append(']');
       return buffer.toString();
    }
 }

@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  * $Id: AbstractBpmsTask.java 38 2007-02-12 12:50:46Z rog $
  */
 package ch.gitik.qsreporter.jacoco;
@@ -22,46 +22,70 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+/**
+ * Testfälle für {@link JaCoCoSensor}.
+ */
 public final class JaCoCoSensorTest {
 
+   /**
+    * Testfälle für {@link JaCoCoSensor#JaCoCoSensor(int, int)}.
+    */
    @Test
    public void testJaCoCoSensor() {
       assertNotNull(new JaCoCoSensor(0, 0));
    }
 
+   /**
+    * Testfälle für {@link JaCoCoSensor#getCoverage()}.
+    */
    @Test
    public void testGetCovered() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
+      final JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(10, sensor.getCoverage(), 0.01);
    }
 
+   /**
+    * Testfälle für {@link JaCoCoSensor#getMissed()}.
+    */
    @Test
    public void testGetMissed() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
+      final JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(20, sensor.getMissed(), 0.01);
    }
 
+   /**
+    * Testfälle für {@link JaCoCoSensor#getTotal()}.
+    */
    @Test
    public void testGetTotal() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
+      final JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(30, sensor.getTotal(), 0.01);
    }
 
+   /**
+    * Testfälle für {@link JaCoCoSensor#getPercent()}.
+    */
    @Test
    public void testGetPercent() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
+      final JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertEquals(33.33, sensor.getPercent(), 0.01);
    }
 
+   /**
+    * Testfälle für {@link JaCoCoSensor#getPercent()}.
+    */
    @Test
    public void testGetPercentZero() {
-      JaCoCoSensor sensor = new JaCoCoSensor(0, 0);
+      final JaCoCoSensor sensor = new JaCoCoSensor(0, 0);
       assertEquals(0, sensor.getPercent(), 0.01);
    }
 
+   /**
+    * Testfälle für {@link JaCoCoSensor#toString()}.
+    */
    @Test
    public void testToString() {
-      JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
+      final JaCoCoSensor sensor = new JaCoCoSensor(10, 20);
       assertNotNull(sensor.toString());
    }
 }
