@@ -21,4 +21,4 @@ können.
 | master | [![Build Status](https://travis-ci.org/rgisler/qsreporter.png?branch=develop)](https://travis-ci.org/rgisler/qsreporter) |
 Vollständige Dokumentation siehe http://rgisler.github.io/qsreporter/
  
-Januar 2015, Roland Gisler, Gisler iNFORMATiK
+August 2015, Roland Gisler, Gisler iNFORMATiK
