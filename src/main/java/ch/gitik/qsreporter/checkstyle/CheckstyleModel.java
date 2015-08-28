@@ -29,15 +29,11 @@ public final class CheckstyleModel {
 
    /**
     * Konstruktor.
-    * @param pError
-    *           Anzahl Errors.
-    * @param pWarning
-    *           Anzahl Warnings.
-    * @param pInfo
-    *           Anzahl Infos.
+    * @param pError Anzahl Errors.
+    * @param pWarning Anzahl Warnings.
+    * @param pInfo Anzahl Infos.
     */
-   public CheckstyleModel(final int pError, final int pWarning,
-         final int pInfo) {
+   public CheckstyleModel(final int pError, final int pWarning, final int pInfo) {
       this.error = pError;
       this.warning = pWarning;
       this.info = pInfo;
@@ -72,14 +68,8 @@ public final class CheckstyleModel {
     */
    @Override
    public String toString() {
-      final StringBuffer buffer = new StringBuffer(50);
-      buffer.append("CheckstyleData[");
-      buffer.append(this.error);
-      buffer.append(',');
-      buffer.append(this.warning);
-      buffer.append(',');
-      buffer.append(this.info);
-      buffer.append(']');
+      final StringBuffer buffer = new StringBuffer(50).append("CheckstyleData[").append(this.error).append(',')
+            .append(this.warning).append(',').append(this.info).append(']');
       return buffer.toString();
    }
 }

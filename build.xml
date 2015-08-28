@@ -1,6 +1,6 @@
 <!--
- * Copyright 2014 Roland Gisler
- * Hochschule Luzern Technik & Architektur, Switzerland
+ * Copyright 2015 Roland Gisler
+ * Gisler Informatik, Luzern, Switzerland
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 -->
-<project name="template" default="build" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
+<project name="qsreporter" default="build" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
 
    <!-- Properties hierarchisch einlesen -->
    <property file="${basedir}/build.properties" />
@@ -103,7 +103,7 @@
    <!--====================================================================-->
    <target name="info" description="display runtime version info">
       <echo message="=============================================================" level="info" />
-      <echo message=" Building '${ant.project.name}'" level="info" />
+      <echo message=" Building '${ant.project.name}-${proj.version}'" level="info" />
       <echo message="=============================================================" level="info" />
       <echo message=" Java Version : ${java.version} ${java.vendor} on ${os.name}" level="info" />
       <echo message=" ANT Version  : ${ant.version}" level="info" />

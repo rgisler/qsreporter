@@ -31,14 +31,10 @@ public final class ClassycleModel {
 
    /**
     * Konstruktor.
-    * @param pPackage
-    *           Anzahl Packages.
-    * @param pClass
-    *           Anzahl Klassen.
-    * @param packageCycle
-    *           Anzahl Packagecycles.
-    * @param classCycle
-    *           Anzahl Classcycles.
+    * @param pPackage Anzahl Packages.
+    * @param pClass Anzahl Klassen.
+    * @param packageCycle Anzahl Packagecycles.
+    * @param classCycle Anzahl Classcycles.
     */
    public ClassycleModel(final int pPackage, final int pClass, final int packageCycle, final int classCycle) {
       this.packageCount = pPackage;
@@ -84,16 +80,9 @@ public final class ClassycleModel {
     */
    @Override
    public String toString() {
-      final StringBuffer buffer = new StringBuffer(50);
-      buffer.append("ClassycleData[");
-      buffer.append(this.packageCount);
-      buffer.append(',');
-      buffer.append(this.classCount);
-      buffer.append(',');
-      buffer.append(this.packageCycleCount);
-      buffer.append(',');
-      buffer.append(this.classCycleCount);
-      buffer.append(']');
+      final StringBuffer buffer = new StringBuffer(50).append("ClassycleData[").append(this.packageCount).append(',')
+            .append(this.classCount).append(',').append(this.packageCycleCount).append(',')
+            .append(this.classCycleCount).append(']');
       return buffer.toString();
    }
 }

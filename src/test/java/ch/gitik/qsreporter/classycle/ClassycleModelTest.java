@@ -21,29 +21,37 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
- * @author Roland Gisler
- * @version $Revision$
+ * Testfälle für {@link ClassycleModel}.
  */
 public final class ClassycleModelTest {
 
+   /**
+    * Testfall für {@link ClassycleModel#ClassycleModel(int, int, int, int)}.
+    */
    @Test
    public void testClassycleModel() {
-      ClassycleModel model = new ClassycleModel(0, 0, 0, 0);
+      final ClassycleModel model = new ClassycleModel(0, 0, 0, 0);
       assertNotNull(model);
    }
 
+   /**
+    * Testfall für {@link ClassycleModel}.
+    */
    @Test
    public void testGetter() {
-      ClassycleModel model = new ClassycleModel(24, 25, 26, 27);
+      final ClassycleModel model = new ClassycleModel(24, 25, 26, 27);
       assertEquals(24, model.getPackage());
       assertEquals(25, model.getClazz());
       assertEquals(26, model.getPackageCycle());
       assertEquals(27, model.getClassCycle());
    }
 
+   /**
+    * Testfall für {@link ClassycleModel#toString()}.
+    */
    @Test
    public void testToString() {
-      ClassycleModel model = new ClassycleModel(0, 0, 0, 0);
+      final ClassycleModel model = new ClassycleModel(0, 0, 0, 0);
       assertNotNull(model.toString());
    }
 }

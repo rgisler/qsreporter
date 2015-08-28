@@ -27,6 +27,8 @@ import ch.gitik.qsreporter.pmd.PmdModel;
  */
 public final class ConsoleMessage {
 
+   private static final String DEZ_FORMAT = "%.1f";
+
    private static final String HORIZBAR = "+------------+----------------------------------------------------------------------+\n";
 
    private static final int BUFFER_SIZE = 200;
@@ -39,89 +41,54 @@ public final class ConsoleMessage {
 
    /**
     * Erzeugt Checkstyle ServiceMessages fuer TeamCity.
-    * @param data
-    *           Checkstyle Daten.
+    * @param data Checkstyle Daten.
     * @return String mit ServiceMessages.
     */
    public static String checkstyleOut(final CheckstyleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(HORIZBAR);
-      message.append("| Checkstyle | Errors: ");
-      message.append(data.getError());
-      message.append(" - Warnings: ");
-      message.append(data.getWarning());
-      message.append(" - Infos: ");
-      message.append(data.getInfo());
-      message.append('\n');
-      message.append(HORIZBAR);
+      message.append(HORIZBAR).append("| Checkstyle | Errors: ").append(data.getError()).append(" - Warnings: ")
+            .append(data.getWarning()).append(" - Infos: ").append(data.getInfo()).append('\n').append(HORIZBAR);
       return message.toString();
    }
 
    /**
     * Erzeugt Classycle ServiceMessages fuer TeamCity.
-    * @param data
-    *           Classycle Daten.
+    * @param data Classycle Daten.
     * @return String mit ServiceMessages.
     */
    public static String classycleOut(final ClassycleModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(HORIZBAR);
-      message.append("| Classycle  | Packages: ");
-      message.append(data.getPackage());
-      message.append(" - Classes: ");
-      message.append(data.getClazz());
-      message.append(" - Package Cycles: ");
-      message.append(data.getPackageCycle());
-      message.append(" - Class Cycles: ");
-      message.append(data.getClassCycle());
-      message.append('\n');
-      message.append(HORIZBAR);
+      message.append(HORIZBAR).append("| Classycle  | Packages: ").append(data.getPackage()).append(" - Classes: ")
+            .append(data.getClazz()).append(" - Package Cycles: ").append(data.getPackageCycle())
+            .append(" - Class Cycles: ").append(data.getClassCycle()).append('\n').append(HORIZBAR);
       return message.toString();
    }
 
    /**
     * Erzeugt JaCoCo ServiceMessages fuer TeamCity.
-    * @param data
-    *           Coveragedaten.
+    * @param data Coveragedaten.
     * @return String mit ServiceMessages.
     */
    public static String jaCoCoOut(final JaCoCoModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(HORIZBAR);
-      message.append("| Jacoco     | Statement: ");
-      message.append(data.getInstruction().getPercent());
-      message.append("% - Branches: ");
-      message.append(data.getBranch().getPercent());
-      message.append("% - Methods: ");
-      message.append(data.getMethode().getPercent());
-      message.append("% - Classes: ");
-      message.append(data.getClazz().getPercent());
-      message.append("%\n");
-      message.append(HORIZBAR);
+      message.append(HORIZBAR).append("| Jacoco     | Statement: ")
+            .append(String.format(DEZ_FORMAT, data.getInstruction().getPercent())).append("% - Branches: ")
+            .append(String.format(DEZ_FORMAT, data.getBranch().getPercent())).append("% - Methods: ")
+            .append(String.format(DEZ_FORMAT, data.getMethode().getPercent())).append("% - Classes: ")
+            .append(String.format(DEZ_FORMAT, data.getClazz().getPercent())).append("%\n").append(HORIZBAR);
       return message.toString();
    }
 
    /**
     * Erzeugt PMD ServiceMessages fuer TeamCity.
-    * @param data
-    *           PMD-Daten.
+    * @param data PMD-Daten.
     * @return String mit ServiceMessages.
     */
    public static String pmdOut(final PmdModel data) {
       final StringBuffer message = new StringBuffer(BUFFER_SIZE);
-      message.append(HORIZBAR);
-      message.append("| PMD        | Level1: ");
-      message.append(data.getLevel1());
-      message.append(" - Level2: ");
-      message.append(data.getLevel2());
-      message.append(" - Level3: ");
-      message.append(data.getLevel3());
-      message.append(" - Level4: ");
-      message.append(data.getLevel4());
-      message.append(" - Level5: ");
-      message.append(data.getLevel5());
-      message.append('\n');
-      message.append(HORIZBAR);
+      message.append(HORIZBAR).append("| PMD        | Level1: ").append(data.getLevel1()).append(" - Level2: ")
+            .append(data.getLevel2()).append(" - Level3: ").append(data.getLevel3()).append(" - Level4: ")
+            .append(data.getLevel4()).append(" - Level5: ").append(data.getLevel5()).append('\n').append(HORIZBAR);
       return message.toString();
    }
 }

@@ -21,28 +21,36 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
- * @author Roland Gisler
- * @version $Revision$
+ * Testfälle für {@link CheckstyleModel}.
  */
 public final class CheckstyleModelTest {
 
+   /**
+    * Testfall für {@link CheckstyleModel#CheckstyleModel(int, int, int)}.
+    */
    @Test
    public void testCheckstyleModel() {
-      CheckstyleModel model = new CheckstyleModel(0, 0, 0);
+      final CheckstyleModel model = new CheckstyleModel(0, 0, 0);
       assertNotNull(model);
    }
 
+   /**
+    * Testfall für {@link CheckstyleModel}.
+    */
    @Test
    public void testGetter() {
-      CheckstyleModel model = new CheckstyleModel(12, 13, 14);
+      final CheckstyleModel model = new CheckstyleModel(12, 13, 14);
       assertEquals(12, model.getError());
       assertEquals(13, model.getWarning());
       assertEquals(14, model.getInfo());
    }
 
+   /**
+    * Testfall für {@link CheckstyleModel#toString()}.
+    */
    @Test
    public void testToString() {
-      CheckstyleModel model = new CheckstyleModel(1, 1, 1);
+      final CheckstyleModel model = new CheckstyleModel(1, 1, 1);
       assertNotNull(model.toString());
    }
 }
