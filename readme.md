@@ -1,4 +1,4 @@
-### QS-Reporter
+﻿### QS-Reporter
  
 Ant-Task mit welchem die Ergebnisse (Summen) von 
  
@@ -21,4 +21,4 @@ können.
 | master | [![Build Status](https://travis-ci.org/rgisler/qsreporter.png?branch=develop)](https://travis-ci.org/rgisler/qsreporter) |
 Vollständige Dokumentation siehe http://rgisler.github.io/qsreporter/
  
-August 2015, Roland Gisler, Gisler iNFORMATiK
+September 2015, Roland Gisler, Gisler iNFORMATiK
