@@ -15,10 +15,10 @@ ausgeführt wird und produziert automatisch TeamCity Servicemessages,
 welche wiederum für eigene Statistiken in TeamCity verwendet werden
 können.
 
-| Branch | CI-Status |
-|:-------|----------:|
-| develop | [![Build Status](https://travis-ci.org/rgisler/qsreporter.png?branch=develop)](https://travis-ci.org/rgisler/qsreporter) |
-| master | [![Build Status](https://travis-ci.org/rgisler/qsreporter.png?branch=develop)](https://travis-ci.org/rgisler/qsreporter) |
+| Branch | Travis-CI | Snap-CI |
+|:-------|-----------|--------:|
+| develop | [![Build Status](https://travis-ci.org/rgisler/qsreporter.png?branch=develop)](https://travis-ci.org/rgisler/qsreporter) | |
+| master | [![Build Status](https://travis-ci.org/rgisler/qsreporter.png?branch=develop)](https://travis-ci.org/rgisler/qsreporter) | [![Build Status](https://snap-ci.com/rgisler/qsreporter/branch/master/build_image)](https://snap-ci.com/rgisler/qsreporter/branch/master) |
 Vollständige Dokumentation siehe http://rgisler.github.io/qsreporter/
  
 Januar 2015, Roland Gisler, Gisler iNFORMATiK
